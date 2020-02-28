@@ -1,0 +1,31 @@
+{
+  "name": "mystiskasaker.se",
+  "version": "1.0.0",
+  "description": "webshop med mystiska saker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ullagulla/FutureFive.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ullagulla/FutureFive/issues"
+  },
+  "homepage": "https://github.com/ullagulla/FutureFive#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.4",
+    "mongoose": "^5.9.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cypress": "^4.0.2",
+    "mocha": "^7.1.0",
+    "node-sass-middleware": "^0.11.0"
+  }
+}
