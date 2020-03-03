@@ -1,0 +1,18 @@
+body {
+    background-color: rgb(35, 31, 32);
+    .container {
+        .products-container {
+            .product-wrapper {
+                .product-img-wrapper {
+                    position: relative;
+                    flex-wrap: wrap;
+                    width: 100%;
+                    img {
+                        width: 100%;
+                        vertical-align: top;
+                    }
+                }
+            }
+        }
+    }
+}
