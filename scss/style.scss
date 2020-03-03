@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    #background {
+        width:100%;
+        height: auto;
+        background-color: #231f20;
+        #logo-container{
+            width:100%;
+            padding-bottom: 15%;
+            
+            img{
+                transform: translateX(-50%);
+                top:0; left:50%;
+                width: 15%;
+                height: auto;
+                position: absolute;
+            }   
+        }
+        ul {
+            padding: 16px 0;
+            list-style: none;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            background-color: black;
+            margin: 0;
+            li {
+                display: inline-block;
+                color: #e7be50;
+                font-size: 20pt;
+            }            
+        }
+        #content-container {
+            width:100%;
+            height: auto;
+            #content-one {
+                height: 70vh;
+                background-image: url('../src/vodou.jpg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                //background-attachment: fixed;
+                opacity: 0.3;
+                background-blend-mode: color;
+                transition: opacity 1s ease-in-out;
+                
+                h1 {
+                    margin: 0;
+                    padding: 20vh 0;
+                    text-align: center;
+                    color:#ffffff;
+                    text-shadow: 0px 0px 50px #ffffff;
+                    font-size: 100pt;
+                    opacity: 0;
+                }
+            } 
+            #content-two {
+                margin: 0 0 20px 0;
+                width: 100%;
+                //background-color: #090814;
+                background-image: linear-gradient(90deg, #231f20 65%, #e0d2b5 65% );
+                height: 100vh;
+                h2 {
+                    color:#e0d2b5;
+                    margin: 0 ;
+                    padding:20px 0;
+                    text-align: center;
+                    font-size: 50pt;
+                }
+                #tarot-cards {
+                    width:70%;
+                    img {   
+                        position: absolute;
+                        width: 20%;
+                        left:20%;
+                    }
+                    #clickable-card {
+                        cursor: pointer;
+                        left:20%;
+                        transform: perspective(1000px) rotateY(-180deg) translate(50%,0);
+                        transition: all 0.3s ease-in-out;
+                    }
+                    img:nth-child(3) {
+                        transform: translate(-50%,0);
+                    }
+                    img:nth-child(2) {
+                        transform: rotate(7deg) translate(-50%,0);
+                    }
+                    img:nth-child(1) {
+                        transform: rotate(-5deg) translate(-50%,0);
+                    }
+                }
+                #tarot-text-container {
+                    position: absolute;
+                    color:black;
+                    width:35%;
+                    right: 0%;
+                    font-weight: normal;
+                    font-size: 20pt;
+                    text-align: center;
+                    transition: all 0.3s ease-in-out;
+                    height: 100vh;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    #tarot-header { 
+                        opacity: 0;
+                        transition: all 1s ease-in-out;
+                        font-size: 35pt;
+                        text-transform: uppercase;
+                        border-bottom: black 1px solid;
+                    }
+                    #tarot-text {
+                        opacity: 0;
+                        transition: all 1s ease-in-out;
+                        margin: 0 40px;
+                    }
+                }
+            }
+        }
+    } 
+}

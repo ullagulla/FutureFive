@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  body #background {
+    width: 100%;
+    height: auto;
+    background-color: #231f20; }
+    body #background #logo-container {
+      width: 100%;
+      padding-bottom: 15%; }
+      body #background #logo-container img {
+        transform: translateX(-50%);
+        top: 0;
+        left: 50%;
+        width: 15%;
+        height: auto;
+        position: absolute; }
+    body #background ul {
+      padding: 16px 0;
+      list-style: none;
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      background-color: black;
+      margin: 0; }
+      body #background ul li {
+        display: inline-block;
+        color: #e7be50;
+        font-size: 20pt; }
+    body #background #content-container {
+      width: 100%;
+      height: auto; }
+      body #background #content-container #content-one {
+        height: 70vh;
+        background-image: url("../src/vodou.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        opacity: 0.3;
+        background-blend-mode: color;
+        transition: opacity 1s ease-in-out; }
+        body #background #content-container #content-one h1 {
+          margin: 0;
+          padding: 20vh 0;
+          text-align: center;
+          color: #ffffff;
+          text-shadow: 0px 0px 50px #ffffff;
+          font-size: 100pt;
+          opacity: 0; }
+      body #background #content-container #content-two {
+        margin: 0 0 20px 0;
+        width: 100%;
+        background-image: linear-gradient(90deg, #231f20 65%, #e0d2b5 65%);
+        height: 100vh; }
+        body #background #content-container #content-two h2 {
+          color: #e0d2b5;
+          margin: 0;
+          padding: 20px 0;
+          text-align: center;
+          font-size: 50pt; }
+        body #background #content-container #content-two #tarot-cards {
+          width: 70%; }
+          body #background #content-container #content-two #tarot-cards img {
+            position: absolute;
+            width: 20%;
+            left: 20%; }
+          body #background #content-container #content-two #tarot-cards #clickable-card {
+            cursor: pointer;
+            left: 20%;
+            transform: perspective(1000px) rotateY(-180deg) translate(50%, 0);
+            transition: all 0.3s ease-in-out; }
+          body #background #content-container #content-two #tarot-cards img:nth-child(3) {
+            transform: translate(-50%, 0); }
+          body #background #content-container #content-two #tarot-cards img:nth-child(2) {
+            transform: rotate(7deg) translate(-50%, 0); }
+          body #background #content-container #content-two #tarot-cards img:nth-child(1) {
+            transform: rotate(-5deg) translate(-50%, 0); }
+        body #background #content-container #content-two #tarot-text-container {
+          position: absolute;
+          color: black;
+          width: 35%;
+          right: 0%;
+          font-weight: normal;
+          font-size: 20pt;
+          text-align: center;
+          transition: all 0.3s ease-in-out;
+          height: 100vh;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+          body #background #content-container #content-two #tarot-text-container #tarot-header {
+            opacity: 0;
+            transition: all 1s ease-in-out;
+            font-size: 35pt;
+            text-transform: uppercase;
+            border-bottom: black 1px solid; }
+          body #background #content-container #content-two #tarot-text-container #tarot-text {
+            opacity: 0;
+            transition: all 1s ease-in-out;
+            margin: 0 40px; }
