@@ -153,4 +153,51 @@ body {
         font-size: 16em; }
     body #content-container #content-four {
       height: 100vh;
-      background-color: #e0d2b5; }
+      background-color: #e0d2b5;
+      background-image: linear-gradient(90deg, #e0d2b5 50%, #231f20 50%);
+      display: flex;
+      justify-content: space-around; }
+      body #content-container #content-four div {
+        width: 50%;
+        position: relative; }
+        body #content-container #content-four div #voodoo-doll {
+          position: absolute;
+          height: 70vh;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          cursor: pointer; }
+        body #content-container #content-four div #needle {
+          height: 20%;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(0, -100%);
+          z-index: 2; }
+      body #content-container #content-four div {
+        width: 50%;
+        text-align: center;
+        color: #e0d2b5; }
+        body #content-container #content-four div h2 {
+          font-size: 5em; }
+        body #content-container #content-four div p {
+          font-size: 1.5em;
+          padding: 0 1em; }
+  body #splash-heartattack {
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: 100%;
+    animation-name: heartattackfade;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out; }
+
+@keyframes heartattackfade {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 0.7; }
+  100% {
+    opacity: 0; } }

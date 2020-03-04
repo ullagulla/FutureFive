@@ -143,7 +143,26 @@ $(document).ready(function () {
             madSpirits = true
         }
         
-    })         
+    }) 
+    
+    $('#voodoo-doll').on('click', (e) => {
+        console.log(e)
+        $('<img>').attr('src', '/img/needle.png')
+                    .attr('id', 'needle')
+                    .css('left', e.clientX + 'px')
+                    .css('top', e.clientY + 'px')
+                    .appendTo('#voodo-doll-container')
+        
+        $('<img>').attr('src', '/img/heartattack.png')
+                .appendTo('body')
+                .attr('id', 'splash-heartattack')
+                .css('opacity', 0)
+                .css('top', e.view.scrollY + (window.innerHeight/2) + 'px')
+
+        setTimeout(() => {
+         
+        }, 10);
+    })
 });
 
 function showCard(e) {

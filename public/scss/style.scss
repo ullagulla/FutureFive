@@ -167,6 +167,57 @@ body {
         #content-four{
             height: 100vh;
             background-color: $colorThree;
+            background-image: linear-gradient(90deg, $colorThree 50%, $colorOne 50%);
+            display: flex;
+            justify-content: space-around;
+            div {
+                width:50%;
+                position: relative;
+                #voodoo-doll {
+                    position: absolute;
+                    height: 70vh;
+                    left: 50%;
+                    top:50%;
+                    transform: translate(-50%,-50%)  ;
+                    //filter: brightness(0.7) sepia(0.4);
+                    cursor: pointer;
+                }
+                #needle {
+                    height: 20%;
+                    position: absolute;
+                    left:50%; top:50%;
+                    transform: translate(0,-100%)  ;
+                    z-index: 2;
+                }
+            }
+            div {
+                width: 50%;
+                text-align: center;
+                color:$colorThree;
+                h2 {
+                    font-size: 5em;
+                }
+                p {
+                    font-size: 1.5em;
+                    padding:0 1em;
+                }
+            }
         }
     }
+    #splash-heartattack {
+        transform: translate(-50%,-50%);
+        opacity: 0;
+        position: absolute;
+        left:50%; top:0;
+        height: 100%;
+        animation-name: heartattackfade;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-in-out;
+        
+    }
 }
+@keyframes heartattackfade {
+    0% {opacity: 0;}
+    50% {opacity: 0.7;}
+    100% {opacity: 0;}
+  }
