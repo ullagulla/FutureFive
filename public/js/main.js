@@ -48,7 +48,7 @@ const tarotTextArray = [{
     },
     {
         header: 'Devil',
-        paragraph: 'Du utstrålar en stark kreativitet. Du är sunt sexuell och sensuell. Du är jordad och grundad. Du har humor. Du ser ”under ytan” på saker. Du vill ha mera kunskap. Du har utstrålning och humor'
+        paragraph: 'Du utstrålar en stark kreativitet. Du är sunt sexuell och sensuell. Du är jordad och grundad. Du har humor. Du ser ”under ytan” på saker. Du vill ha mera kunskap. Du har utstrålning och humor. Du upplever förvirring, hämndbegär, rädsla, förtryck, ofrihet, manipulation och känner dig utnyttjad. Du låter din passion styra ditt omdöme. Du känner dig begränsad och känner dig styrd av egna eller andras begär. Du möter olika frestelser. Du blir någons syndabock eller upplever dig själv som martyr. Du dras till människor eller vanor som inte är bra för dig.'
     },
     {
         header: 'Hierophant',
@@ -105,7 +105,7 @@ $(document).ready(function () {
     $(window).on('scroll', (e) => {
         if (e.currentTarget.scrollY > $('#content-three')[0].offsetTop && e.currentTarget.scrollY < ($('#content-three')[0].offsetTop + window.innerHeight)) {
             $('#shrunken-head').css('top', (e.currentTarget.scrollY - $('#content-three')[0].offsetTop) + (window.innerHeight/2) + 'px')
-                                 .css('height',  20+(((e.currentTarget.scrollY - $('#content-three')[0].offsetTop) / window.innerHeight)*100)*0.75 + 'vh')
+                                 .css('height',  20+(((e.currentTarget.scrollY - $('#content-three')[0].offsetTop) / window.innerHeight)*100) + 'vh')
             madSpirits = false
             clearInterval(spirits)
             $('#shrunken-head').attr('src', '/img/shrunkenhead.png')
@@ -148,7 +148,7 @@ $(document).ready(function () {
 
 function showCard(e) {
     let leftPosition
-    if (window.innerWidth < 1000 )
+    if (window.innerWidth < 1200 )
         leftPosition = 66
     else
         leftPosition = 50
@@ -170,7 +170,7 @@ function showCard(e) {
 
 function hideCard(e) {
     let leftPosition
-    if (window.innerWidth < 1000 )
+    if (window.innerWidth < 1200 )
         leftPosition = 33
     else
         leftPosition = 20
