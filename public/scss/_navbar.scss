@@ -1,0 +1,33 @@
+$colorOne: #231f20;
+$colorTwo: #e7be50;
+$colorThree: #e0d2b5;
+
+
+#logo-container {
+    width: 100%;
+    padding-bottom: 15%;
+
+    img {
+        transform: translateX(-50%);
+        top: 0;
+        left: 50%;
+        width: 15%;
+        height: auto;
+        position: absolute;
+    }
+}
+ul {
+    padding: 16px 0; 
+    list-style: none;
+    width: 100%;
+    display: flex; 
+    justify-content: space-evenly;
+    background-color: black;
+    margin: 0;
+
+    li {
+        display: inline-block;
+        color: $colorTwo;
+        font-size: 1.6em;
+    }
+}

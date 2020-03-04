@@ -75,15 +75,15 @@ $(document).ready(function () {
 
     })
 
-    setInterval(() => {
+    setInterval( () => {
         $('#logo-bg').attr('src', '/img/LOGO_BLINK.png')
-        setTimeout(() => {
+        setTimeout( () => {
             $('#logo-bg').attr('src', '/img/LOGO_BG.png')
         }, 150);
     }, 10000);
 
     $('#content-one').on('mousemove', (e) => {
-        $('#content-one').css('opacity', 0.7)
+        $('#content-one').css('opacity', 0.5)
     })
 
     $('#content-one').on('mouseout', (e) => {
@@ -100,17 +100,63 @@ $(document).ready(function () {
             isClicked = false
         }
     })
+    let madSpirits = false
+    let spirits
+    $(window).on('scroll', (e) => {
+        if (e.currentTarget.scrollY > $('#content-three')[0].offsetTop && e.currentTarget.scrollY < ($('#content-three')[0].offsetTop + window.innerHeight)) {
+            $('#shrunken-head').css('top', (e.currentTarget.scrollY - $('#content-three')[0].offsetTop) + (window.innerHeight/2) + 'px')
+                                 .css('height',  20+(((e.currentTarget.scrollY - $('#content-three')[0].offsetTop) / window.innerHeight)*100)*0.75 + 'vh')
+            madSpirits = false
+            clearInterval(spirits)
+            $('#shrunken-head').attr('src', '/img/shrunkenhead.png')
+        }
+        else if (e.currentTarget.scrollY >= ($('#content-three')[0].offsetTop + window.innerHeight)) {
+            $('#shrunken-head').attr('src', '/img/shrunkenhead2.png')
+            $('#shrunken-head').css('top', (e.currentTarget.scrollY - $('#content-three')[0].offsetTop) + (window.innerHeight/2) + 'px')
 
-
-    //$('#background').
+            if ( !madSpirits ) {
+                spirits = setInterval(() => {
+                    $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                    setTimeout(() => {
+                        $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                    }, 100);
+                    setTimeout(() => {
+                        $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                    }, 150);
+                    setTimeout(() => {
+                        $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                    }, 200);
+                    setTimeout(() => {
+                        $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                    }, 250);
+                    setTimeout(() => {
+                        $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                    }, 300);
+                    setTimeout(() => {
+                        $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                    }, 350);
+                    setTimeout(() => {
+                        $('#shrunken-head').css('left', 50 + '%')
+                    }, 400);
+                }, 1000);
+            }
+            madSpirits = true
+        }
+        
+    })         
 });
 
 function showCard(e) {
+    let leftPosition
+    if (window.innerWidth < 1000 )
+        leftPosition = 66
+    else
+        leftPosition = 50
 
     $(e.target).css('transform', 'perspective(1000px) rotateY(-90deg)  translate(50%,0)')
     setTimeout(() => {
         $(e.target).css('transform', 'perspective(1000px) rotateY(0deg)  translate(-50%,0)')
-            .css('left', '50%')
+            .css('left', leftPosition + '%')
         let r = (1 + Math.random() * (17 - 1))
         r = Math.floor(r)
         $(e.target).attr('src', '/img/card' + r + '.png')
@@ -123,9 +169,14 @@ function showCard(e) {
 }
 
 function hideCard(e) {
+    let leftPosition
+    if (window.innerWidth < 1000 )
+        leftPosition = 33
+    else
+        leftPosition = 20
 
     $(e.target).css('transform', 'perspective(1000px) rotateY(-90deg)  translate(50%,0)')
-        .css('left', '20%')
+        .css('left', leftPosition + '%')
     setTimeout(() => {
         $(e.target).css('transform', 'perspective(1000px) rotateY(-180deg)  translate(50%,0)') -
 

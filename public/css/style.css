@@ -1,98 +1,144 @@
+#logo-container {
+  width: 100%;
+  padding-bottom: 15%; }
+  #logo-container img {
+    transform: translateX(-50%);
+    top: 0;
+    left: 50%;
+    width: 15%;
+    height: auto;
+    position: absolute; }
+
+ul {
+  padding: 16px 0;
+  list-style: none;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: black;
+  margin: 0; }
+  ul li {
+    display: inline-block;
+    color: #e7be50;
+    font-size: 1.6em; }
+
 html {
   font-size: 12pt; }
 
 body {
-  margin: 0;
+  margin: 0px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #231f20; }
-  body #logo-container {
-    width: 100%;
-    padding-bottom: 15%; }
-    body #logo-container img {
-      transform: translateX(-50%);
-      top: 0;
-      left: 50%;
-      width: 15%;
-      height: auto;
-      position: absolute; }
-  body ul {
-    padding: 16px 0;
-    list-style: none;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    background-color: black;
-    margin: 0; }
-    body ul li {
-      display: inline-block;
-      color: #e7be50;
-      font-size: 1.6em; }
   body #content-container {
     width: 100%;
     height: auto; }
     body #content-container #content-one {
+      position: relative;
       height: 70vh;
+      width: 100%;
+      background-attachment: fixed;
+      transition: opacity 0.5s ease-in-out;
       background-image: url("/img/vodou.jpg");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
-      opacity: 0.3;
-      background-blend-mode: color;
-      transition: opacity 1s ease-in-out; }
+      opacity: 0.3; }
       body #content-container #content-one h1 {
         margin: 0;
-        padding: 20vh 0;
+        padding: 0;
         text-align: center;
-        color: #ffffff;
-        text-shadow: 0px 0px 50px #ffffff;
-        font-size: 8em;
-        opacity: 1; }
+        color: #fff;
+        text-shadow: 0px 0px 10px #000;
+        font-size: 6em;
+        line-height: 70vh; }
     body #content-container #content-two {
-      margin: 0 0 20px 0;
+      margin: 0;
       width: 100%;
+      position: relative;
       background-color: #231f20;
-      height: 100vh; }
+      background-image: linear-gradient(#231f20 50%, #e0d2b5 50%);
+      height: 150vh; }
+      @media (min-width: 1000px) {
+        body #content-container #content-two {
+          height: 100vh;
+          background-image: linear-gradient(90deg, #231f20 70%, #e0d2b5 70%); } }
       body #content-container #content-two h2 {
         color: #e0d2b5;
-        margin: 0;
-        padding: 20px 0;
+        margin: 0 0 auto 0;
+        padding: 0.5em 0;
         text-align: center;
-        font-size: 3.6em; }
+        font-size: 4em; }
       body #content-container #content-two #tarot-cards {
-        width: 70%; }
+        width: 100%; }
         body #content-container #content-two #tarot-cards img {
           position: absolute;
           width: 20%;
-          left: 20%; }
+          left: 33%; }
+          @media (min-width: 1000px) {
+            body #content-container #content-two #tarot-cards img {
+              left: 20%; } }
         body #content-container #content-two #tarot-cards #clickable-card {
           cursor: pointer;
-          left: 20%;
+          left: 33%;
           transform: perspective(1000px) rotateY(-180deg) translate(50%, 0);
           transition: all 0.3s ease-in-out; }
+          @media (min-width: 1000px) {
+            body #content-container #content-two #tarot-cards #clickable-card {
+              left: 20%; } }
         body #content-container #content-two #tarot-cards img:nth-child(3) {
-          transform: translate(-50%, 0); }
+          transform: rotate(1deg) translate(-50%, 0); }
         body #content-container #content-two #tarot-cards img:nth-child(2) {
           transform: rotate(7deg) translate(-50%, 0); }
         body #content-container #content-two #tarot-cards img:nth-child(1) {
           transform: rotate(-5deg) translate(-50%, 0); }
       body #content-container #content-two #tarot-text-container {
         position: absolute;
-        color: #e0d2b5;
-        width: 35%;
+        color: #231f20;
+        width: 100%;
+        top: 75vh;
         right: 0%;
         font-weight: normal;
-        font-size: 1.2em;
         text-align: center;
         transition: all 0.3s ease-in-out;
-        height: 100vh;
+        height: auto;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        @media (min-width: 1000px) {
+          body #content-container #content-two #tarot-text-container {
+            top: 0;
+            width: 30%; } }
         body #content-container #content-two #tarot-text-container #tarot-header {
           opacity: 0;
           transition: all 1s ease-in-out;
-          font-size: 35pt;
+          font-size: 4em;
           text-transform: uppercase;
-          border-bottom: #e0d2b5 1px solid; }
+          border-bottom: #231f20 3px solid;
+          padding: 0.5em;
+          margin: 0; }
         body #content-container #content-two #tarot-text-container #tarot-text {
           opacity: 0;
           transition: all 1s ease-in-out;
-          margin: 0 40px; }
+          margin: 2em;
+          font-size: 1.5em; }
+    body #content-container #content-three {
+      background-color: black;
+      height: 300vh;
+      position: relative;
+      overflow: hidden; }
+      body #content-container #content-three img {
+        left: 50%;
+        top: 0;
+        transform: translate(-50%, -50%);
+        position: relative;
+        opacity: 1;
+        height: 0; }
+      body #content-container #content-three h2 {
+        color: #fff;
+        margin: auto 0;
+        opacity: 1;
+        position: absolute;
+        bottom: 0;
+        left: 2%;
+        font-size: 16em; }
+    body #content-container #content-four {
+      height: 100vh;
+      background-color: #e0d2b5; }
