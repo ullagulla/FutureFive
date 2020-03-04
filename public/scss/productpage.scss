@@ -14,10 +14,10 @@ body {
                         height: auto;
                         width: 200px;
                         vertical-align: top;
-                        opacity: 1;
-                        transition: opacity 0.6s ease-in-out;
                         &:hover {
-                            opacity: 0.5;
+                            cursor: pointer;
+                            animation: flash 0.2s;
+                            animation-iteration-count: 6;
                         }
                     }
                 }
@@ -27,5 +27,11 @@ body {
                 }
             }
         }
+    }
+}
+
+@keyframes flash {
+    100% {
+        filter: invert(100%);
     }
 }
