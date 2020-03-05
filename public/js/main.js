@@ -91,7 +91,7 @@ $(document).ready(function () {
     })
 
     $('#clickable-card').on('click', (e) => {
-
+        console.log(e)
         if (!isClicked) {
             showCard(e)
             isClicked = true
@@ -110,7 +110,7 @@ $(document).ready(function () {
             clearInterval(spirits)
             $('#shrunken-head').attr('src', '/img/shrunkenhead.png')
         }
-        else if (e.currentTarget.scrollY >= ($('#content-three')[0].offsetTop + window.innerHeight)) {
+        else if (e.currentTarget.scrollY >= ($('#content-three')[0].offsetTop + window.innerHeight) && e.currentTarget.scrollY < $('#content-four')[0].offsetTop) {
             $('#shrunken-head').attr('src', '/img/shrunkenhead2.png')
             $('#shrunken-head').css('top', (e.currentTarget.scrollY - $('#content-three')[0].offsetTop) + (window.innerHeight/2) + 'px')
 
@@ -142,26 +142,32 @@ $(document).ready(function () {
             }
             madSpirits = true
         }
+        else if (e.currentTarget.scrollY >= $('#content-four')[0].offsetTop) {
+            madSpirits = false
+            clearInterval(spirits)
+        }
+      
         
     }) 
     
     $('#voodoo-doll').on('click', (e) => {
-        console.log(e)
+
         $('<img>').attr('src', '/img/needle.png')
                     .attr('id', 'needle')
                     .css('left', e.clientX + 'px')
                     .css('top', e.clientY + 'px')
                     .appendTo('#voodo-doll-container')
-        
-        $('<img>').attr('src', '/img/heartattack.png')
-                .appendTo('body')
-                .attr('id', 'splash-heartattack')
-                .css('opacity', 0)
-                .css('top', e.view.scrollY + (window.innerHeight/2) + 'px')
-
-        setTimeout(() => {
-         
-        }, 10);
+  
+            $('<img>').attr('src', '/img/heartattack.png')
+                    .appendTo('body')
+                    .attr('id', 'splash-voodoo')
+                    .css('opacity', 0)
+                    .css('top', e.view.scrollY + (window.innerHeight/2) + 'px')
+             
+            setTimeout(() => {
+                $('#splash-voodoo').remove()
+            }, 1500);
+       
     })
 });
 
