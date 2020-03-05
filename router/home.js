@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
 const router = express.Router()
+const Product = require("../models/product")
+
 
 router.get('/', async (req, res) => {
 
@@ -9,50 +11,86 @@ router.get('/', async (req, res) => {
 
 //Ullis kod nedan
 
-const products = [{
-        name: "Voodoo",
+const productsArray = [
+{
+        name: "Voodoo doll",
         price: 5 + " kr",
-        imgUrl: "/img/voodoo1.jpg"
+        imageUrl: "/img/voodoo1.jpg"
     },
     {
-        name: "Voodoo",
+        name: "Voodoo dolls 3-pack",
         price: 10 + " kr",
-        imgUrl: "/img/voodoo2.jpg"
+        imageUrl: "/img/voodoo2.jpg"
     },
     {
-        name: "Voodoo",
+        name: "Voodoo doll döskalle",
         price: 10 + " kr",
-        imgUrl: "/img/voodoo3.jpg"
-    }, {
+        imageUrl: "/img/voodoo3.jpg"
+    }, 
+    {
         name: "Drömfångare",
         price: 10 + " kr",
-        imgUrl: "/img/dreamcatcher2.jpg"
+        imageUrl: "/img/dreamcatcher2.jpg"
+    },
+    {
+        name: "Shrunken head",
+        price: 10 + " kr",
+        imageUrl: "/img/shrunkenhead1.jpg"
+    },
+    {
+        name: "Shrunken head",
+        price: 10 + " kr",
+        imageUrl: "/img/shrunkenhead2.jpg"
+    },
+    {
+        name: "Love potion",
+        price: 10 + " kr",
+        imageUrl: "/img/potion1.jpg"
+    },
+    {
+        name: "Potion kit",
+        price: 10 + " kr",
+        imageUrl: "/img/potion3.jpg"
     },
     {
         name: "Ouija board",
         price: 10 + " kr",
-        imgUrl: "/img/ouija-board2.jpg"
+        imageUrl: "/img/ouija-board2.jpg"
     },
     {
         name: "Ouija board",
         price: 10 + " kr",
-        imgUrl: "/img/Ouija-board3.jpg"
+        imageUrl: "/img/Ouija-board3.jpg"
     },
     {
         name: "Ouija board",
         price: 10 + " kr",
-        imgUrl: "/img/ouija-board1.jpg"
+        imageUrl: "/img/ouija-board1.jpg"
     },
     {
         name: "Ouija board",
         price: 10 + " kr",
-        imgUrl: "/img/ouija-board4.jpg"
-    }
-];
+        imageUrl: "/img/ouija-board4.jpg"
+    },
+]
+
+const products = new Product(productsArray)
+
+products.save(function (err) {
+    if (err) return console.log(err);
+
+    console.log('tmp saved to the database');
+    return res.redirect('/products');
+})
 
 router.get('/products', async (req, res) => {
+    /*const sorted = req.query.sort;
+    const page = req.query.page;
+    const ourProducts = await Product.find().sort({name:sorted})
+    .skip(  (page-1) * items)
+    .limit(items)*/
     res.render('shop/products.ejs', {
-        products
+        productsArray
     })
 })
 

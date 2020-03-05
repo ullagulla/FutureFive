@@ -25,10 +25,10 @@
 
 
         <div class="row products-container d-flex justify-content-center">
-            <% products.forEach( (product) => { %>
+            <% productsArray.forEach( (product) => { %>
             <div class="product-wrapper col-6 col-md-4 col-lg-3">
                 <div class="product-img-wrapper">
-                    <img src="<%= product.imgUrl %> " alt="Ouijabräde" />
+                    <img src="<%= product.imageUrl %> " alt="Ouijabräde" />
                 </div>
                 <div class="product-info">
                     <%= product.name %>
@@ -36,6 +36,14 @@
                 </div>
             </div>
             <% }) %>
+        </div>
+
+        <div class="pagination-wrapper d-flex justify-content-center">
+            <i class="fas fa-angle-left"></i>
+            <a class="page-btn" id="btn1" href="/todo/?page=1">1</a>
+            <a class="page-btn" id="btn2" href="/todo/?page=2">2</a>
+            <a class="page-btn" id="btn2" href="/todo/?page=3">3</a>
+            <i class="fas fa-angle-right"></i>
         </div>
     </div>
 
