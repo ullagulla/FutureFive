@@ -25,25 +25,27 @@
 
 
         <div class="row products-container d-flex justify-content-center">
-            <% productsArray.forEach( (product) => { %>
+            <% products.forEach( (product) => { %>
             <div class="product-wrapper col-6 col-md-4 col-lg-3">
                 <div class="product-img-wrapper">
-                    <img src="<%= product.imageUrl %> " alt="Ouijabräde" />
+                    <a href="/productpage/<%=product._id%>" class="specificProduct"><img src="<%= product.imageUrl %> " alt="<%= product.name %>" /></a>
                 </div>
                 <div class="product-info">
-                    <%= product.name %>
-                    <%= product.price %>
+                    <div class="product-name mt-auto"> <%= product.name %> </div>
+                    <div class="product-price mt-auto"> <%= product.price %> kr </div>
                 </div>
             </div>
             <% }) %>
         </div>
 
         <div class="pagination-wrapper d-flex justify-content-center">
-            <i class="fas fa-angle-left"></i>
-            <a class="page-btn" id="btn1" href="/todo/?page=1">1</a>
-            <a class="page-btn" id="btn2" href="/todo/?page=2">2</a>
-            <a class="page-btn" id="btn2" href="/todo/?page=3">3</a>
-            <i class="fas fa-angle-right"></i>
+            <!-- <i class="fas fa-angle-left"></i> -->
+            <div class="pagination-numbers">
+            <a class="page-btn" id="btn1" href="/products/?page=1">1</a>
+            <a class="page-btn" id="btn2" href="/products/?page=2">2</a>
+            <a class="page-btn" id="btn2" href="/products/?page=3">3</a>
+            </div>
+            <!-- <i class="fas fa-angle-right"></i> -->
         </div>
     </div>
 

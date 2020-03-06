@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/specificproductpage.css">
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/main.js"></script>
+    <title>Mystiska saker.se</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <%- include("../includes/navbar.ejs") %>
+
+    <div class="container mt-5">
+
+
+        <div class="row prod-container d-flex justify-content-center">
+            <div class="prod-img-wrapper col-12 col-md-6">
+                <img src="<%= product.imageUrl %> " alt="<%= product.name %>" />
+            </div>
+            <div class="prod-info col-12 col-md-6">
+                <div class="prod-name mt-3 mt-md-0"> <%= product.name %> </div>
+                <div class="prod-price"> <%= product.price %> SEK </div>
+                <button class="btn my-4 w-100">Add to bag</button>
+                <!-- Tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
+                    <li class="active"><a data-toggle="tab" href="#delivery">Delivery</a></li>
+                    <li><a data-toggle="tab" href="#questions">Questions?</a></li>
+                </ul>
+                <!-- Tab content -->
+                <div class="tab-content">
+                    <div id="description" class="tab-pane fade in active">
+                        <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo maiores similique sit
+                            illo nam suscipit tempore harum modi, accusamus eligendi enim natus reiciendis numquam
+                            repellat iure laborum deleniti aliquam magnam expedita voluptatum quae est veniam
+                            accusantium. Assumenda sint exercitationem accusamus numquam praesentium, enim officia
+                            dolorem eaque corrupti. Quaerat, quibusdam in.</span>
+                    </div>
+                    <div id="delivery" class="tab-pane fade">
+                        <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus ipsum mollitia
+                            excepturi obcaecati laudantium. Quaerat laudantium porro modi commodi rem?</span>
+                    </div>
+                    <div id="questions" class="tab-pane fade">
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, fugit.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>

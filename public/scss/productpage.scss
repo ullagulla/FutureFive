@@ -1,8 +1,10 @@
 body {
     background-color: rgb(35, 31, 32);
     .container {
+        color: #e7be50;
         .products-container {
             .product-wrapper {
+                position: relative;
                 height: 260px;
                 .product-img-wrapper {
                     margin-left: auto;
@@ -13,7 +15,6 @@ body {
                     img {
                         height: auto;
                         width: 200px;
-                        vertical-align: top;
                         &:hover {
                             cursor: pointer;
                             animation: flash 0.2s;
@@ -23,8 +24,17 @@ body {
                 }
                 .product-info {
                     text-align: center;
-                    color: white;
                 }
+            }
+        }
+    }
+    .pagination-numbers {
+        margin-bottom: 10px;
+            a {
+            color: #e7be50;
+            &:hover {
+                color: #e7bf50a8;
+                text-decoration: none;
             }
         }
     }
