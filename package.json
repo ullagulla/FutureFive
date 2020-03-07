@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/ullagulla/FutureFive#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
+    "jquery": "^3.4.1",
     "mongodb": "^3.5.4",
     "mongoose": "^5.9.2"
   },
