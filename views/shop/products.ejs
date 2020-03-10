@@ -25,10 +25,11 @@
 
 
         <div class="row products-container d-flex justify-content-center">
-            <% products.forEach( (product) => { %>
+            <% allItems.forEach( (product) => { %>
             <div class="product-wrapper col-6 col-md-4 col-lg-3">
                 <div class="product-img-wrapper">
-                    <a href="/productpage/<%=product._id%>" class="specificProduct"><img src="<%= product.imageUrl %> " alt="<%= product.name %>" /></a>
+                    <a href="/productpage/<%=product._id%>" class="specificProduct"><img src="<%= product.imageUrl %> "
+                            alt="<%= product.name %>" /></a>
                 </div>
                 <div class="product-info">
                     <div class="product-name mt-auto"> <%= product.name %> </div>
@@ -36,16 +37,18 @@
                 </div>
             </div>
             <% }) %>
-        </div>
 
-        <div class="pagination-wrapper d-flex justify-content-center">
-            <!-- <i class="fas fa-angle-left"></i> -->
-            <div class="pagination-numbers">
-            <a class="page-btn" id="btn1" href="/products/?page=1">1</a>
-            <a class="page-btn" id="btn2" href="/products/?page=2">2</a>
-            <a class="page-btn" id="btn2" href="/products/?page=3">3</a>
+            <div class="pagination-wrapper">
+                <% for (let currentPage = 1; currentPage <= pageCount && pageCount > 1; currentPage++) { %>
+                <% if (currentPage === currentPage) {  %>
+                <button class="pagination-numbers btn"><a
+                        href="/products/?page=<%= currentPage %>"><%= currentPage %></a></button>
+                <% } else { %>
+                <button class="pagination-numbers btn"><a
+                        href="/products/?page=<%= currentPage %>"><%= currentPage %></a></button>
+                <% }; %>
+                <% }; %>
             </div>
-            <!-- <i class="fas fa-angle-right"></i> -->
         </div>
     </div>
 
