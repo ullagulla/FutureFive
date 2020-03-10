@@ -31,7 +31,13 @@ ul {
   ul li {
     display: inline-block;
     font-size: 1.6em; }
-<<<<<<< HEAD
+    ul li a {
+      text-decoration: none;
+      color: #e7be50; }
+      ul li a:hover {
+        text-decoration: none;
+        color: #e7be50;
+        filter: brightness(0.6); }
 
 body .container {
   color: #e7be50; }
@@ -50,7 +56,7 @@ body .container {
         body .container .products-container .product-wrapper .product-img-wrapper img:hover {
           cursor: pointer;
           animation: flash 0.2s;
-          animation-iteration-count: 6; }
+          animation-iteration-count: 5; }
     body .container .products-container .product-wrapper .product-info {
       text-align: center; }
 
@@ -100,35 +106,17 @@ body .container .prod-container {
     display: inline-block;
     min-height: 180px; }
 
-html {
-  font-size: 8pt; }
-  @media (min-width: 600px) {
-    html {
-      font-size: 10pt; } }
-  @media (min-width: 1200px) {
-    html {
-      font-size: 12pt; } }
-=======
-    ul li a {
-      text-decoration: none;
-      color: #e7be50; }
->>>>>>> b8cdd5c10d574c9ed0157fd095784e7d98e1c5ea
-
 body {
   margin: 0px;
   font-size: 8pt;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-<<<<<<< HEAD
   background-color: #231f20 !important; }
-=======
-  background-color: #231f20; }
   @media (min-width: 600px) {
     body {
       font-size: 10pt; } }
   @media (min-width: 1200px) {
     body {
       font-size: 12pt; } }
->>>>>>> b8cdd5c10d574c9ed0157fd095784e7d98e1c5ea
   body #content-container {
     width: 100%;
     height: auto; }

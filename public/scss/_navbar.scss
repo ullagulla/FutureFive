@@ -48,6 +48,11 @@ ul {
         a {
             text-decoration: none;
             color: $colorTwo;
+            &:hover {
+                text-decoration: none;
+                color: $colorTwo;
+                filter:brightness(0.6);
+            }
         }
     }
 }
