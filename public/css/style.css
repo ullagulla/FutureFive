@@ -22,6 +22,73 @@ ul {
     color: #e7be50;
     font-size: 1.6em; }
 
+body .container {
+  color: #e7be50; }
+  body .container .products-container .product-wrapper {
+    position: relative;
+    height: 260px; }
+    body .container .products-container .product-wrapper .product-img-wrapper {
+      margin-left: auto;
+      margin-right: auto;
+      max-height: 200px;
+      width: 200px;
+      overflow: hidden; }
+      body .container .products-container .product-wrapper .product-img-wrapper img {
+        height: auto;
+        width: 200px; }
+        body .container .products-container .product-wrapper .product-img-wrapper img:hover {
+          cursor: pointer;
+          animation: flash 0.2s;
+          animation-iteration-count: 6; }
+    body .container .products-container .product-wrapper .product-info {
+      text-align: center; }
+
+body .pagination-numbers {
+  margin-bottom: 10px; }
+  body .pagination-numbers a {
+    color: #e7be50; }
+    body .pagination-numbers a:hover {
+      color: #e7bf50a8;
+      text-decoration: none; }
+
+@keyframes flash {
+  100% {
+    filter: invert(100%); } }
+
+body .container .prod-container {
+  color: #e7be50; }
+  body .container .prod-container .prod-img-wrapper {
+    max-height: 600px;
+    overflow: hidden; }
+    body .container .prod-container .prod-img-wrapper img {
+      width: 100%;
+      object-fit: cover; }
+  body .container .prod-container .prod-info .prod-name {
+    font-size: 20px;
+    text-transform: uppercase; }
+  body .container .prod-container .prod-info .btn {
+    border-radius: 0;
+    border: 1px solid #e7be50;
+    color: #e7be50; }
+    body .container .prod-container .prod-info .btn:hover {
+      background-color: #e7be50;
+      color: black; }
+  body .container .prod-container .prod-info .nav-tabs {
+    background-color: #231f20;
+    border-bottom-color: #e7be50; }
+    body .container .prod-container .prod-info .nav-tabs a {
+      text-transform: uppercase;
+      font-size: 16px;
+      color: #e7be50;
+      opacity: 0.7; }
+      body .container .prod-container .prod-info .nav-tabs a:hover {
+        color: #e7be50;
+        text-decoration: none;
+        opacity: 1; }
+  body .container .prod-container .prod-info .tab-content span {
+    display: inline-block;
+    min-height: 180px; }
+
 html {
   font-size: 8pt; }
   @media (min-width: 600px) {
@@ -34,7 +101,7 @@ html {
 body {
   margin: 0px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #231f20; }
+  background-color: #231f20 !important; }
   body #content-container {
     width: 100%;
     height: auto; }

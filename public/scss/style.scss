@@ -1,4 +1,6 @@
 @import '_navbar';
+@import 'productpage';
+@import 'specificproductpage';
 
 @mixin tablet {
     @media (min-width:600px) {@content;}
@@ -27,7 +29,7 @@ html {
 body {
     margin: 0px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #231f20;
+    background-color: #231f20!important;
     #content-container {
         width: 100%;
         height: auto;
