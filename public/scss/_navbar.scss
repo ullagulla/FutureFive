@@ -2,21 +2,37 @@ $colorOne: #231f20;
 $colorTwo: #e7be50;
 $colorThree: #e0d2b5;
 
+@mixin tablet {
+    @media (min-width:600px) {@content;}
+
+}
+
+@mixin desktop {
+    @media (min-width:1200px){@content;}
+}
 
 #logo-container {
     width: 100%;
-    padding-bottom: 15%;
-
-    img {
+    height:15vw;
+    position: relative;
+    top:0;
+    z-index: 3;
+    background-color: #231f20;
+    transition: all 0.5s ease-in-out;
+    .logo {
         transform: translateX(-50%);
         top: 0;
         left: 50%;
-        width: 15%;
+        width: 15vw;
         height: auto;
         position: absolute;
+        transition: width 0.5s ease-in-out;
     }
 }
+
 ul {
+    top:0vw;left:0;
+    position: sticky;
     padding: 16px 0; 
     list-style: none;
     width: 100%;
@@ -24,10 +40,14 @@ ul {
     justify-content: space-evenly;
     background-color: black;
     margin: 0;
-
+    z-index: 2;
+    transition: all 0.5s ease-in-out;
     li {
         display: inline-block;
-        color: $colorTwo;
         font-size: 1.6em;
+        a {
+            text-decoration: none;
+            color: $colorTwo;
+        }
     }
 }

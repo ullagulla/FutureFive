@@ -68,10 +68,11 @@ let isClicked = false;
 $(document).ready(function () {
 
     $(window).on('mousemove', (e) => {
+        console.log(e.clientY)
         $('#logo-pupil').css('left', (50 - ((window.innerWidth / 2) - e.pageX) * 0.0007) + "%");
         $('#logo-highlight').css('left', (50 - ((window.innerWidth / 2) - e.pageX) * 0.0005) + "%");
-        $('#logo-highlight').css('top', (-((window.innerHeight / 2) - e.pageY) * 0.0003) + "%");
-        $('#logo-pupil').css('top', (1 - ((window.innerHeight / 2) - e.pageY) * 0.0009) + "%");
+        $('#logo-highlight').css('top', (e.clientY * 0.003) + "%");
+        $('#logo-pupil').css('top', -(1 - e.clientY * 0.009) + "%");
 
     })
 
@@ -102,7 +103,13 @@ $(document).ready(function () {
     })
     let madSpirits = false
     let spirits
+
+    $(window).on('resize', (e) => {
+        
+    })
+
     $(window).on('scroll', (e) => {
+
         if (e.currentTarget.scrollY > $('#content-three')[0].offsetTop && e.currentTarget.scrollY < ($('#content-three')[0].offsetTop + window.innerHeight)) {
             $('#shrunken-head').css('top', (e.currentTarget.scrollY - $('#content-three')[0].offsetTop) + (window.innerHeight/2) + 'px')
                                  .css('height',  20+(((e.currentTarget.scrollY - $('#content-three')[0].offsetTop) / window.innerHeight)*100) + 'vh')
@@ -178,12 +185,13 @@ function showCard(e) {
     else
         leftPosition = 50
 
-    $(e.target).css('transform', 'perspective(1000px) rotateY(-90deg)  translate(50%,0)')
+    $(e.target).css('transform', 'perspective(1000px) rotateY(-90deg)  translate(50%,-50%)')
     setTimeout(() => {
-        $(e.target).css('transform', 'perspective(1000px) rotateY(0deg)  translate(-50%,0)')
+        $(e.target).css('transform', 'perspective(1000px) rotateY(0deg)  translate(-50%,-50%)')
             .css('left', leftPosition + '%')
         let r = (1 + Math.random() * (17 - 1))
         r = Math.floor(r)
+        r = 11
         $(e.target).attr('src', '/img/card' + r + '.png')
 
         $('#tarot-header').html(tarotTextArray[r - 1].header)
@@ -200,10 +208,10 @@ function hideCard(e) {
     else
         leftPosition = 20
 
-    $(e.target).css('transform', 'perspective(1000px) rotateY(-90deg)  translate(50%,0)')
+    $(e.target).css('transform', 'perspective(1000px) rotateY(-90deg)  translate(50%,-50%)')
         .css('left', leftPosition + '%')
     setTimeout(() => {
-        $(e.target).css('transform', 'perspective(1000px) rotateY(-180deg)  translate(50%,0)') -
+        $(e.target).css('transform', 'perspective(1000px) rotateY(-180deg)  translate(50%,-50%)') -
 
             $(e.target).attr('src', '/img/cardback.png')
 
