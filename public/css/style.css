@@ -14,13 +14,19 @@ ul {
   list-style: none;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   background-color: black;
   margin: 0; }
   ul li {
-    display: inline-block;
+    text-align: center;
+    font-size: 1.6em;
     color: #e7be50;
-    font-size: 1.6em; }
+    display: inline-block; }
+    ul li a {
+      color: #e7be50;
+      text-decoration: none; }
+    ul li a:hover {
+      color: #806a2f; }
 
 html {
   font-size: 8pt; }
@@ -110,7 +116,7 @@ body {
         text-align: center;
         transition: all 0.3s ease-in-out;
         height: auto;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         @media (min-width: 600px) {
           body #content-container #content-two #tarot-text-container {
             top: 75vh; } }
@@ -181,7 +187,7 @@ body {
         body #content-container #content-four div h2 {
           font-size: 5em; }
         body #content-container #content-four div p {
-          font-size: 1.5em;
+          font-size: 1em;
           padding: 0 1em; }
   body #splash-voodoo {
     transform: translate(-50%, -50%);

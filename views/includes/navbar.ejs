@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    
- 
+
+
 </head>
 
 <body>
@@ -16,10 +16,15 @@
     </div>
 
     <ul>
-        <li>Hem</li>
-        <li>Produkter</li>
-        <li>Kontakta oss</li>
-        <li>Om oss</li>
+        <li><a href="/">Hem</a></li>
+        <li><a href="/products">Produkter</a></li>
+        <li><a href="/createuser">Gå med</a></li>
+        <li>
+            <form action="/user" method="POST">
+                <input type="text" placeholder="användarnamn"> <input type="password" placeholder="lösenord"> <button
+                    type="submit">Logga in</button>
+            </form>
+        </li>
     </ul>
 </body>
 
