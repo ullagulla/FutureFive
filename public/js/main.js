@@ -68,7 +68,7 @@ let isClicked = false;
 $(document).ready(function () {
 
     $(window).on('mousemove', (e) => {
-        console.log(e.clientY)
+        
         $('#logo-pupil').css('left', (50 - ((window.innerWidth / 2) - e.pageX) * 0.0007) + "%");
         $('#logo-highlight').css('left', (50 - ((window.innerWidth / 2) - e.pageX) * 0.0005) + "%");
         $('#logo-highlight').css('top', (e.clientY * 0.003) + "%");
@@ -92,7 +92,7 @@ $(document).ready(function () {
     })
 
     $('#clickable-card').on('click', (e) => {
-        console.log(e)
+        
         if (!isClicked) {
             showCard(e)
             isClicked = true
@@ -105,7 +105,7 @@ $(document).ready(function () {
     let spirits
 
     $(window).on('resize', (e) => {
-        
+        $('.needle').remove()
     })
 
     $(window).on('scroll', (e) => {
@@ -158,11 +158,14 @@ $(document).ready(function () {
     }) 
     
     $('#voodoo-doll').on('click', (e) => {
-
+        console.log(e.offsetY)
+        console.log(e)
+        const thing = (window.innerHeight/2) - (e.target.height/2)
+        const otherthing = (window.innerWidth/4) - (e.target.width/2)
         $('<img>').attr('src', '/img/needle.png')
-                    .attr('id', 'needle')
-                    .css('left', e.clientX + 'px')
-                    .css('top', e.clientY + 'px')
+                    .addClass('needle')
+                    .css('left', (e.offsetX+otherthing) + 'px')
+                    .css('top', (e.offsetY+thing) + 'px')
                     .appendTo('#voodo-doll-container')
   
             $('<img>').attr('src', '/img/heartattack.png')
@@ -191,7 +194,6 @@ function showCard(e) {
             .css('left', leftPosition + '%')
         let r = (1 + Math.random() * (17 - 1))
         r = Math.floor(r)
-        r = 11
         $(e.target).attr('src', '/img/card' + r + '.png')
 
         $('#tarot-header').html(tarotTextArray[r - 1].header)

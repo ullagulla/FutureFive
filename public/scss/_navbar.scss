@@ -33,7 +33,7 @@ $colorThree: #e0d2b5;
 ul {
     top:0vw;left:0;
     position: sticky;
-    padding: 16px 0; 
+    padding: 0; 
     list-style: none;
     width: 100%;
     display: flex; 
@@ -42,12 +42,19 @@ ul {
     margin: 0;
     z-index: 2;
     transition: all 0.5s ease-in-out;
+    padding: 16px 0;
     li {
-        display: inline-block;
+        display: inline-block; 
         font-size: 1.6em;
-        a {
+        a { 
             text-decoration: none;
             color: $colorTwo;
+            filter:brightness(1);
         }
+        a:hover {
+            filter:brightness(0.4);
+        }
+        
+        
     }
 }

@@ -17,7 +17,7 @@ body {
                         &:hover {
                             cursor: pointer;
                             animation: flash 0.2s;
-                            animation-iteration-count: 6;
+                            animation-iteration-count: 2;
                         }
                     }
                 }
@@ -41,6 +41,6 @@ body {
 
 @keyframes flash {
     100% {
-        filter: invert(100%);
+        filter: invert(100%); transform: scale(1.2);
     }
 }

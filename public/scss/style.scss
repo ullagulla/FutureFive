@@ -203,11 +203,11 @@ body {
                     filter: brightness(0.8) grayscale(0.5);
                     cursor: pointer;
                 }
-                #needle {
+                .needle {
                     height: 10%;
                     position: absolute;
-                    left:50%; top:50%;
-                    transform: translate(0,-90%);
+                    top:50%;left: 50%;
+                    transform: translate(0,-100%);
                     z-index: 2;
                 }
             }

@@ -19,7 +19,7 @@ ul {
   top: 0vw;
   left: 0;
   position: sticky;
-  padding: 16px 0;
+  padding: 0;
   list-style: none;
   width: 100%;
   display: flex;
@@ -27,11 +27,17 @@ ul {
   background-color: black;
   margin: 0;
   z-index: 2;
-  transition: all 0.5s ease-in-out; }
+  transition: all 0.5s ease-in-out;
+  padding: 16px 0; }
   ul li {
     display: inline-block;
     font-size: 1.6em; }
-<<<<<<< HEAD
+    ul li a {
+      text-decoration: none;
+      color: #e7be50;
+      filter: brightness(1); }
+    ul li a:hover {
+      filter: brightness(0.4); }
 
 body .container {
   color: #e7be50; }
@@ -50,7 +56,7 @@ body .container {
         body .container .products-container .product-wrapper .product-img-wrapper img:hover {
           cursor: pointer;
           animation: flash 0.2s;
-          animation-iteration-count: 6; }
+          animation-iteration-count: 2; }
     body .container .products-container .product-wrapper .product-info {
       text-align: center; }
 
@@ -64,7 +70,8 @@ body .pagination-numbers {
 
 @keyframes flash {
   100% {
-    filter: invert(100%); } }
+    filter: invert(100%);
+    transform: scale(1.2); } }
 
 body .container .prod-container {
   color: #e7be50; }
@@ -100,35 +107,17 @@ body .container .prod-container {
     display: inline-block;
     min-height: 180px; }
 
-html {
-  font-size: 8pt; }
-  @media (min-width: 600px) {
-    html {
-      font-size: 10pt; } }
-  @media (min-width: 1200px) {
-    html {
-      font-size: 12pt; } }
-=======
-    ul li a {
-      text-decoration: none;
-      color: #e7be50; }
->>>>>>> b8cdd5c10d574c9ed0157fd095784e7d98e1c5ea
-
 body {
   margin: 0px;
   font-size: 8pt;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-<<<<<<< HEAD
   background-color: #231f20 !important; }
-=======
-  background-color: #231f20; }
   @media (min-width: 600px) {
     body {
       font-size: 10pt; } }
   @media (min-width: 1200px) {
     body {
       font-size: 12pt; } }
->>>>>>> b8cdd5c10d574c9ed0157fd095784e7d98e1c5ea
   body #content-container {
     width: 100%;
     height: auto; }
@@ -284,12 +273,12 @@ body {
           transform: translate(-50%, -50%);
           filter: brightness(0.8) grayscale(0.5);
           cursor: pointer; }
-        body #content-container #content-four div #needle {
+        body #content-container #content-four div .needle {
           height: 10%;
           position: absolute;
-          left: 50%;
           top: 50%;
-          transform: translate(0, -90%);
+          left: 50%;
+          transform: translate(0, -100%);
           z-index: 2; }
       body #content-container #content-four div {
         width: 50%;
