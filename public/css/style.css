@@ -70,7 +70,8 @@ body .pagination-numbers {
 
 @keyframes flash {
   100% {
-    filter: invert(100%); } }
+    filter: invert(100%);
+    transform: scale(1.2); } }
 
 body .container .prod-container {
   color: #e7be50; }

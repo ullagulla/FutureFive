@@ -42,5 +42,6 @@ body {
 @keyframes flash {
     100% {
         filter: invert(100%);
+        transform: scale(1.2);
     }
 }
