@@ -76,9 +76,9 @@ $(document).ready(function () {
 
     })
 
-    setInterval( () => {
+    setInterval(() => {
         $('#logo-bg').attr('src', '/img/LOGO_BLINK.png')
-        setTimeout( () => {
+        setTimeout(() => {
             $('#logo-bg').attr('src', '/img/LOGO_BG.png')
         }, 150);
     }, 10000);
@@ -111,36 +111,35 @@ $(document).ready(function () {
     $(window).on('scroll', (e) => {
 
         if (e.currentTarget.scrollY > $('#content-three')[0].offsetTop && e.currentTarget.scrollY < ($('#content-three')[0].offsetTop + window.innerHeight)) {
-            $('#shrunken-head').css('top', (e.currentTarget.scrollY - $('#content-three')[0].offsetTop) + (window.innerHeight/2) + 'px')
-                                 .css('height',  20+(((e.currentTarget.scrollY - $('#content-three')[0].offsetTop) / window.innerHeight)*100) + 'vh')
+            $('#shrunken-head').css('top', (e.currentTarget.scrollY - $('#content-three')[0].offsetTop) + (window.innerHeight / 2) + 'px')
+                .css('height', 20 + (((e.currentTarget.scrollY - $('#content-three')[0].offsetTop) / window.innerHeight) * 100) + 'vh')
             madSpirits = false
             clearInterval(spirits)
             $('#shrunken-head').attr('src', '/img/shrunkenhead.png')
-        }
-        else if (e.currentTarget.scrollY >= ($('#content-three')[0].offsetTop + window.innerHeight) && e.currentTarget.scrollY < $('#content-four')[0].offsetTop) {
+        } else if (e.currentTarget.scrollY >= ($('#content-three')[0].offsetTop + window.innerHeight) && e.currentTarget.scrollY < $('#content-four')[0].offsetTop) {
             $('#shrunken-head').attr('src', '/img/shrunkenhead2.png')
-            $('#shrunken-head').css('top', (e.currentTarget.scrollY - $('#content-three')[0].offsetTop) + (window.innerHeight/2) + 'px')
+            $('#shrunken-head').css('top', (e.currentTarget.scrollY - $('#content-three')[0].offsetTop) + (window.innerHeight / 2) + 'px')
 
-            if ( !madSpirits ) {
+            if (!madSpirits) {
                 spirits = setInterval(() => {
-                    $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                    $('#shrunken-head').css('left', 50 - Math.random() * 5 + '%')
                     setTimeout(() => {
-                        $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                        $('#shrunken-head').css('left', 50 - Math.random() * 5 + '%')
                     }, 100);
                     setTimeout(() => {
-                        $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                        $('#shrunken-head').css('left', 50 - Math.random() * 5 + '%')
                     }, 150);
                     setTimeout(() => {
-                        $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                        $('#shrunken-head').css('left', 50 - Math.random() * 5 + '%')
                     }, 200);
                     setTimeout(() => {
-                        $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                        $('#shrunken-head').css('left', 50 - Math.random() * 5 + '%')
                     }, 250);
                     setTimeout(() => {
-                        $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                        $('#shrunken-head').css('left', 50 - Math.random() * 5 + '%')
                     }, 300);
                     setTimeout(() => {
-                        $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                        $('#shrunken-head').css('left', 50 - Math.random() * 5 + '%')
                     }, 350);
                     setTimeout(() => {
                         $('#shrunken-head').css('left', 50 + '%')
@@ -148,8 +147,7 @@ $(document).ready(function () {
                 }, 1000);
             }
             madSpirits = true
-        }
-        else if (e.currentTarget.scrollY >= $('#content-four')[0].offsetTop) {
+        } else if (e.currentTarget.scrollY >= $('#content-four')[0].offsetTop) {
             madSpirits = false
             clearInterval(spirits)
         }
@@ -183,7 +181,7 @@ $(document).ready(function () {
 
 function showCard(e) {
     let leftPosition
-    if (window.innerWidth < 1200 )
+    if (window.innerWidth < 1200)
         leftPosition = 66
     else
         leftPosition = 50
@@ -205,7 +203,7 @@ function showCard(e) {
 
 function hideCard(e) {
     let leftPosition
-    if (window.innerWidth < 1200 )
+    if (window.innerWidth < 1200)
         leftPosition = 33
     else
         leftPosition = 20

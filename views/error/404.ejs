@@ -1,6 +1,24 @@
-<%-  include("../includes/header") -%>
+<%- include("../includes/header.ejs") %>
+    <%- include("../includes/navbar.ejs") %>
+        <%- include("../includes/script.ejs") %>
 
-    <h1>Page Not Found </h1>
 
-    <%-  include("../includes/footer") -%>
-        <%-  include("../includes/script") -%>
+            <div class="error row">
+
+                <div class=" col-md-6 col-sm-6 col-xs-12 ">
+                    <h1>Hoppsan, 404 Error!</h1>
+                    <p>Vi kunde inte hitta sidan som du letade efter.</p>
+
+                    <a href=""> <button class="button">
+                        <span>Back</span>
+                    </button></a>
+                </div>
+
+                <div class=" col-md-6 col-sm-6 col-xs-12 ">
+                    <img src="img/freddy.jpg">
+                </div>
+
+            </div>
+
+
+            <%-  include("../includes/footer") -%>

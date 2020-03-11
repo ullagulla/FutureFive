@@ -87,12 +87,13 @@ body .container .prod-container {
   body .container .prod-container .prod-info .prod-name {
     font-size: 20px;
     text-transform: uppercase; }
-  body .container .prod-container .prod-info .btn {
+  body .container .prod-container .prod-info .add-btn {
+    background-color: transparent !important;
     border-radius: 0;
     border: 1px solid #e7be50;
     color: #e7be50; }
-    body .container .prod-container .prod-info .btn:hover {
-      background-color: #e7be50;
+    body .container .prod-container .prod-info .add-btn:hover {
+      background-color: #e7be50 !important;
       color: black; }
   body .container .prod-container .prod-info .nav-tabs {
     background-color: #231f20;
@@ -109,6 +110,96 @@ body .container .prod-container {
   body .container .prod-container .prod-info .tab-content span {
     display: inline-block;
     min-height: 180px; }
+
+footer {
+  background-color: black;
+  text-align: center;
+  justify-content: space-between; }
+
+footer hr {
+  border: solid 1px #e7be50;
+  margin: 0; }
+
+.btn-social {
+  border-radius: 30%;
+  cursor: pointer;
+  transition: all .5s; }
+
+.btn-outline {
+  color: #fff;
+  border-color: #e7be50;
+  background-color: transparent; }
+
+.btn-outline:hover {
+  color: red;
+  background-color: #fff; }
+
+footer ul {
+  display: inline-block;
+  background-color: transparent;
+  font-size: 1.6em; }
+
+.map {
+  color: #e7be50; }
+
+.service {
+  color: #e7be50; }
+
+.copyright {
+  background-color: #231f20; }
+
+.error .button {
+  border-radius: 10%;
+  background-color: transparent;
+  color: #FFFFFF;
+  font-size: 1.5em;
+  padding: 5px;
+  transition: all .5s;
+  cursor: pointer;
+  width: 150px;
+  border: 1px solid #e7be50;
+  margin-left: 100px; }
+
+.error .button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s; }
+
+.error .button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s; }
+
+.error .button:hover span {
+  padding-right: 25px;
+  color: #e7be50; }
+
+.error .button:hover span:after {
+  opacity: 1;
+  right: 0; }
+
+.error img {
+  height: 300px;
+  width: 300px;
+  margin: 80px 80px;
+  border-radius: 10%; }
+
+.error h1 {
+  color: #e0d2b5;
+  margin: 100px 0px 0px 100px; }
+
+.error p {
+  color: #e0d2b5;
+  font-size: 1.8em;
+  margin-left: 100px; }
+
+.card-login {
+  max-width: 25rem;
+  margin-bottom: 50px; }
 
 body {
   margin: 0px;

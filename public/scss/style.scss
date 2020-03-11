@@ -1,6 +1,9 @@
 @import '_navbar';
 @import 'productpage';
 @import 'specificproductpage';
+@import 'footer';
+@import 'error';
+@import 'adminlogin';
 
 @mixin small {
     @media (min-width:400px) {@content;}
