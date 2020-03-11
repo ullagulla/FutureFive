@@ -1,0 +1,46 @@
+<%- include("../includes/header.ejs") %>
+    <%- include("../includes/script.ejs") %>
+        <%- include("../includes/navbar.ejs") %>
+<body>
+
+    <div class="container mt-5">
+
+
+        <div class="row prod-container d-flex justify-content-center">
+            <div class="prod-img-wrapper col-12 col-md-6">
+                <img src="<%= product.imageUrl %> " alt="<%= product.name %>" />
+            </div>
+            <div class="prod-info col-12 col-md-6">
+                <div class="prod-name mt-3 mt-md-0"> <%= product.name %> </div>
+                <div class="prod-price"> <%= product.price %> SEK </div>
+                <button class="btn add-btn my-4 w-100">Lägg till i varukorg</button>
+                <!-- Tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#description">Beskrivning</a></li>
+                    <li class="active"><a data-toggle="tab" href="#delivery">Leverans</a></li>
+                    <li><a data-toggle="tab" href="#questions">Frågor?</a></li>
+                </ul>
+                <!-- Tab content -->
+                <div class="tab-content">
+                    <div id="description" class="tab-pane fade in active">
+                        <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo maiores similique sit
+                            illo nam suscipit tempore harum modi, accusamus eligendi enim natus reiciendis numquam
+                            repellat iure laborum deleniti aliquam magnam expedita voluptatum quae est veniam
+                            accusantium. Assumenda sint exercitationem accusamus numquam praesentium, enim officia
+                            dolorem eaque corrupti. Quaerat, quibusdam in.</span>
+                    </div>
+                    <div id="delivery" class="tab-pane fade">
+                        <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus ipsum mollitia
+                            excepturi obcaecati laudantium. Quaerat laudantium porro modi commodi rem?</span>
+                    </div>
+                    <div id="questions" class="tab-pane fade">
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, fugit.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include("../includes/footer.ejs") %>
+
+</body>
+

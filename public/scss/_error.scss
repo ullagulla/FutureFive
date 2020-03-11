@@ -1,0 +1,56 @@
+.error .button {
+    border-radius: 10%;
+    background-color: transparent;
+    color: #FFFFFF;
+    font-size: 1.5em;
+    padding: 5px;
+    transition: all .5s;
+    cursor: pointer;
+    width: 150px;
+    border: 1px solid #e7be50;
+    margin-left: 100px;
+}
+
+.error .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.error .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.error .button:hover span {
+    padding-right: 25px;
+    color: #e7be50;
+}
+
+.error .button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.error img {
+    height: 300px;
+    width: 300px;
+    margin: 80px 80px;
+    border-radius: 10%;
+}
+
+.error h1 {
+    color: #e0d2b5;
+    margin: 100px 0px 0px 100px;
+}
+
+.error p {
+    color: #e0d2b5;
+    font-size: 1.8em;
+    margin-left: 100px;
+}
