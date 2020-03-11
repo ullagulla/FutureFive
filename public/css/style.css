@@ -1,0 +1,253 @@
+html {
+    font-size: 12pt;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #231f20;
+}
+
+body #logo-container {
+    width: 100%;
+    padding-bottom: 15%;
+}
+
+body #logo-container img {
+    transform: translateX(-50%);
+    top: 0;
+    left: 50%;
+    width: 15%;
+    height: auto;
+    position: absolute;
+}
+
+body ul {
+    padding: 16px 0;
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: black;
+    margin: 0;
+}
+
+body ul li {
+    display: inline-block;
+    color: #e7be50;
+    font-size: 1.6em;
+}
+
+body #content-container {
+    width: 100%;
+    height: auto;
+}
+
+body #content-container #content-one {
+    height: 70vh;
+    background-image: url("/img/vodou.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.3;
+    background-blend-mode: color;
+    transition: opacity 1s ease-in-out;
+}
+
+body #content-container #content-one h1 {
+    margin: 0;
+    padding: 20vh 0;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0px 0px 50px #ffffff;
+    font-size: 8em;
+    opacity: 1;
+}
+
+body #content-container #content-two {
+    margin: 0 0 20px 0;
+    width: 100%;
+    background-color: #231f20;
+    height: 100vh;
+}
+
+body #content-container #content-two h2 {
+    color: #e0d2b5;
+    margin: 0;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 3.6em;
+}
+
+body #content-container #content-two #tarot-cards {
+    width: 70%;
+}
+
+body #content-container #content-two #tarot-cards img {
+    position: absolute;
+    width: 20%;
+    left: 20%;
+}
+
+body #content-container #content-two #tarot-cards #clickable-card {
+    cursor: pointer;
+    left: 20%;
+    transform: perspective(1000px) rotateY(-180deg) translate(50%, 0);
+    transition: all 0.3s ease-in-out;
+}
+
+body #content-container #content-two #tarot-cards img:nth-child(3) {
+    transform: translate(-50%, 0);
+}
+
+body #content-container #content-two #tarot-cards img:nth-child(2) {
+    transform: rotate(7deg) translate(-50%, 0);
+}
+
+body #content-container #content-two #tarot-cards img:nth-child(1) {
+    transform: rotate(-5deg) translate(-50%, 0);
+}
+
+body #content-container #content-two #tarot-text-container {
+    position: absolute;
+    color: #e0d2b5;
+    width: 35%;
+    right: 0%;
+    font-weight: normal;
+    font-size: 1.2em;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body #content-container #content-two #tarot-text-container #tarot-header {
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    font-size: 35pt;
+    text-transform: uppercase;
+    border-bottom: #e0d2b5 1px solid;
+}
+
+body #content-container #content-two #tarot-text-container #tarot-text {
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    margin: 0 40px;
+}
+
+
+/* footer */
+
+footer {
+    background-color: black;
+    text-align: center;
+    justify-content: space-between;
+}
+
+footer hr {
+    border: solid 1px #e7be50;
+    margin: 0;
+}
+
+.btn-social {
+    border-radius: 30%;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.btn-outline {
+    color: #fff;
+    border-color: #e7be50;
+    background-color: transparent;
+}
+
+.btn-outline:hover {
+    color: red;
+    background-color: #fff;
+}
+
+footer ul {
+    display: inline-block;
+    background-color: transparent;
+    font-size: 1.6em;
+}
+
+.map {
+    color: #e7be50;
+}
+
+.service {
+    color: #e7be50;
+}
+
+.copyright {
+    background-color: #231f20;
+}
+
+
+/* 404 */
+
+.error .button {
+    border-radius: 10%;
+    background-color: transparent;
+    color: #FFFFFF;
+    font-size: 1.5em;
+    padding: 5px;
+    transition: all .5s;
+    cursor: pointer;
+    width: 150px;
+    border: 1px solid #e7be50;
+    margin-left: 100px;
+}
+
+.error .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.error .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.error .button:hover span {
+    padding-right: 25px;
+    color: #e7be50;
+}
+
+.error .button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.error img {
+    height: 300px;
+    width: 300px;
+    margin: 80px 80px;
+    border-radius: 10%;
+}
+
+.error h1 {
+    color: #e0d2b5;
+    margin: 100px 0px 0px 100px;
+}
+
+.error p {
+    color: #e0d2b5;
+    font-size: 1.8em;
+    margin-left: 100px;
+}
+
+
+/* login */
+
+.card-login {
+    max-width: 25rem;
+    margin-bottom: 50px;
+}

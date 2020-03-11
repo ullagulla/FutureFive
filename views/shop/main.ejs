@@ -1,0 +1,33 @@
+<%- include("../includes/header.ejs") %>
+    <%- include("../includes/navbar.ejs") %>
+        <%- include("../includes/script.ejs") %>
+
+
+            <body>
+                <div id=content-container>
+                    <div id="content-one">
+                        <h1>MYSTISKA SAKER</h1>
+                    </div>
+                    <div id="content-two">
+                        <h2>TAROTLÄSNING</h2>
+                        <div id='tarot-cards'>
+                            <img class="card" src="/img/cardback.png" alt="">
+                            <img class="card" src="/img/cardback.png" alt="">
+                            <img class="card" src="/img/cardback.png" alt="">
+                            <img class="card" id="clickable-card" src="/img/cardback.png" alt="">
+
+                        </div>
+
+                        <div id='tarot-text-container'>
+                            <h3 id='tarot-header'></h3>
+                            <p id='tarot-text'></p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </body>
+
+            </html>
+            <%- include("../includes/footer.ejs") %>
