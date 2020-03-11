@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const config = require('./config/config')
 const home = require('./router/home')
+const productPage = require('./router/productpage')
 const app = express();
 const path = require('path')
 
@@ -9,6 +10,7 @@ app.set('view engine', 'ejs')
 
 app.use(express.static(path.join(__dirname, "public")))
 app.use(home)
+app.use(productPage)
 
 const port = process.env.PORT || 8000
 
