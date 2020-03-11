@@ -34,9 +34,7 @@ router.post("/createuser", async (req, res) => {
   
 
     
-    res.render("shop/main"), {
-        user
-    }
+    res.render("shop/main", {user})
 })
 
 module.exports = router

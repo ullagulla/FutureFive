@@ -4,8 +4,13 @@ const newuser = require('./router/newuser')
 const home = require('./router/home')
 const config = require('./config/config')
 const path = require('path')
-const app = express()
 const signin = require("./router/signin")
+// const profile = require("./router/profile")
+const cookieParser = require("cookie-parser")
+const app = express()
+
+app.use(cookieParser())
+
 
 app.use(express.urlencoded({
     extended: true
@@ -15,9 +20,11 @@ app.use(express.urlencoded({
 app.use(express.static(path.join(__dirname, "public")))
 app.set('view engine', 'ejs')
 
+// app.use(profile)
 app.use(signin)
 app.use(home)
 app.use(newuser)
+
 
 const port = process.env.PORT || 8000
 
