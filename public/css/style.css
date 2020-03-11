@@ -56,7 +56,7 @@ body .container {
         body .container .products-container .product-wrapper .product-img-wrapper img:hover {
           cursor: pointer;
           animation: flash 0.2s;
-          animation-iteration-count: 5; }
+          animation-iteration-count: 3; }
     body .container .products-container .product-wrapper .product-info {
       text-align: center; }
 
