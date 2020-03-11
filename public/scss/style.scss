@@ -1,142 +1,258 @@
-$primColor: #231f20;
-$secColor: #e7be50;
-$thirdColor: #e0d2b5;
+@import '_navbar';
+@import 'productpage';
+@import 'specificproductpage';
 
-html {
-    font-size: 12pt;
+@mixin small {
+    @media (min-width:400px) {@content;}
+}
+@mixin medium {
+    @media (min-width:600px) {@content;}
 }
 
+@mixin large {
+    @media (min-width:1200px){@content;}
+}
+
+
+$colorOne: #231f20;
+$colorTwo: #e7be50;
+$colorThree: #e0d2b5;
+
+
 body {
-    margin: 0;
+    margin: 0px;
+    font-size: 8pt;
+    @include medium {
+        font-size: 10pt;
+    }
+    @include large {
+        font-size: 12pt;
+    
+    }
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #231f20;
-
-    #logo-container {
-        width: 100%;
-        padding-bottom: 15%;
-
-        img {
-            transform: translateX(-50%);
-            top: 0;
-            left: 50%;
-            width: 15%;
-            height: auto;
-            position: absolute;
-        }
-    }
-
-    ul {
-        padding: 16px 0;
-        list-style: none;
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-        background-color: black;
-        margin: 0;
-
-        li {
-            display: inline-block;
-            color: #e7be50;
-            font-size: 1.6em;
-        }
-    }
-
+    background-color: #231f20!important;
     #content-container {
         width: 100%;
         height: auto;
-
         #content-one {
+            position: relative;
             height: 70vh;
+            width: 100%;
+            background-attachment: fixed; 
+            transition: opacity 0.5s ease-in-out;     
             background-image: url('/img/vodou.jpg');
             background-repeat: no-repeat;
             background-position: center;
-            background-size: cover;
-            //background-attachment: fixed;
-            opacity: 0.3;
-            background-blend-mode: color;
-            transition: opacity 1s ease-in-out;
-
+            background-size: cover;      
+            opacity: 0.3;       
             h1 {
                 margin: 0;
-                padding: 20vh 0;
+                padding: 0;
                 text-align: center;
-                color: #ffffff;
-                text-shadow: 0px 0px 50px #ffffff;
-                font-size: 8em;
-                opacity: 1;
+                color: #fff;
+                text-shadow: 0px 0px 10px #000;
+                font-size: 2rem;
+                line-height: 70vh;
+                @include medium { 
+                    font-size: 3rem;
+
+                }
+                @include large {
+                    font-size: 5rem;
+
+                }
             }
         }
-
         #content-two {
-            margin: 0 0 20px 0;
+            margin: 0 ;
             width: 100%;
-            background-color: $primColor;
-            //background-image: linear-gradient(90deg, #231f20 65%, #e0d2b5 65%);
+            position: relative;
+            background-color: $colorOne;
+            background-image: linear-gradient(#231f20 50%, #e0d2b5 50%);
             height: 100vh;
-
-            h2 {
-                color: #e0d2b5;
-                margin: 0;
-                padding: 20px 0;
-                text-align: center;
-                font-size: 3.6em;
+            @include medium {
+                height: 150vh;
             }
-
+            @include large {
+                height: 100vh;
+                background-image: linear-gradient(90deg, #231f20 70%, #e0d2b5 70%);
+            }
+            h2 {
+                color: $colorThree;
+                margin: 0 0 auto 0 ;
+                padding: 0.5rem 0;
+                text-align: center;
+                font-size: 3rem;
+            }
             #tarot-cards {
-                width: 70%;
-
+                width: 100%;
                 img {
                     position: absolute;
-                    width: 20%;
-                    left: 20%;
+                    width: 25%;
+                    left: 33%;
+                    top:25%;
+                    @include large {
+                        width: 20%;
+                        left: 20%;
+                        top:50%;
+                    }
                 }
-
                 #clickable-card {
                     cursor: pointer;
-                    left: 20%;
-                    transform: perspective(1000px) rotateY(-180deg) translate(50%, 0);
+                    left: 33%;
+                    @include large {
+                        left: 20%;
+                    }
+                    transform: perspective(1000px) rotateY(-180deg) translate(50%, -50%);
                     transition: all 0.3s ease-in-out;
                 }
-
-                img:nth-child(3) {
-                    transform: translate(-50%, 0);
-                }
-
-                img:nth-child(2) {
-                    transform: rotate(7deg) translate(-50%, 0);
-                }
-
                 img:nth-child(1) {
-                    transform: rotate(-5deg) translate(-50%, 0);
+                    transform: rotate(0deg) translate(-50%, -50%);
                 }
             }
-
             #tarot-text-container {
                 position: absolute;
-                color: $thirdColor;
-                width: 35%;
+                color: $colorOne;
+                width: 100%;
+                top:50vh;
+                @include medium {
+                    top:75vh;
+                }
+                @include large {
+                    top:0;
+                    width: 30%;
+                }
                 right: 0%;
                 font-weight: normal;
-                font-size: 1.2em;
                 text-align: center;
                 transition: all 0.3s ease-in-out;
-                height: 100vh;
+                height: auto;
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+                //background-color: $colorThree;
                 #tarot-header {
                     opacity: 0;
                     transition: all 1s ease-in-out;
-                    font-size: 35pt;
+                    font-size: 3rem;
                     text-transform: uppercase;
-                    border-bottom: $thirdColor 1px solid;
+                    border-bottom: $colorOne 3px solid;
+                    padding: 0.5rem;
+                    margin: 0;
                 }
-
                 #tarot-text {
                     opacity: 0;
                     transition: all 1s ease-in-out;
-                    margin: 0 40px;
+                    font-size: 1rem;
+                    margin: 0.5rem;
+                    @include small {
+                        
+                        font-size: 1.4rem;
+                    }
+                    @include medium {
+                        font-size: 1.8rem;
+                        margin: 1rem;
+                    }
+                    @include large {
+                        margin: 2rem;
+                        font-size: 1.3rem;
+                    }
+                }
+            }
+        }
+        #content-three {
+            background-color: black;
+            height: 300vh;
+            position: relative;
+            overflow: hidden;
+            img {
+                left:50%;top:0;
+                transform: translate(-50%,-50%);
+                position: relative;
+                opacity: 1;
+                height: 0;
+            }
+            h2 {
+                color: #fff;
+                margin: auto 0;
+                opacity: 1;
+                position: absolute;
+                bottom: 0;left: 2%;
+                font-size: 8rem;
+                @include medium {
+                    font-size: 11rem;
+                }
+                @include large {
+                    font-size: 16rem;
+                }
+            }
+        }
+        #content-four{
+            height: 100vh;
+            background-color: $colorThree;
+            background-image: linear-gradient(90deg, $colorThree 50%, $colorOne 50%);
+            display: flex;
+            justify-content: space-around;
+            div {
+                width:50%;
+                position: relative;
+                #voodoo-doll {
+                    position: absolute;
+                    width: 30vw;
+                    left: 50%;
+                    top:50%;
+                    transform: translate(-50%,-50%);
+                    filter: brightness(0.8) grayscale(0.5);
+                    cursor: pointer;
+                }
+                #needle {
+                    height: 10%;
+                    position: absolute;
+                    left:50%; top:50%;
+                    transform: translate(0,-90%);
+                    z-index: 2;
+                }
+            }
+            div {
+                width: 50%;
+                text-align: center;
+                color:$colorThree;
+                h2 {
+                    font-size: 1rem;
+                    margin: 1rem;
+                    @include medium {
+                        font-size: 2rem;
+                    }
+                    @include large {
+                        font-size: 4rem;
+                    }
+                }
+                p {
+                    margin: 0;
+                    padding:0 1rem;
+                    font-size: 0.8rem;
+                    @include large {
+                        font-size: 1.1rem;
+                    }
+                    @include large {
+                        font-size: 1.3rem;
+                    }
                 }
             }
         }
     }
+    #splash-voodoo {
+        transform: translate(-50%,-50%);
+        opacity: 0;
+        position: absolute;
+        left:50%; top:0;
+        height: 100%;
+        animation-name: voodoofade;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-in-out;
+    }
 }
+@keyframes voodoofade {
+    0% {opacity: 0;}
+    50% {opacity: 0.8;}
+    100% {opacity: 0;}
+}
+

@@ -1,98 +1,323 @@
-html {
-  font-size: 12pt; }
+#logo-container {
+  width: 100%;
+  height: 15vw;
+  position: relative;
+  top: 0;
+  z-index: 3;
+  background-color: #231f20;
+  transition: all 0.5s ease-in-out; }
+  #logo-container .logo {
+    transform: translateX(-50%);
+    top: 0;
+    left: 50%;
+    width: 15vw;
+    height: auto;
+    position: absolute;
+    transition: width 0.5s ease-in-out; }
+
+ul {
+  top: 0vw;
+  left: 0;
+  position: sticky;
+  padding: 16px 0;
+  list-style: none;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: black;
+  margin: 0;
+  z-index: 2;
+  transition: all 0.5s ease-in-out; }
+  ul li {
+    display: inline-block;
+    font-size: 1.6em; }
+    ul li a {
+      text-decoration: none;
+      color: #e7be50; }
+      ul li a:hover {
+        text-decoration: none;
+        color: #e7be50;
+        filter: brightness(0.6); }
+
+body .container {
+  color: #e7be50; }
+  body .container .products-container .product-wrapper {
+    position: relative;
+    height: 260px; }
+    body .container .products-container .product-wrapper .product-img-wrapper {
+      margin-left: auto;
+      margin-right: auto;
+      max-height: 200px;
+      width: 200px;
+      overflow: hidden; }
+      body .container .products-container .product-wrapper .product-img-wrapper img {
+        height: auto;
+        width: 200px; }
+        body .container .products-container .product-wrapper .product-img-wrapper img:hover {
+          cursor: pointer;
+          animation: flash 0.2s;
+          animation-iteration-count: 3; }
+    body .container .products-container .product-wrapper .product-info {
+      text-align: center; }
+
+body .pagination-numbers {
+  margin-bottom: 10px; }
+  body .pagination-numbers a {
+    color: #e7be50; }
+    body .pagination-numbers a:hover {
+      color: #e7bf50a8;
+      text-decoration: none; }
+
+@keyframes flash {
+  100% {
+    filter: invert(100%);
+    transform: scale(1.2); } }
+
+body .container .prod-container {
+  color: #e7be50; }
+  body .container .prod-container .prod-img-wrapper {
+    max-height: 600px;
+    overflow: hidden; }
+    body .container .prod-container .prod-img-wrapper img {
+      width: 100%;
+      object-fit: cover; }
+  body .container .prod-container .prod-info .prod-name {
+    font-size: 20px;
+    text-transform: uppercase; }
+  body .container .prod-container .prod-info .btn {
+    border-radius: 0;
+    border: 1px solid #e7be50;
+    color: #e7be50; }
+    body .container .prod-container .prod-info .btn:hover {
+      background-color: #e7be50;
+      color: black; }
+  body .container .prod-container .prod-info .nav-tabs {
+    background-color: #231f20;
+    border-bottom-color: #e7be50; }
+    body .container .prod-container .prod-info .nav-tabs a {
+      text-transform: uppercase;
+      font-size: 16px;
+      color: #e7be50;
+      opacity: 0.7; }
+      body .container .prod-container .prod-info .nav-tabs a:hover {
+        color: #e7be50;
+        text-decoration: none;
+        opacity: 1; }
+  body .container .prod-container .prod-info .tab-content span {
+    display: inline-block;
+    min-height: 180px; }
 
 body {
-  margin: 0;
+  margin: 0px;
+  font-size: 8pt;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #231f20; }
-  body #logo-container {
-    width: 100%;
-    padding-bottom: 15%; }
-    body #logo-container img {
-      transform: translateX(-50%);
-      top: 0;
-      left: 50%;
-      width: 15%;
-      height: auto;
-      position: absolute; }
-  body ul {
-    padding: 16px 0;
-    list-style: none;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    background-color: black;
-    margin: 0; }
-    body ul li {
-      display: inline-block;
-      color: #e7be50;
-      font-size: 1.6em; }
+  background-color: #231f20 !important; }
+  @media (min-width: 600px) {
+    body {
+      font-size: 10pt; } }
+  @media (min-width: 1200px) {
+    body {
+      font-size: 12pt; } }
   body #content-container {
     width: 100%;
     height: auto; }
     body #content-container #content-one {
+      position: relative;
       height: 70vh;
+      width: 100%;
+      background-attachment: fixed;
+      transition: opacity 0.5s ease-in-out;
       background-image: url("/img/vodou.jpg");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
-      opacity: 0.3;
-      background-blend-mode: color;
-      transition: opacity 1s ease-in-out; }
+      opacity: 0.3; }
       body #content-container #content-one h1 {
         margin: 0;
-        padding: 20vh 0;
+        padding: 0;
         text-align: center;
-        color: #ffffff;
-        text-shadow: 0px 0px 50px #ffffff;
-        font-size: 8em;
-        opacity: 1; }
+        color: #fff;
+        text-shadow: 0px 0px 10px #000;
+        font-size: 2rem;
+        line-height: 70vh; }
+        @media (min-width: 600px) {
+          body #content-container #content-one h1 {
+            font-size: 3rem; } }
+        @media (min-width: 1200px) {
+          body #content-container #content-one h1 {
+            font-size: 5rem; } }
     body #content-container #content-two {
-      margin: 0 0 20px 0;
+      margin: 0;
       width: 100%;
+      position: relative;
       background-color: #231f20;
+      background-image: linear-gradient(#231f20 50%, #e0d2b5 50%);
       height: 100vh; }
+      @media (min-width: 600px) {
+        body #content-container #content-two {
+          height: 150vh; } }
+      @media (min-width: 1200px) {
+        body #content-container #content-two {
+          height: 100vh;
+          background-image: linear-gradient(90deg, #231f20 70%, #e0d2b5 70%); } }
       body #content-container #content-two h2 {
         color: #e0d2b5;
-        margin: 0;
-        padding: 20px 0;
+        margin: 0 0 auto 0;
+        padding: 0.5rem 0;
         text-align: center;
-        font-size: 3.6em; }
+        font-size: 3rem; }
       body #content-container #content-two #tarot-cards {
-        width: 70%; }
+        width: 100%; }
         body #content-container #content-two #tarot-cards img {
           position: absolute;
-          width: 20%;
-          left: 20%; }
+          width: 25%;
+          left: 33%;
+          top: 25%; }
+          @media (min-width: 1200px) {
+            body #content-container #content-two #tarot-cards img {
+              width: 20%;
+              left: 20%;
+              top: 50%; } }
         body #content-container #content-two #tarot-cards #clickable-card {
           cursor: pointer;
-          left: 20%;
-          transform: perspective(1000px) rotateY(-180deg) translate(50%, 0);
+          left: 33%;
+          transform: perspective(1000px) rotateY(-180deg) translate(50%, -50%);
           transition: all 0.3s ease-in-out; }
-        body #content-container #content-two #tarot-cards img:nth-child(3) {
-          transform: translate(-50%, 0); }
-        body #content-container #content-two #tarot-cards img:nth-child(2) {
-          transform: rotate(7deg) translate(-50%, 0); }
+          @media (min-width: 1200px) {
+            body #content-container #content-two #tarot-cards #clickable-card {
+              left: 20%; } }
         body #content-container #content-two #tarot-cards img:nth-child(1) {
-          transform: rotate(-5deg) translate(-50%, 0); }
+          transform: rotate(0deg) translate(-50%, -50%); }
       body #content-container #content-two #tarot-text-container {
         position: absolute;
-        color: #e0d2b5;
-        width: 35%;
+        color: #231f20;
+        width: 100%;
+        top: 50vh;
         right: 0%;
         font-weight: normal;
-        font-size: 1.2em;
         text-align: center;
         transition: all 0.3s ease-in-out;
-        height: 100vh;
+        height: auto;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        @media (min-width: 600px) {
+          body #content-container #content-two #tarot-text-container {
+            top: 75vh; } }
+        @media (min-width: 1200px) {
+          body #content-container #content-two #tarot-text-container {
+            top: 0;
+            width: 30%; } }
         body #content-container #content-two #tarot-text-container #tarot-header {
           opacity: 0;
           transition: all 1s ease-in-out;
-          font-size: 35pt;
+          font-size: 3rem;
           text-transform: uppercase;
-          border-bottom: #e0d2b5 1px solid; }
+          border-bottom: #231f20 3px solid;
+          padding: 0.5rem;
+          margin: 0; }
         body #content-container #content-two #tarot-text-container #tarot-text {
           opacity: 0;
           transition: all 1s ease-in-out;
-          margin: 0 40px; }
+          font-size: 1rem;
+          margin: 0.5rem; }
+          @media (min-width: 400px) {
+            body #content-container #content-two #tarot-text-container #tarot-text {
+              font-size: 1.4rem; } }
+          @media (min-width: 600px) {
+            body #content-container #content-two #tarot-text-container #tarot-text {
+              font-size: 1.8rem;
+              margin: 1rem; } }
+          @media (min-width: 1200px) {
+            body #content-container #content-two #tarot-text-container #tarot-text {
+              margin: 2rem;
+              font-size: 1.3rem; } }
+    body #content-container #content-three {
+      background-color: black;
+      height: 300vh;
+      position: relative;
+      overflow: hidden; }
+      body #content-container #content-three img {
+        left: 50%;
+        top: 0;
+        transform: translate(-50%, -50%);
+        position: relative;
+        opacity: 1;
+        height: 0; }
+      body #content-container #content-three h2 {
+        color: #fff;
+        margin: auto 0;
+        opacity: 1;
+        position: absolute;
+        bottom: 0;
+        left: 2%;
+        font-size: 8rem; }
+        @media (min-width: 600px) {
+          body #content-container #content-three h2 {
+            font-size: 11rem; } }
+        @media (min-width: 1200px) {
+          body #content-container #content-three h2 {
+            font-size: 16rem; } }
+    body #content-container #content-four {
+      height: 100vh;
+      background-color: #e0d2b5;
+      background-image: linear-gradient(90deg, #e0d2b5 50%, #231f20 50%);
+      display: flex;
+      justify-content: space-around; }
+      body #content-container #content-four div {
+        width: 50%;
+        position: relative; }
+        body #content-container #content-four div #voodoo-doll {
+          position: absolute;
+          width: 30vw;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          filter: brightness(0.8) grayscale(0.5);
+          cursor: pointer; }
+        body #content-container #content-four div #needle {
+          height: 10%;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(0, -90%);
+          z-index: 2; }
+      body #content-container #content-four div {
+        width: 50%;
+        text-align: center;
+        color: #e0d2b5; }
+        body #content-container #content-four div h2 {
+          font-size: 1rem;
+          margin: 1rem; }
+          @media (min-width: 600px) {
+            body #content-container #content-four div h2 {
+              font-size: 2rem; } }
+          @media (min-width: 1200px) {
+            body #content-container #content-four div h2 {
+              font-size: 4rem; } }
+        body #content-container #content-four div p {
+          margin: 0;
+          padding: 0 1rem;
+          font-size: 0.8rem; }
+          @media (min-width: 1200px) {
+            body #content-container #content-four div p {
+              font-size: 1.1rem; } }
+          @media (min-width: 1200px) {
+            body #content-container #content-four div p {
+              font-size: 1.3rem; } }
+  body #splash-voodoo {
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: 100%;
+    animation-name: voodoofade;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out; }
+
+@keyframes voodoofade {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 0.8; }
+  100% {
+    opacity: 0; } }

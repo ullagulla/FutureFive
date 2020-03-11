@@ -48,7 +48,7 @@ const tarotTextArray = [{
     },
     {
         header: 'Devil',
-        paragraph: 'Du utstrålar en stark kreativitet. Du är sunt sexuell och sensuell. Du är jordad och grundad. Du har humor. Du ser ”under ytan” på saker. Du vill ha mera kunskap. Du har utstrålning och humor'
+        paragraph: 'Du utstrålar en stark kreativitet. Du är sunt sexuell och sensuell. Du är jordad och grundad. Du har humor. Du ser ”under ytan” på saker. Du vill ha mera kunskap. Du har utstrålning och humor. Du upplever förvirring, hämndbegär, rädsla, förtryck, ofrihet, manipulation och känner dig utnyttjad. Du låter din passion styra ditt omdöme. Du känner dig begränsad och känner dig styrd av egna eller andras begär. Du möter olika frestelser. Du blir någons syndabock eller upplever dig själv som martyr. Du dras till människor eller vanor som inte är bra för dig.'
     },
     {
         header: 'Hierophant',
@@ -68,22 +68,23 @@ let isClicked = false;
 $(document).ready(function () {
 
     $(window).on('mousemove', (e) => {
+        console.log(e.clientY)
         $('#logo-pupil').css('left', (50 - ((window.innerWidth / 2) - e.pageX) * 0.0007) + "%");
         $('#logo-highlight').css('left', (50 - ((window.innerWidth / 2) - e.pageX) * 0.0005) + "%");
-        $('#logo-highlight').css('top', (-((window.innerHeight / 2) - e.pageY) * 0.0003) + "%");
-        $('#logo-pupil').css('top', (1 - ((window.innerHeight / 2) - e.pageY) * 0.0009) + "%");
+        $('#logo-highlight').css('top', (e.clientY * 0.003) + "%");
+        $('#logo-pupil').css('top', -(1 - e.clientY * 0.009) + "%");
 
     })
 
-    setInterval(() => {
+    setInterval( () => {
         $('#logo-bg').attr('src', '/img/LOGO_BLINK.png')
-        setTimeout(() => {
+        setTimeout( () => {
             $('#logo-bg').attr('src', '/img/LOGO_BG.png')
         }, 150);
     }, 10000);
 
     $('#content-one').on('mousemove', (e) => {
-        $('#content-one').css('opacity', 0.7)
+        $('#content-one').css('opacity', 0.5)
     })
 
     $('#content-one').on('mouseout', (e) => {
@@ -91,7 +92,7 @@ $(document).ready(function () {
     })
 
     $('#clickable-card').on('click', (e) => {
-
+        console.log(e)
         if (!isClicked) {
             showCard(e)
             isClicked = true
@@ -100,19 +101,97 @@ $(document).ready(function () {
             isClicked = false
         }
     })
+    let madSpirits = false
+    let spirits
 
+    $(window).on('resize', (e) => {
+        
+    })
 
-    //$('#background').
+    $(window).on('scroll', (e) => {
+
+        if (e.currentTarget.scrollY > $('#content-three')[0].offsetTop && e.currentTarget.scrollY < ($('#content-three')[0].offsetTop + window.innerHeight)) {
+            $('#shrunken-head').css('top', (e.currentTarget.scrollY - $('#content-three')[0].offsetTop) + (window.innerHeight/2) + 'px')
+                                 .css('height',  20+(((e.currentTarget.scrollY - $('#content-three')[0].offsetTop) / window.innerHeight)*100) + 'vh')
+            madSpirits = false
+            clearInterval(spirits)
+            $('#shrunken-head').attr('src', '/img/shrunkenhead.png')
+        }
+        else if (e.currentTarget.scrollY >= ($('#content-three')[0].offsetTop + window.innerHeight) && e.currentTarget.scrollY < $('#content-four')[0].offsetTop) {
+            $('#shrunken-head').attr('src', '/img/shrunkenhead2.png')
+            $('#shrunken-head').css('top', (e.currentTarget.scrollY - $('#content-three')[0].offsetTop) + (window.innerHeight/2) + 'px')
+
+            if ( !madSpirits ) {
+                spirits = setInterval(() => {
+                    $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                    setTimeout(() => {
+                        $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                    }, 100);
+                    setTimeout(() => {
+                        $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                    }, 150);
+                    setTimeout(() => {
+                        $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                    }, 200);
+                    setTimeout(() => {
+                        $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                    }, 250);
+                    setTimeout(() => {
+                        $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                    }, 300);
+                    setTimeout(() => {
+                        $('#shrunken-head').css('left', 50 - Math.random()*5 + '%')
+                    }, 350);
+                    setTimeout(() => {
+                        $('#shrunken-head').css('left', 50 + '%')
+                    }, 400);
+                }, 1000);
+            }
+            madSpirits = true
+        }
+        else if (e.currentTarget.scrollY >= $('#content-four')[0].offsetTop) {
+            madSpirits = false
+            clearInterval(spirits)
+        }
+      
+        
+    }) 
+    
+    $('#voodoo-doll').on('click', (e) => {
+
+        $('<img>').attr('src', '/img/needle.png')
+                    .attr('id', 'needle')
+                    .css('left', e.clientX + 'px')
+                    .css('top', e.clientY + 'px')
+                    .appendTo('#voodo-doll-container')
+  
+            $('<img>').attr('src', '/img/heartattack.png')
+                    .appendTo('body')
+                    .attr('id', 'splash-voodoo')
+                    .css('opacity', 0)
+                    .css('top', e.view.scrollY + (window.innerHeight/2) + 'px')
+             
+            setTimeout(() => {
+                $('#splash-voodoo').remove()
+            }, 1500);
+       
+    })
 });
 
 function showCard(e) {
+    let leftPosition
+    if (window.innerWidth < 1200 )
+        leftPosition = 66
+    else
+        leftPosition = 50
 
-    $(e.target).css('transform', 'perspective(1000px) rotateY(-90deg)  translate(50%,0)')
+    $(e.target).css('transform', 'perspective(1000px) rotateY(-90deg)  translate(50%,-50%)')
     setTimeout(() => {
-        $(e.target).css('transform', 'perspective(1000px) rotateY(0deg)  translate(-50%,0)')
-            .css('left', '50%')
+        $(e.target).css('transform', 'perspective(1000px) rotateY(0deg)  translate(-50%,-50%)')
+            .css('left', leftPosition + '%')
         let r = (1 + Math.random() * (17 - 1))
         r = Math.floor(r)
+        r = 11
         $(e.target).attr('src', '/img/card' + r + '.png')
 
         $('#tarot-header').html(tarotTextArray[r - 1].header)
@@ -123,11 +202,16 @@ function showCard(e) {
 }
 
 function hideCard(e) {
+    let leftPosition
+    if (window.innerWidth < 1200 )
+        leftPosition = 33
+    else
+        leftPosition = 20
 
-    $(e.target).css('transform', 'perspective(1000px) rotateY(-90deg)  translate(50%,0)')
-        .css('left', '20%')
+    $(e.target).css('transform', 'perspective(1000px) rotateY(-90deg)  translate(50%,-50%)')
+        .css('left', leftPosition + '%')
     setTimeout(() => {
-        $(e.target).css('transform', 'perspective(1000px) rotateY(-180deg)  translate(50%,0)') -
+        $(e.target).css('transform', 'perspective(1000px) rotateY(-180deg)  translate(50%,-50%)') -
 
             $(e.target).attr('src', '/img/cardback.png')
 
