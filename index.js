@@ -9,7 +9,6 @@ const path = require('path')
 const signin = require("./router/signin")
 // const profile = require("./router/profile")
 const cookieParser = require("cookie-parser")
-const app = express()
 
 app.use(cookieParser())
 

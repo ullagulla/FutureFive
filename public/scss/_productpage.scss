@@ -18,6 +18,7 @@ body {
                             cursor: pointer;
                             animation: flash 0.2s;
                             animation-iteration-count: 3;
+                            animation-iteration-count: 2;
                         }
                     }
                 }
@@ -43,5 +44,6 @@ body {
     100% {
         filter: invert(100%);
         transform: scale(1.2);
+        filter: invert(100%); transform: scale(1.2);
     }
 }
