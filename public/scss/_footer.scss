@@ -1,0 +1,45 @@
+footer {
+    background-color: black;
+    text-align: center;
+    justify-content: space-between;
+}
+
+footer hr {
+    border: solid 1px #e7be50;
+    margin: 0;
+}
+
+.btn-social {
+    border-radius: 30%;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.btn-outline {
+    color: #fff;
+    border-color: #e7be50;
+    background-color: transparent;
+}
+
+.btn-outline:hover {
+    color: red;
+    background-color: #fff;
+}
+
+footer ul {
+    display: inline-block;
+    background-color: transparent;
+    font-size: 1.6em;
+}
+
+.map {
+    color: #e7be50;
+}
+
+.service {
+    color: #e7be50;
+}
+
+.copyright {
+    background-color: #231f20;
+}

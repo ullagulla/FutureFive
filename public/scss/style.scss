@@ -1,6 +1,9 @@
 @import '_navbar';
 @import 'productpage';
 @import 'specificproductpage';
+@import 'footer';
+@import 'error';
+@import 'adminlogin';
 
 @mixin small {
     @media (min-width:400px) {@content;}
@@ -203,7 +206,7 @@ body {
                     filter: brightness(0.8) grayscale(0.5);
                     cursor: pointer;
                 }
-                #needle {
+                .needle {
                     height: 10%;
                     position: absolute;
                     left:50%; top:50%;
