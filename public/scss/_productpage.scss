@@ -27,10 +27,13 @@ body {
             }
         }
     }
-    .pagination-numbers {
+    .pagination-wrapper {
         margin-bottom: 10px;
             a {
-            color: #e7be50;
+                color: #e7be50;
+            &:focus {
+                font-size: 30px;
+            }
             &:hover {
                 color: #e7bf50a8;
                 text-decoration: none;

@@ -60,11 +60,13 @@ body .container {
     body .container .products-container .product-wrapper .product-info {
       text-align: center; }
 
-body .pagination-numbers {
+body .pagination-wrapper {
   margin-bottom: 10px; }
-  body .pagination-numbers a {
+  body .pagination-wrapper a {
     color: #e7be50; }
-    body .pagination-numbers a:hover {
+    body .pagination-wrapper a:focus {
+      font-size: 30px; }
+    body .pagination-wrapper a:hover {
       color: #e7bf50a8;
       text-decoration: none; }
 

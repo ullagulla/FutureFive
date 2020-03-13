@@ -4,7 +4,7 @@ const Product = require("../models/product")
 
 router.get('/products', async (req, res) => {
     const currentPage = req.query.page || 1;
-    const productPerPage = 8;
+    const productPerPage = 4;
     const allProducts = await Product.find()
     const allItems = await Product
         .find()
