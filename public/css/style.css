@@ -64,8 +64,6 @@ body .pagination-wrapper {
   margin-bottom: 10px; }
   body .pagination-wrapper a {
     color: #e7be50; }
-    body .pagination-wrapper a:focus {
-      font-size: 30px; }
     body .pagination-wrapper a:hover {
       color: #e7bf50a8;
       text-decoration: none; }
