@@ -20,12 +20,13 @@ body {
                     font-size: 20px;
                     text-transform: uppercase;
                 }
-                .btn {
+                .add-btn {
+                    background-color: transparent!important;
                     border-radius: 0;
                     border: 1px solid $primColor;
                     color: $primColor;
                     &:hover {
-                        background-color: $primColor;
+                        background-color: $primColor!important;
                         color: black;
                     }
                 }
