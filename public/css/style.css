@@ -23,7 +23,7 @@ ul {
   list-style: none;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   background-color: black;
   margin: 0;
   z-index: 2;
@@ -312,7 +312,7 @@ body {
         text-align: center;
         transition: all 0.3s ease-in-out;
         height: auto;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         @media (min-width: 600px) {
           body #content-container #content-two #tarot-text-container {
             top: 75vh; } }
