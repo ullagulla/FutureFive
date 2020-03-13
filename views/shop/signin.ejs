@@ -1,10 +1,11 @@
-<script src="/js/jquery-3.4.1.min.js"></script>
-
+<%- include("../includes/header.ejs") %>
+<%- include("../includes/script.ejs") %>
 <%- include("../includes/navbar.ejs") %>
-
+<body>
 <form action="/signin" method="POST">
     <input type="email" placeholder="email" name="email">
     <input type="password" placeholder="Lösenord" name="passwordLogin">
     <button type="submit">Logga in</button>
 
 </form>
+</body>
