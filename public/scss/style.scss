@@ -4,6 +4,7 @@
 @import 'footer';
 @import 'error';
 @import 'adminlogin';
+@import 'cart';
 
 @mixin small {
     @media (min-width:400px) {@content;}

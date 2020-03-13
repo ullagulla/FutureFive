@@ -65,8 +65,11 @@ body .pagination-wrapper {
   body .pagination-wrapper a {
     color: #e7be50; }
     body .pagination-wrapper a:hover {
-      color: #e7bf50a8;
-      text-decoration: none; }
+      text-decoration: none;
+      filter: brightness(0.6); }
+  body .pagination-wrapper #current-page {
+    font-weight: bold;
+    font-size: 18px; }
 
 @keyframes flash {
   100% {

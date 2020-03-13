@@ -24,13 +24,22 @@
         </div>
     </div>
     <div class="pagination-wrapper d-flex justify-content-center">
-        <% for (let currentPage = 1; currentPage <= pageCount && pageCount > 1; currentPage++) { %>
-        <% if (currentPage === currentPage) {  %>
-        <a href="/products/?page=<%= currentPage %>" class="px-2"><%= currentPage %></a>
-        <% } else { %>
-        <a href="/products/?page=<%= currentPage %>"><%= currentPage %></a>
-        <% }; %>
-        <% }; %>
+        <% for (let index = 1; index <= pageCount && pageCount > 1; index++) { %>
+
+        <% if ( currentPage == index ){ %>
+
+        <a id="current-page" class="px-2" href="/products/?page=<%= index %>">
+                <%= index %>
+        </a>
+
+        <%}else {%>
+
+        <a href="/products/?page=<%= index %>" class="px-2">
+                <%= index %>
+        </a>
+
+        <% } %>
+        <% } %>
     </div>
     <%- include("../includes/footer.ejs") %>
 
