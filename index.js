@@ -5,12 +5,14 @@ const home = require('./router/home')
 const productPage = require('./router/productpage')
 const admin = require('./router/admin')
 const forwarding = require("./router/forwarding")
-
+const app = express()
 const config = require('./config/config')
 const path = require('path')
 const signin = require("./router/signin")
 // const profile = require("./router/profile")
 const cookieParser = require("cookie-parser")
+const aboutUs = require("./router/aboutus")
+const thankYou = require("./router/thankyou")
 
 app.use(cookieParser())
 
@@ -22,12 +24,14 @@ app.use(express.urlencoded({
 const session = require('express-session');
 app.use(session({ secret: `ARaC](NlFW%W{f:~@6:q$:j}Y+'c%D`, saveUninitialized: true, resave: true, cookie: { expires: new Date(Date.now() + (60000 * 60 * 24 * 7)) } })); //session expires one week later
 
-app.set('view engine', 'ejs')
+// app.set('view engine', 'ejs')
 
 app.use(express.static(path.join(__dirname, "public")))
 app.set('view engine', 'ejs')
 
 // app.use(profile)
+app.use(aboutUs)
+app.use(thankYou)
 app.use(signin)
 app.use(home)
 app.use(productPage)
@@ -35,7 +39,6 @@ app.use(newuser)
 
 app.use(admin)
 app.use(forwarding)
-
 
 app.get('*', (req, res) => {
     res.status(404).render('error/404', { whichpage: "error/404" });
