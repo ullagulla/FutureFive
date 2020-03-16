@@ -7,13 +7,21 @@
 </div>
 
 <ul id="main-navbar">
-    <li><a href="/">Hem</a></li>
+    <li class="pl-5"><a href="/">Hem</a></li>
     <li><a href="/products">Produkter</a></li>
     <!-- <li id="joinus"><a href="/signup">Skapa konto</a>/<a href="/signin">Logga in</a></li> -->
-    <li><a href="/createuser">Skapa konto</a></li>
-    <li><a href="/signin">Logga in</a></li>
-    <li><a href="/aboutus">About Us</a></li>
-    <li><a href="/thankyou">Thank You</a></li>
-    <li><a href="/cart"><i class="fas fa-shopping-cart"></i></a></li>
-
+    <div class="nav-icons-wrapper d-flex justify-content-end">
+        <li class="pr-5"><a href="/aboutus">About Us</a></li>
+        <li class="nav-item dropdown pr-4">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/signin">Sign in</a>
+                <a class="dropdown-item" href="/createuser">Sign up</a>
+            </div>
+        </li>
+        <li><a href="/cart"><i class="fas fa-shopping-cart pr-5"></i></a></li>
+    </div>
 </ul>

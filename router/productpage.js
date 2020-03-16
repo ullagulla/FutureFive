@@ -5,25 +5,17 @@ const Product = require("../models/product")
 router.get('/products', async (req, res) => {
     const currentPage = req.query.page || 1;
     const productPerPage = 4;
-    const allProducts = await Product.find()
+    const allProducts = await Product.find().countDocuments()
     const allItems = await Product
         .find()
         .skip((currentPage - 1) * productPerPage)
         .limit(productPerPage)
-    const pageCount = Math.ceil(allProducts.length / productPerPage)
+    const pageCount = Math.ceil(allProducts / productPerPage)
     res.render("shop/products.ejs", {
         allItems,
         pageCount,
         currentPage
     })
-    // const page = req.query.page
-    // const products = await Product
-    // .find()
-    // .skip(  (page-1) * items)
-    // .limit(items)
-    // res.render('shop/products.ejs', {
-    //     products
-    // })
 })
 
 //specific product page below

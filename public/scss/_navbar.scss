@@ -35,24 +35,41 @@ $colorThree: #e0d2b5;
     }
 }
 
-ul {
+#main-navbar {
     top: 0vw;
     left: 0;
     position: sticky;
-    padding: 0;
     list-style: none;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: black;
     margin: 0;
     z-index: 2;
     transition: all 0.5s ease-in-out;
     padding: 16px 0;
 
+    .nav-icons-wrapper {
+        width: 250px;
+    }
+
     li {
         display: inline-block;
         font-size: 1.6em;
+        .nav-link {
+            display: inline-block!important;
+            padding: 0!important;
+        }
+        .dropdown-menu {
+            background-color: black;
+            a {
+                color: #e7be50;
+                &:hover {
+                    background-color: black;
+                    color: #e7be50;
+                }
+            }
+        }
 
         a {
             text-decoration: none;

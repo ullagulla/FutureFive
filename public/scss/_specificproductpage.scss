@@ -34,6 +34,10 @@ body {
                 .nav-tabs {
                     background-color: #231f20;
                     border-bottom-color: $primColor;
+                    list-style: none;
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 16px 3px;
 
                     a {
                         text-transform: uppercase;

@@ -15,32 +15,43 @@
     position: absolute;
     transition: width 0.5s ease-in-out; }
 
-ul {
+#main-navbar {
   top: 0vw;
   left: 0;
   position: sticky;
-  padding: 0;
   list-style: none;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: black;
   margin: 0;
   z-index: 2;
   transition: all 0.5s ease-in-out;
   padding: 16px 0; }
-  ul li {
+  #main-navbar .nav-icons-wrapper {
+    width: 250px; }
+  #main-navbar li {
     display: inline-block;
     font-size: 1.6em; }
-    ul li a {
+    #main-navbar li .nav-link {
+      display: inline-block !important;
+      padding: 0 !important; }
+    #main-navbar li .dropdown-menu {
+      background-color: black; }
+      #main-navbar li .dropdown-menu a {
+        color: #e7be50; }
+        #main-navbar li .dropdown-menu a:hover {
+          background-color: black;
+          color: #e7be50; }
+    #main-navbar li a {
       text-decoration: none;
       color: #e7be50;
       filter: brightness(1); }
-      ul li a:hover {
+      #main-navbar li a:hover {
         text-decoration: none;
         color: #e7be50;
         filter: brightness(0.6); }
-    ul li a:hover {
+    #main-navbar li a:hover {
       filter: brightness(0.4); }
 
 body .container {
@@ -101,7 +112,11 @@ body .container .prod-container {
       color: black; }
   body .container .prod-container .prod-info .nav-tabs {
     background-color: #231f20;
-    border-bottom-color: #e7be50; }
+    border-bottom-color: #e7be50;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 3px; }
     body .container .prod-container .prod-info .nav-tabs a {
       text-transform: uppercase;
       font-size: 16px;
@@ -139,12 +154,18 @@ footer hr {
   background-color: #fff; }
 
 footer ul {
+  padding: 16px 0;
+  list-style: none;
   display: inline-block;
   background-color: transparent;
   font-size: 1.6em; }
 
 .map {
   color: #e7be50; }
+  .map:hover {
+    text-decoration: none;
+    color: #e7be50;
+    filter: brightness(0.4); }
 
 .service {
   color: #e7be50; }

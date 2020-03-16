@@ -1,12 +1,13 @@
 <%- include("../includes/header.ejs") %>
-    <%- include("../includes/script.ejs") %>
-        <%- include("../includes/navbar.ejs") %>
+<%- include("../includes/script.ejs") %>
+<%- include("../includes/navbar.ejs") %>
+
 <body>
 
     <div class="container mt-5">
 
 
-        <div class="row prod-container d-flex justify-content-center">
+        <div class="row prod-container d-flex justify-content-center mb-5">
             <div class="prod-img-wrapper col-12 col-md-6">
                 <img src="<%= product.imageUrl %> " alt="<%= product.name %>" />
             </div>
@@ -19,7 +20,7 @@
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#description">Beskrivning</a></li>
                     <li class="active"><a data-toggle="tab" href="#delivery">Leverans</a></li>
-                    <li><a data-toggle="tab" href="#questions">Frågor?</a></li>
+                    <li class="active"><a data-toggle="tab" href="#questions">Frågor?</a></li>
                 </ul>
                 <!-- Tab content -->
                 <div class="tab-content">
@@ -35,7 +36,8 @@
                             excepturi obcaecati laudantium. Quaerat laudantium porro modi commodi rem?</span>
                     </div>
                     <div id="questions" class="tab-pane fade">
-                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, fugit.</span>
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus earum cupiditate magnam
+                            in molestias sed suscipit, reprehenderit officia minima cumque?</span>
                     </div>
                 </div>
             </div>
@@ -44,4 +46,3 @@
     <%- include("../includes/footer.ejs") %>
 
 </body>
-
