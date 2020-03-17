@@ -32,8 +32,9 @@ router.post("/signin", async (req, res) => {
         if(token) {
             const cookie = req.cookies.jsonwebtoken
             if(!cookie) {
-                res.cookie("userLoginData", token, {maxAge: 3600000, httpOnly:true})
+                res.cookie("jsonwebtoken", token, {maxAge: 3600000, httpOnly:true})
             }
+            console.log(user)
             res.render("shop/profile", {user})
          }
 

@@ -56,12 +56,15 @@ $colorThree: #e0d2b5;
     li {
         display: inline-block;
         font-size: 1.6em;
+        text-transform: uppercase;
         .nav-link {
             display: inline-block!important;
             padding: 0!important;
         }
         .dropdown-menu {
             background-color: black;
+            min-width: 5rem;
+            transform: translate3d(-1rem, 35px, 0)!important;
             a {
                 color: #e7be50;
                 &:hover {

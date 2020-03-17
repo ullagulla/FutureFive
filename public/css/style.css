@@ -32,12 +32,15 @@
     width: 250px; }
   #main-navbar li {
     display: inline-block;
-    font-size: 1.6em; }
+    font-size: 1.6em;
+    text-transform: uppercase; }
     #main-navbar li .nav-link {
       display: inline-block !important;
       padding: 0 !important; }
     #main-navbar li .dropdown-menu {
-      background-color: black; }
+      background-color: black;
+      min-width: 5rem;
+      transform: translate3d(-1rem, 35px, 0) !important; }
       #main-navbar li .dropdown-menu a {
         color: #e7be50; }
         #main-navbar li .dropdown-menu a:hover {
@@ -134,6 +137,9 @@ footer {
   background-color: black;
   text-align: center;
   justify-content: space-between; }
+
+.row {
+  width: 100%; }
 
 footer hr {
   border: solid 1px #e7be50;
