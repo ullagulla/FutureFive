@@ -232,6 +232,19 @@ footer ul {
   max-width: 25rem;
   margin-bottom: 50px; }
 
+.divider {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.425);
+  font-weight: bold; }
+
+.cart-product-wrapper {
+  margin-right: 0 !important; }
+  .cart-product-wrapper .cart-product-img-wrapper {
+    max-height: 220px;
+    overflow: hidden; }
+    .cart-product-wrapper .cart-product-img-wrapper img {
+      height: auto;
+      width: 90%; }
+
 h1 {
   margin-top: 25px;
   text-align: center;

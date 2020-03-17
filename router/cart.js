@@ -7,14 +7,11 @@ const Product = require("../models/product")
 router.get("/cart", verifyToken, async (req, res) => {
 
     let products = []
-    console.log("hejhej")
-    setTimeout(() => {
-        console.log(req.body.user)
-        
-    }, 1000);
-    for (let i = 0; i < req.body.user.cart.length; i++) {
-        const product = await Product.findOne({_id:req.body.user.cart[i].productId})
-        console.log(product)
+    
+    const user = await User.findOne({_id:req.body.user._id})
+    for (let i = 0; i < user.cart.length; i++) {
+        const product = await Product.findOne(user.cart[i].productId)
+       
         products.push(product)
         
     }

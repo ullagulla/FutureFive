@@ -1,0 +1,15 @@
+.divider {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.425);
+    font-weight: bold;
+}
+.cart-product-wrapper {
+    margin-right: 0!important;
+    .cart-product-img-wrapper {
+        max-height: 220px;
+        overflow: hidden;
+        img {
+            height: auto;
+            width: 90%;
+        }
+    }
+}

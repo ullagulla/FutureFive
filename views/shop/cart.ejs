@@ -4,20 +4,35 @@
 
 <body>
 
-    <h1>Kundvagn</h1>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 col-lg-8 flex-column">
 
-    <% products.forEach( (product) => { %>
-        <div class="product-wrapper col-6 col-md-4 col-lg-3">
-            <div class="product-img-wrapper">
-                <img src="<%= product.imageUrl %> "
-                        alt="<%= product.name %>" />
-            </div>
-            <div class="product-info">
-                <div class="product-name mt-auto"> <%= product.name %> </div>
-                <div class="product-price mt-auto"> <%= product.price %> kr </div>
+                <div class="d-flex divider justify-content-between pb-1 mb-2">
+                    <div class="pl-2">Product</div>
+                    <div class="pl-4">Quantity</div>
+                    <div class="pr-2">Price</div>
+                </div>
+
+                <% products.forEach( (product) => { %>
+                <div class="row cart-product-wrapper mx-0 pb-2">
+                    <div class="cart-product-img-wrapper col-lg-3 px-0">
+                        <img src="<%= product.imageUrl %> " alt="<%= product.name %>" />
+                    </div>
+                    <div class="cart-product-info col-lg-3">
+                        <div class="cart-product-name mt-auto"> <%= product.name %> </div>
+                    </div>
+                    <div class="col-lg-3">
+                        1
+                    </div>
+                    <div class="col-lg-3 px-0">
+                        <div class="cart-product-price mt-auto text-right"> <%= product.price %> kr </div>
+                    </div>
+                </div>
+                <% }) %>
             </div>
         </div>
-        <% }) %>
+    </div>
 
     <%- include("../includes/footer.ejs") %>
 
