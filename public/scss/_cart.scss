@@ -1,15 +1,78 @@
-.divider {
-    border-bottom: 1px solid rgba(128, 128, 128, 0.425);
-    font-weight: bold;
-}
-.cart-product-wrapper {
-    margin-right: 0!important;
-    .cart-product-img-wrapper {
-        max-height: 220px;
-        overflow: hidden;
-        img {
-            height: auto;
-            width: 90%;
+$primColor: #e7be50;
+
+.cart-wrapper {
+    .divider {
+        border-bottom: 1px solid black;
+        text-transform: uppercase;
+    }
+    .cart-product-wrapper {
+        margin-right: 0 !important;
+
+        .cart-product-info {
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .cart-product-img-wrapper {
+            max-height: 200px;
+            overflow: hidden;
+
+            .remove-btn {
+                cursor: pointer;
+                position: absolute;
+                top: 3px;
+                left: 1px;
+                font-weight: bold;
+                a {
+                    color: rgb(156, 9, 9);
+                }
+            }
+
+            img {
+                height: auto;
+                width: 90%;
+            }
+        }
+
+        .col-lg-3 {
+            .inputs {
+                display: inline !important;
+
+                .button-minus {
+                    color: $primColor;
+                    background-color: #231f20;
+                    width: fit-content;
+
+                    &:active {
+                        outline: none;
+                    }
+                }
+
+                .quantity-field {
+                    color: $primColor;
+                    background-color: #231f20;
+                    border: none;
+                    width: 10px;
+                    height: 30px;
+
+                    &[type=number]::-webkit-inner-spin-button,
+                    &[type=number]::-webkit-outer-spin-button {
+                        -webkit-appearance: none;
+                    }
+                }
+
+                .button-plus {
+                    color: $primColor;
+                    background-color: #231f20;
+                    width: fit-content;
+                }
+            }
+        }
+    }
+    .row {
+        .divider {
+            width: 100%;
+            border-bottom: 1px solid black;
         }
     }
 }

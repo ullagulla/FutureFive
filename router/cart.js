@@ -7,44 +7,60 @@ const Product = require("../models/product")
 router.get("/cart", verifyToken, async (req, res) => {
 
     let products = []
-    
-    const user = await User.findOne({_id:req.body.user._id})
+
+    const user = await User.findOne({
+        _id: req.body.user._id
+    })
     for (let i = 0; i < user.cart.length; i++) {
-        const product = await Product.findOne(user.cart[i].productId)
-       
+
+        let product = await Product.findOne({
+            _id: user.cart[i].productId
+        })
+        product.quantity = user.cart[i].quantity
         products.push(product)
-        
+
     }
-    
-    res.render("shop/cart.ejs", {products})
+
+
+    res.render("shop/cart.ejs", {
+        products
+    })
 })
 
 router.get("/cartAdd/:id", verifyToken, async (req, res) => {
 
-    const user = await User.findOne({_id:req.body.user._id})
-    await user.addToCart({_id:req.params.id})
+    const user = await User.findOne({
+        _id: req.body.user._id
+    })
+    await user.addToCart(req.params.id)
 
     res.redirect("/cart")
 
 })
 
-router.get("/delete/:id", verifyToken, async (req, res)=> { //Tar bort data från databasen
-    const user = await User.findOne({ _id: req.body.user._id });
+//tar bort produkt från varukorg
 
-    for (let i = 0; i < user.cart.length; i++) {
+router.get("/delete/:id", verifyToken, async (req, res) => {
 
-        const userCart = user.cart;
-        console.log(userCart);
-        userCart.splice(req.params.id[i]);
-        console.log(userCart);
-        await user.save();
-        console.log(user);
-        
-    }
+    const user = await User.findOne({
+        _id: req.body.user._id
+    })
 
+    user.cart.forEach((element, index) => {
+        console.log(element)
+        if (element.productId == req.params.id) {
+            return user.cart.splice(index, 1)
+        }
+    })
+
+    await user.save()
 
     res.redirect("/cart")
 
+})
+
+router.get("/update-add/:id", verifyToken, async (req, res) => {
+    
 })
 
 module.exports = router

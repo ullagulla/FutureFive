@@ -30,10 +30,17 @@ const newUserSchema = mongoose.Schema({
     cart: [{
         productId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Product'
-        }
+            ref: "Product"
+        }, 
+        quantity: {
+            type: Number,
+            require: true
+        },
+         price: {
+             type: Number,
+             require: true
+         }
     }]
-
 });
 
 newUserSchema.methods.addToWishList = function (product) {
@@ -43,11 +50,23 @@ newUserSchema.methods.addToWishList = function (product) {
     return this.save()
 }
 
-newUserSchema.methods.addToCart = function (product) {
-    this.cart.push({
-        productId: product._id
-    })
-    return this.save()
+newUserSchema.methods.addToCart = function (productId) {
+    let exist = false;
+    this.cart.forEach(element => {
+        if(element.productId==productId){
+            element.quantity++
+            exist = true;
+            return this.save()
+        }  
+    });
+ 
+    if(!exist) {
+        this.cart.push({
+            productId: productId,
+            quantity: 1
+        })
+        return this.save()
+    }
 }
 
 const newUser = mongoose.model("newUser", newUserSchema)

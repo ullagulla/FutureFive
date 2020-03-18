@@ -6,31 +6,55 @@
 
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="col-12 col-lg-8 flex-column">
+            <div class="col-12 col-lg-8 flex-column cart-wrapper mb-4">
 
-                <div class="d-flex divider justify-content-between pb-1 mb-2">
-                    <div class="pl-2">Product</div>
+                <div class="d-flex divider justify-content-between pb-1 mb-3">
+                    <div class="">Product</div>
                     <div class="pl-4">Quantity</div>
-                    <div class="pr-2">Price</div>
+                    <div class="">Price</div>
                 </div>
 
                 <% products.forEach( (product) => { %>
                 <div class="row cart-product-wrapper mx-0 pb-2">
                     <div class="cart-product-img-wrapper col-lg-3 px-0">
-                        <a href="/delete/<%=product._id%>"><span class="remove-btn">x</span></a>
-                        <img src="<%= product.imageUrl %> " alt="<%= product.name %>" />
+                        <span class="remove-btn"><a href="/delete/<%=product._id%>"><i
+                                    class="fas fa-skull-crossbones"></i></a></span>
+                        <img src="<%= product.imageUrl %> " alt="<%= product.name %>" class="ml-4" />
                     </div>
-                    <div class="cart-product-info col-lg-3">
+                    <div class="cart-product-info col-lg-3 pr-0">
                         <div class="cart-product-name mt-auto"> <%= product.name %> </div>
                     </div>
-                    <div class="col-lg-3">
-                        1
+                    <div class="col-lg-3 pl-0">
+                        <span class="inputs px-1 d-flex justify-content-center">
+                            <a href="/update-add/<%=product._id%>"><input type="button" id="button-minus" value="-" class="button-minus btn pl-0 pr-1"
+                                data-field="quantity"></a>
+                            <input type="number" id="number1" step="1" max="" value="<%= product.quantity %>"
+                                class="quantity-field" name="quantity">
+                            <input type="button" id="button-plus1" value="+" class="button-plus btn p-0 mr-2"
+                                data-field="quantity">
+                        </span>
                     </div>
                     <div class="col-lg-3 px-0">
-                        <div class="cart-product-price mt-auto text-right"> <%= product.price %> kr </div>
+                        <div class="cart-product-price mt-auto text-right"> <%= product.price %> SEK </div>
                     </div>
                 </div>
                 <% }) %>
+                <div class="row mx-0">
+                    <div class="divider"></div>
+                    <div class="col-6 pt-4 price-information pl-0">
+                        <p class="prod-info mb-1">Subtotal</p>
+                        <p class="prod-info mb-1">Shipping</p>
+                        <p class="prod-info font-weight-bold mb-4">Total</p>
+                    </div>
+                    <div class="col-6 pt-4 pr-0">
+                        <p class="prod-info text-right mb-1 subtotal"></p>
+                        <p class="prod-info text-right mb-1">Free!</p>
+                        <p class="prod-info text-right mb-1 total"></p>
+                    </div>
+                    <div class="col-12 continue-shopping font-weight-bold">
+                        <a href="lp_produktsida.html">Would you like to add more products? Click here</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

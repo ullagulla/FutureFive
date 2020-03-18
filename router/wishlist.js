@@ -5,7 +5,6 @@ const verifyToken = require("./verify")
 const Product = require("../models/product")
 
 router.get("/wishlist/:id", verifyToken, async (req, res)=>{
-    // req.params.id
 
     const product = await Product.findOne({_id:req.params.id})
     // console.log("Information från user body " + req.body.user._id)
