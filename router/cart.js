@@ -28,23 +28,23 @@ router.get("/cartAdd/:id", verifyToken, async (req, res) => {
 
 })
 
-// router.get("/delete/:id", verifyToken, async (req, res)=> { //Tar bort data från databasen
-//     const user = await User.findOne({ _id: req.body.user._id });
+router.get("/delete/:id", verifyToken, async (req, res)=> { //Tar bort data från databasen
+    const user = await User.findOne({ _id: req.body.user._id });
 
-//     for (let i = 0; i < user.cart.length; i++) {
+    for (let i = 0; i < user.cart.length; i++) {
 
-//         const userCart = user.cart;
-//         console.log(userCart);
-//         userCart.splice(req.params.id[i]);
-//         console.log(userCart);
-//         await user.save();
-//         console.log(user);
+        const userCart = user.cart;
+        console.log(userCart);
+        userCart.splice(req.params.id[i]);
+        console.log(userCart);
+        await user.save();
+        console.log(user);
         
-//     }
+    }
 
 
-//     res.redirect("/cart")
+    res.redirect("/cart")
 
-// })
+})
 
 module.exports = router
