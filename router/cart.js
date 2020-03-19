@@ -46,14 +46,7 @@ router.get("/delete/:id", verifyToken, async (req, res) => {
         _id: req.body.user._id
     })
 
-    user.cart.forEach((element, index) => {
-        console.log(element)
-        if (element.productId == req.params.id) {
-            return user.cart.splice(index, 1)
-        }
-    })
-
-    await user.save()
+    await user.removeFromCart(req.params.id)
 
     res.redirect("/cart")
 

@@ -51,27 +51,24 @@ newUserSchema.methods.addToWishList = function (product) {
 }
 
 newUserSchema.methods.addToCart = function (productId) {
-    let exist = false;
-    this.cart.forEach(element => {
-        if(element.productId==productId){
-            element.quantity++
-            exist = true;
-            return this.save()
-        }  
-    });
- 
-    if(!exist) {
-        this.cart.push({
-            productId: productId,
-            quantity: 1
-        })
-        return this.save()
-    }
+
+    const foundItem = this.cart.find( product => product.productId == productId )
+    
+    !foundItem? this.cart.push({productId: productId, quantity: 1}):
+    foundItem.quantity++
+
+    return this.save() 
+}
+
+newUserSchema.methods.removeFromCart = function (productId) {
+
+    const filterItems = this.cart.filter( product => product.productId.toString() !== productId )
+
+    this.cart = filterItems
+
+    return this.save()
 }
 
 const newUser = mongoose.model("newUser", newUserSchema)
 
 module.exports = newUser;
-
-
-// uncomplete
