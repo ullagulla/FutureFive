@@ -5,7 +5,6 @@ const router = express.Router()
 const jwt = require("jsonwebtoken")
 const verifyToken = require("./verify")
 
-var singedIn = false
 
 router.get("/signin", (req, res) =>{
    
@@ -34,19 +33,10 @@ router.post("/signin", async (req, res) => {
             if(!cookie) {
                 res.cookie("jsonwebtoken", token, {maxAge: 3600000, httpOnly:true})
             }
-            console.log(user)
             res.render("shop/profile", {user})
          }
 
     })
 })
-
-
-router.get("/logout", (req, res) => {
-
-    res.clearCookie("userLoginData").redirect("/signin")
-    
-})
-
 
 module.exports = router

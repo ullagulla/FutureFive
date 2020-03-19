@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
         next()
 
     } else {
-        res.redirect("/login")
+        res.redirect("/signin")
 
         console.log("You are not worthy, sorry Anakin")
 
