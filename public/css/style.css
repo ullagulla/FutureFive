@@ -601,3 +601,16 @@
         background-color: #b39440;
         color: black;
     }
+    
+    #login {
+        background-image: url(../img/wolf4.jpg)
+    }
+    
+    #login_body {
+        background-image: url(../img/wolf3.jpg);
+        background-size: contain;
+    }
+    
+    .register {
+        background-image: url(../img/wolf.png)
+    }
