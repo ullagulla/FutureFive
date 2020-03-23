@@ -34,7 +34,7 @@ $primColor: #e7be50;
             }
         }
 
-        .col-lg-3 {
+        .col-3 {
             .inputs {
                 display: inline !important;
 
@@ -73,6 +73,21 @@ $primColor: #e7be50;
         .divider {
             width: 100%;
             border-bottom: 1px solid black;
+        }
+        .btn-wrapper {
+            a {
+                text-decoration: none;
+            }
+            .btn {
+                background-color: transparent!important;
+                border-radius: 0;
+                border: 1px solid $primColor;
+                color: $primColor;
+                &:hover {
+                    background-color: $primColor!important;
+                    color: black;
+                }
+            }
         }
     }
 }

@@ -8,7 +8,7 @@
         <div class="row d-flex justify-content-center">
             <div class="col-12 col-lg-8 flex-column cart-wrapper mb-4">
 
-                <div class="d-flex divider justify-content-between pb-1 mb-3">
+                <div class="d-flex divider justify-content-between pb-1 mt-5 mb-3">
                     <div class="">Product</div>
                     <div class="pl-4">Quantity</div>
                     <div class="">Price</div>
@@ -16,26 +16,30 @@
 
                 <% products.forEach( (product) => { %>
                 <div class="row cart-product-wrapper mx-0 pb-2">
-                    <div class="cart-product-img-wrapper col-lg-3 px-0">
+                    <div class="cart-product-img-wrapper col-3 px-0">
                         <span class="remove-btn"><a href="/delete/<%=product._id%>"><i
                                     class="fas fa-skull-crossbones"></i></a></span>
                         <img src="<%= product.imageUrl %> " alt="<%= product.name %>" class="ml-4" />
                     </div>
-                    <div class="cart-product-info col-lg-3 pr-0">
+                    <div class="cart-product-info col-3 pr-0">
                         <div class="cart-product-name mt-auto"> <%= product.name %> </div>
                     </div>
-                    <div class="col-lg-3 pl-0">
+                    <div class="col-3 pl-0">
                         <span class="inputs px-1 d-flex justify-content-center">
-                            <a href="/update-add/<%=product._id%>"><input type="button" id="button-minus" value="-" class="button-minus btn pl-0 pr-1"
+                            <a href="/update-remove/<%=product._id%>"><input type="button" id="button-minus" value="-" class="button-minus btn pl-0 pr-1"
                                 data-field="quantity"></a>
                             <input type="number" id="number1" step="1" max="" value="<%= product.quantity %>"
                                 class="quantity-field" name="quantity">
-                            <input type="button" id="button-plus1" value="+" class="button-plus btn p-0 mr-2"
-                                data-field="quantity">
+                                <a href="/update-add/<%=product._id%>"><input type="button" id="button-plus1" value="+" class="button-plus btn p-0 mr-2"
+                                data-field="quantity"></a>
                         </span>
                     </div>
-                    <div class="col-lg-3 px-0">
-                        <div class="cart-product-price mt-auto text-right"> <%= product.price %> SEK </div>
+                    <div class="col-3 px-0">
+                        <% let total = 0 %>
+                        <% for (let i = 0; i < products.length; i++) { %>
+                            <% total += products[i].price * products[i].quantity %>
+                        <% } %>
+                        <div class="cart-product-price mt-auto text-right"> <%= total %> SEK </div>
                     </div>
                 </div>
                 <% }) %>
@@ -47,12 +51,16 @@
                         <p class="prod-info font-weight-bold mb-4">Total</p>
                     </div>
                     <div class="col-6 pt-4 pr-0">
-                        <p class="prod-info text-right mb-1 subtotal"></p>
+                        <% let total = 0 %>
+                        <% for (let i = 0; i < products.length; i++) { %>
+                            <% total += products[i].price * products[i].quantity %>
+                        <% } %>
+                        <p class="prod-info text-right mb-1 subtotal"><%= total %> SEK</p>
                         <p class="prod-info text-right mb-1">Free!</p>
-                        <p class="prod-info text-right mb-1 total"></p>
+                        <p class="prod-info text-right mb-1 total"> <%= total %> SEK</p>
                     </div>
-                    <div class="col-12 continue-shopping font-weight-bold">
-                        <a href="lp_produktsida.html">Would you like to add more products? Click here</a>
+                    <div class="col-12 btn-wrapper px-0">
+                        <a class="w-100 d-flex justify-content-end" href="/checkout"><button type="button" class="btn w-50 mt-3">Till kassan</button></a>
                     </div>
                 </div>
             </div>

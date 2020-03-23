@@ -6,6 +6,7 @@
 @import 'adminlogin';
 @import 'cart';
 @import 'createproduct';
+@import 'checkout';
 
 @mixin small {
     @media (min-width:400px) {@content;}

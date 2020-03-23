@@ -69,6 +69,30 @@ newUserSchema.methods.removeFromCart = function (productId) {
     return this.save()
 }
 
+newUserSchema.methods.addProductInCart = function (productId) {
+
+    const foundItem = this.cart.find( product => product.productId == productId )
+    foundItem.quantity++
+
+    return this.save()
+
+}
+
+newUserSchema.methods.removeProductInCart = function (productId) {
+
+    const foundItem = this.cart.find( product => product.productId == productId )
+    foundItem.quantity--
+
+    if (foundItem.quantity == 0) {
+        const filterItems = this.cart.filter( product => product.productId.toString() !== productId )
+
+        this.cart = filterItems
+    }
+
+    return this.save()
+
+}
+
 const newUser = mongoose.model("newUser", newUserSchema)
 
 module.exports = newUser;
