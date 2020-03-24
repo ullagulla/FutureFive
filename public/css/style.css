@@ -247,6 +247,15 @@ footer ul {
   border-bottom: 1px solid black;
   text-transform: uppercase; }
 
+.cart-wrapper .no-products-wrapper {
+  text-transform: uppercase; }
+  .cart-wrapper .no-products-wrapper a {
+    font-weight: bold;
+    color: #e7be50; }
+    .cart-wrapper .no-products-wrapper a:hover {
+      text-decoration: none;
+      filter: brightness(0.4); }
+
 .cart-wrapper .cart-product-wrapper {
   margin-right: 0 !important; }
   .cart-wrapper .cart-product-wrapper .cart-product-info {
