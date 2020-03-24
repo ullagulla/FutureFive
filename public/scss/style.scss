@@ -4,14 +4,13 @@
 @import 'footer';
 @import 'error';
 @import 'adminlogin';
-<<<<<<< HEAD
 @import 'cart';
 @import 'createproduct';
 @import 'checkout';
-=======
 @import 'thankyou';
 @import 'aboutus';
->>>>>>> cd899afdc3a16b0247fb8b86b40277e4dc13c5c7
+
+
 
 @mixin small {
     @media (min-width:400px) {@content;}
