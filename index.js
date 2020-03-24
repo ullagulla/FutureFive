@@ -26,6 +26,11 @@ app.use(express.urlencoded({
     extended: true
 }))
 
+// const session = require('express-session');
+// app.use(session({ secret: `ARaC](NlFW%W{f:~@6:q$:j}Y+'c%D`, saveUninitialized: true, resave: true, cookie: { expires: new Date(Date.now() + (60000 * 60 * 24 * 7)) } })); //session expires one week later
+
+// app.set('view engine', 'ejs')
+
 app.use(express.static(path.join(__dirname, "public")))
 app.set('view engine', 'ejs')
 

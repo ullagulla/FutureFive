@@ -4,23 +4,33 @@
 
 
 <body>
-    <div class="background-container">
-        <img id="imgRight" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png" alt="">
-        <div class="stars"></div>
-        <div class="twinkling"></div>
-        <div class="clouds">
+
+    <div id=content-container>
+        <div class="background-container">
+            <img id="imgMoon" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png" alt="">
+            <div class="stars"></div>
+            <div class="twinkling"></div>
+            <div class="clouds">
+
+            </div>
+
+
 
         </div>
-        <div class="row text-center">
-            <div class="aboutText">
-                <h1 class="glow">About us Lorem Ipsum and so forth in the great mystery of creepy window shopping</h1>
+        <div id="content-five">
+            <div class="rowtext-center">
+                <h1 class="glow">About us. In the foggy swamps in the far south we stir the cauldron of the
+                    unknown under the pale and strange moon and so forth in the great mystery of creepy window
+                    shopping</h1>
+                <div id="aboutText">
+
+                </div>
             </div>
         </div>
-        <div class="container">
-            <div class="col-12">
-
+        <div class="container-six">
+            <div>
+                <%- include("../includes/footer.ejs") %>
             </div>
         </div>
     </div>
-    <%- include("../includes/footer.ejs") %>
 </body>
