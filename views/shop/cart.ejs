@@ -9,12 +9,12 @@
             <div class="col-12 col-lg-8 flex-column cart-wrapper mb-4">
 
                 <div class="d-flex divider justify-content-between pb-1 mt-5 mb-3">
-                    <div class="">Product</div>
-                    <div class="pl-4">Quantity</div>
-                    <div class="">Price</div>
+                    <div class="">Produkt</div>
+                    <div class="pl-4">Antal</div>
+                    <div class="">Pris</div>
                 </div>
                 <div class="no-products-wrapper py-5">
-                    You have no products in your cart. Start shopping <a href="/products">here</a>
+                    Du har inga produkter i din varukorg. Börja shoppa <a href="/products">här</a>
                 </div>
                 <% products.forEach( (product) => { %>
                 <div class="row cart-product-wrapper mx-0 pb-3" id="cart-wrapper">
@@ -46,8 +46,8 @@
                 <div class="row mx-0 cart-information">
                     <div class="divider"></div>
                     <div class="col-6 pt-4 price-information pl-0">
-                        <p class="prod-info mb-1">Subtotal</p>
-                        <p class="prod-info mb-1">Shipping</p>
+                        <p class="prod-info mb-1">Delsumma</p>
+                        <p class="prod-info mb-1">Frakt</p>
                         <p class="prod-info font-weight-bold mb-4">Total</p>
                     </div>
                     <div class="col-6 pt-4 pr-0">
@@ -56,7 +56,7 @@
                         <% total += products[i].price * products[i].quantity %>
                         <% } %>
                         <p class="prod-info text-right mb-1 subtotal"><%= total %> SEK</p>
-                        <p class="prod-info text-right mb-1">Free!</p>
+                        <p class="prod-info text-right mb-1">0 SEK</p>
                         <p class="prod-info text-right mb-1 total"> <%= total %> SEK</p>
                     </div>
                     <div class="col-12 btn-wrapper px-0">

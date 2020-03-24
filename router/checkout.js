@@ -26,4 +26,9 @@ router.get("/checkout", verifyToken, async (req, res) => {
     })
 })
 
+router.post("/checkout", verifyToken, (req, res) => {
+
+    res.redirect("/thankyou")
+})
+
 module.exports = router

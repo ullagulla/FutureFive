@@ -44,7 +44,7 @@ router.post("/signin", async (req, res) => {
 
 router.get("/logout", (req, res) => {
 
-    res.clearCookie("userLoginData").redirect("/signin")
+    res.clearCookie("jsonwebtoken").redirect("/signin")
     
 })
 

@@ -1,12 +1,19 @@
 const express = require('express')
-const app = express()
 const router = express.Router()
 const Product = require("../models/product")
+const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 
 
 
-router.get('/', async (req, res) => {
+router.get('/', forwardAuthenticated, (req, res) => {
     res.render('shop/main.ejs')
 })
 
 module.exports = router 
+router.get('/dashboard', ensureAuthenticated, (req, res) =>
+    res.render('dashboard', {
+        user: req.user
+    })
+);
+
+module.exports = router

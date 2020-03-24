@@ -35,42 +35,42 @@
                 <h5 class="checkout-total ml-2 d-inline">Total</h5>
                 <span class="mr-2"><%= total %> SEK</span>
                 </div>
-            <h5 class="information pt-4 pl-2 mb-1">Your information</h5>
-            <p class="address-info pl-2">The address must be within the EU</p>
-            <form class="form-wrapper" action="">
+            <h5 class="information pt-4 pl-2 mb-1">Din information</h5>
+            <p class="address-info pl-2">Adressen måste vara inom EU</p>
+            <form class="form-wrapper" action="/checkout" method="post">
                 <div class="col-12">
                     <div class="form-row">
                         <div class="form-group col-md-6 m-0 p-0">
-                            <input type="email" class="form-control" id="inputEmail" placeholder="Email-address">
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Email-adress">
                         </div>
                         <div class="form-group col-md-6 m-0 p-0">
-                            <input type="text" class="form-control" id="inputZip" placeholder="Zip code">
+                            <input type="text" class="form-control" id="inputZip" placeholder="Postnummer">
                         </div>
                         <div class="form-group col-12 m-0 p-0">
                             <input type="text" class="form-control" id="inputPersonal"
-                                placeholder="Personal number (optional)">
+                                placeholder="Personnummer (frivilligt)">
                         </div>
                         <div class="form-group col-md-6 m-0 p-0">
-                            <input type="text" class="form-control" id="inputFirstname" placeholder="Firstname">
+                            <input type="text" class="form-control" id="inputFirstname" placeholder="Förnamn">
                         </div>
                         <div class="form-group col-md-6 m-0 p-0">
-                            <input type="text" class="form-control" id="inputLastname" placeholder="Lastname">
+                            <input type="text" class="form-control" id="inputLastname" placeholder="Efternamn">
                         </div>
                         <div class="form-group col-12 m-0 p-0">
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Address">
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Adress">
                         </div>
                         <div class="form-group col-md-6 m-0 p-0">
-                            <input type="text" class="form-control" id="inputCity" placeholder="City">
+                            <input type="text" class="form-control" id="inputCity" placeholder="Stad">
                         </div>
                         <div class="form-group col-md-6 m-0 p-0">
-                            <input type="text" class="form-control" id="inputPhone" placeholder="Phone number">
+                            <input type="text" class="form-control" id="inputPhone" placeholder="Telefonnummer">
                         </div>
                     </div>
                 </div>
                 <div class="btn-wrapper py-3 d-flex justify-content-end">
                     <div class="col-6 d-flex justify-content-between pl-0">
-                        <button type="button" class="btn mr-1 w-50">Cancel</button>
-                        <button type="submit" class="btn continue btn-dark w-50 ml-1">Continue</button>
+                        <button type="button" class="btn mr-1 w-50">Avbryt</button>
+                        <a href="/thankyou"><button type="submit" class="btn continue btn-dark w-100 ml-1">Lägg din order</button></a>
                     </div>
                 </div>
             </form>
