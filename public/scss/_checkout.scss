@@ -40,6 +40,31 @@
         border-top: 1px solid black;
     }
     .checkout-product-wrapper {
+        .checkout-product-info {
+            font-size: 12px;
+            text-transform: uppercase;
+            @include tablet() {
+                font-size: 14px;
+            }
+        }
+        div {
+            .product-quantity {
+                font-size: 12px;
+                text-transform: uppercase;
+                @include tablet() {
+                    font-size: 14px;
+                }
+            }
+        }
+        div {
+            .checkout-product-price {
+                font-size: 12px;
+                text-transform: uppercase;
+                @include tablet() {
+                    font-size: 14px;
+                }
+            }
+        }
         .checkout-product-img-wrapper {
             max-height: 200px;
             overflow: hidden;
