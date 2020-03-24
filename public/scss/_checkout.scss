@@ -20,8 +20,9 @@
     font-family: 'Work Sans', sans-serif;
 }
 
-@mixin remove-border-bottom-and-radius {
+@mixin remove-border-and-radius {
     border-bottom: none;
+    border-right: none;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -29,6 +30,15 @@
 }
 
 .checkout-wrapper {
+    h5 {
+        text-transform: uppercase;
+    }
+    .divider {
+        border-top: 1px solid black;
+    }
+    .information {
+        border-top: 1px solid black;
+    }
     .checkout-product-wrapper {
         .checkout-product-img-wrapper {
             max-height: 200px;
@@ -58,7 +68,7 @@
                 }
 
                 #inputZip {
-                    @include remove-border-bottom-and-radius();
+                    @include remove-border-and-radius();
 
                     @include large-tablet() {
                         border-top-right-radius: 0.25rem;
@@ -66,13 +76,16 @@
                 }
 
                 #inputPersonal {
-                    @include remove-border-bottom-and-radius();
-                    border-right: none;
+                    @include remove-border-and-radius();
+                    border-left: none;
+                    border-bottom:none;
 
                 }
 
                 #inputFirstname {
-                    @include remove-border-bottom-and-radius();
+                    @include remove-border-and-radius();
+                    border-left: none;
+
 
                     @include large-tablet() {
                         border-right: 0;
@@ -80,24 +93,24 @@
                 }
 
                 #inputLastname {
-                    @include remove-border-bottom-and-radius();
-                    border-right: none;
+                    @include remove-border-and-radius();
 
                 }
 
                 #inputAddress {
-                    @include remove-border-bottom-and-radius();
-                    border-right: none;
+                    @include remove-border-and-radius();
+                    border-left: none;
+
 
                 }
 
                 #inputCity {
-                    @include remove-border-bottom-and-radius();
+                    @include remove-border-and-radius();
 
                     @include large-tablet() {
                         border-bottom: 1px solid #ced4da;
                         border-bottom-left-radius: 0.25rem;
-                        border-right: none;
+
                     }
                 }
 
@@ -159,7 +172,7 @@
                 border-radius: 0.25rem;
                 border-top: none;
 
-                @include remove-border-bottom-and-radius();
+                @include remove-border-and-radius();
             }
 
             #inputBankTransfer {

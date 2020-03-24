@@ -15,7 +15,7 @@
                 </div>
 
                 <% products.forEach( (product) => { %>
-                <div class="row cart-product-wrapper mx-0 pb-2">
+                <div class="row cart-product-wrapper mx-0 pb-3">
                     <div class="cart-product-img-wrapper col-3 px-0">
                         <span class="remove-btn"><a href="/delete/<%=product._id%>"><i
                                     class="fas fa-skull-crossbones"></i></a></span>
@@ -30,15 +30,13 @@
                                 data-field="quantity"></a>
                             <input type="number" id="number1" step="1" max="" value="<%= product.quantity %>"
                                 class="quantity-field" name="quantity">
-                                <a href="/update-add/<%=product._id%>"><input type="button" id="button-plus1" value="+" class="button-plus btn p-0 mr-2"
+                                <a href="/update-add/<%=product._id%>"><input type="button" id="button-plus1" value="+" class="button-plus btn p-0"
                                 data-field="quantity"></a>
                         </span>
                     </div>
                     <div class="col-3 px-0">
                         <% let total = 0 %>
-                        <% for (let i = 0; i < products.length; i++) { %>
-                            <% total += products[i].price * products[i].quantity %>
-                        <% } %>
+                        <% total += product.price * product.quantity %>
                         <div class="cart-product-price mt-auto text-right"> <%= total %> SEK </div>
                     </div>
                 </div>

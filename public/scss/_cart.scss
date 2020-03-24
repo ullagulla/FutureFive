@@ -49,6 +49,7 @@ $primColor: #e7be50;
                 }
 
                 .quantity-field {
+                    font-size: 14px;
                     color: $primColor;
                     background-color: #231f20;
                     border: none;
@@ -67,6 +68,9 @@ $primColor: #e7be50;
                     width: fit-content;
                 }
             }
+        }
+        .cart-product-price {
+            font-size: 14px;
         }
     }
     .row {

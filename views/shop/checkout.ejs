@@ -5,9 +5,10 @@
 <div class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-12 col-lg-7 checkout-wrapper flex-column">
-            <h5 class="pl-2">Dina varor</h5>
+            <h5 class="pl-2 mt-5">Dina varor</h5>
+            <div class="divider"></div>
             <% products.forEach( (product) => { %>
-                <div class="row checkout-product-wrapper mx-0 pb-2">
+                <div class="row checkout-product-wrapper mt-3 mx-0 pb-3">
                     <div class="checkout-product-img-wrapper col-3 px-0">
                         <img src="<%= product.imageUrl %> " alt="<%= product.name %>" class="ml-2" />
                     </div>
@@ -16,11 +17,13 @@
                     </div>
                     <div class="col-3 pl-0">
                         <span class="product-quantity px-1 d-flex justify-content-center">
-                            <%= product.quantity %>
+                            <%= product.quantity %> st
                         </span>
                     </div>
                     <div class="col-3 px-0">
-                        <div class="checkout-product-price mt-auto text-right"> <%= product.price %> SEK </div>
+                        <% let total = 0 %>
+                        <% total += product.price * product.quantity %>
+                        <div class="checkout-product-price mt-auto text-right"> <%= total %> SEK </div>
                     </div>
                 </div>
                 <% }) %>
