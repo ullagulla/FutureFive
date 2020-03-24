@@ -21,8 +21,6 @@ router.get("/cart", verifyToken, async (req, res) => {
 
     }
 
-console.log("hejhej")
-console.log(products)
     res.render("shop/cart.ejs", {
         products
     })
