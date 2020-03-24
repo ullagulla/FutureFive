@@ -7,11 +7,13 @@ const router = express.Router()
 
 const salt = bcrypt.genSaltSync(10)
 
-router.get("/createuser", async (req, res) =>{
-    res.render("shop/createuser")
+router.get("/signup", async (req, res) =>{
+    let user
+
+    res.render("shop/signup", { user })
 })
 
-router.post("/createuser", async (req, res) => {
+router.post("/signup", async (req, res) => {
 
     const cryptPassword = await bcrypt.hash(req.body.password, salt)
 
@@ -34,7 +36,7 @@ router.post("/createuser", async (req, res) => {
   
 
     
-    res.render("shop/main", {user})
+    res.render("shop/home", {user})
 })
 
 module.exports = router

@@ -7,8 +7,8 @@ const verifyToken = require("./verify")
 
 
 router.get("/signin", (req, res) =>{
-   
-    res.render("shop/signin")
+    let user = undefined
+    res.render("shop/signin", { user })
 })
 
 // Sign in 
