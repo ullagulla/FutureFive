@@ -1,11 +1,85 @@
 <%- include("../includes/header.ejs") %>
-    <%- include("../includes/script.ejs") %>
-        <%- include("../includes/navbar.ejs") %>
+<%- include("../includes/script.ejs") %>
+<%- include("../includes/navbar.ejs") %>
+
+<div class="container d-flex justify-content-center">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 col-lg-7 checkout-wrapper flex-column">
+            <h5 class="pl-2 mt-5">Dina varor</h5>
+            <div class="divider"></div>
+            <% products.forEach( (product) => { %>
+                <div class="row checkout-product-wrapper mt-3 mx-0 pb-3">
+                    <div class="checkout-product-img-wrapper col-3 px-0">
+                        <img src="<%= product.imageUrl %> " alt="<%= product.name %>" class="ml-2" />
+                    </div>
+                    <div class="checkout-product-info col-3 pr-0">
+                        <div class="checkout-product-name mt-auto"> <%= product.name %> </div>
+                    </div>
+                    <div class="col-3 pl-0">
+                        <span class="product-quantity px-1 d-flex justify-content-center">
+                            <%= product.quantity %> st
+                        </span>
+                    </div>
+                    <div class="col-3 px-0">
+                        <% let total = 0 %>
+                        <% total += product.price * product.quantity %>
+                        <div class="checkout-product-price mt-auto text-right mr-2"> <%= total %> SEK </div>
+                    </div>
+                </div>
+                <% }) %>
+                <div class="d-flex justify-content-between">
+                    <% let total = 0 %>
+                    <% for (let i = 0; i < products.length; i++) { %>
+                        <% total += products[i].price * products[i].quantity %>
+                    <% } %>
+                <h5 class="checkout-total ml-2 d-inline">Total</h5>
+                <span class="mr-2"><%= total %> SEK</span>
+                </div>
+            <h5 class="information pt-4 pl-2 mb-1">Your information</h5>
+            <p class="address-info pl-2">The address must be within the EU</p>
+            <form class="form-wrapper" action="">
+                <div class="col-12">
+                    <div class="form-row">
+                        <div class="form-group col-md-6 m-0 p-0">
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Email-address">
+                        </div>
+                        <div class="form-group col-md-6 m-0 p-0">
+                            <input type="text" class="form-control" id="inputZip" placeholder="Zip code">
+                        </div>
+                        <div class="form-group col-12 m-0 p-0">
+                            <input type="text" class="form-control" id="inputPersonal"
+                                placeholder="Personal number (optional)">
+                        </div>
+                        <div class="form-group col-md-6 m-0 p-0">
+                            <input type="text" class="form-control" id="inputFirstname" placeholder="Firstname">
+                        </div>
+                        <div class="form-group col-md-6 m-0 p-0">
+                            <input type="text" class="form-control" id="inputLastname" placeholder="Lastname">
+                        </div>
+                        <div class="form-group col-12 m-0 p-0">
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Address">
+                        </div>
+                        <div class="form-group col-md-6 m-0 p-0">
+                            <input type="text" class="form-control" id="inputCity" placeholder="City">
+                        </div>
+                        <div class="form-group col-md-6 m-0 p-0">
+                            <input type="text" class="form-control" id="inputPhone" placeholder="Phone number">
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-wrapper py-3 d-flex justify-content-end">
+                    <div class="col-6 d-flex justify-content-between pl-0">
+                        <button type="button" class="btn mr-1 w-50">Cancel</button>
+                        <button type="submit" class="btn continue btn-dark w-50 ml-1">Continue</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 
 
 
 
-
-
-            <%- include("../includes/footer.ejs") %>
+<%- include("../includes/footer.ejs") %>

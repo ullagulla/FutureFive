@@ -17,6 +17,7 @@ const cookieParser = require("cookie-parser")
 const aboutUs = require("./router/aboutus")
 const thankYou = require("./router/thankyou")
 const wishlist = require("./router/wishlist")
+const checkout = require("./router/checkout")
 
 app.use(cookieParser())
 
@@ -24,10 +25,6 @@ app.use(cookieParser())
 app.use(express.urlencoded({
     extended: true
 }))
-
-//const session = require('express-session');
-//app.use(session({ secret: `ARaC](NlFW%W{f:~@6:q$:j}Y+'c%D`, saveUninitialized: true, resave: true, cookie: { expires: new Date(Date.now() + (60000 * 60 * 24 * 7)) } })); //session expires one week later
-
 
 app.use(express.static(path.join(__dirname, "public")))
 app.set('view engine', 'ejs')
@@ -42,6 +39,7 @@ app.use(newuser)
 app.use(cart)
 app.use(wishlist)
 app.use(signout)
+app.use(checkout)
 
 app.use(createProduct)
 app.use(admin)
