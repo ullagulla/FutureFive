@@ -25,21 +25,19 @@ router.get('/products', verifyToken, async (req, res) => {
 
 //specific product page below
 
-router.get("/productpage/:id",verifyToken, async (req, res) => {
+router.get("/productpage/:id", verifyToken, async (req, res) => {
 
     let products = []
 
-    const user = await User.findOne({
-        _id: req.body.user._id
-    })
-    for (let i = 0; i < user.cart.length; i++) {
+    let user
 
-        let product = await Product.findOne({
-            _id: user.cart[i].productId
+    if (!req.body.user) {
+        user = null
+    } else {
+
+        user = await User.findOne({
+            _id: req.body.user._id
         })
-        product.quantity = user.cart[i].quantity
-        products.push(product)
-
     }
 
     const product = await Product.findById({
@@ -47,7 +45,7 @@ router.get("/productpage/:id",verifyToken, async (req, res) => {
     })
 
     res.render("shop/productpage.ejs", {
-        product, products
+        product, user
     })
 })
 

@@ -22,7 +22,7 @@ router.get("/cart", verifyToken, async (req, res) => {
     }
 
     res.render("shop/cart.ejs", {
-        products
+        products, user
     })
 })
 

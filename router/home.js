@@ -16,7 +16,7 @@ router.get('/',verifyToken, async (req, res) => {
             _id: req.body.user._id
         })
     }
-
+    
     res.render('shop/home.ejs', { user })
 })
 

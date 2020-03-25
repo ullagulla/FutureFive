@@ -23,10 +23,6 @@ app.use(express.urlencoded({
     extended: true
 }))
 
-// app.use(forwarding)
-
-
-
 app.use(session({
     secret: `ARaC](NlFW%W{f:~@6:q$:j}Y+'c%D`,
     saveUninitialized: true,
@@ -53,10 +49,6 @@ app.use(function (req, res, next) {
     res.locals.error = req.flash('error')
     next()
 })
-
-// Routes
-// app.use('/admin', require('./router/home.js'));
-// app.use('/admin', require('./router/admin.js'));
 
 app.use(home)
 app.use(productPage)
