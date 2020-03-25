@@ -8,7 +8,18 @@ router.get("/cart", verifyToken, async (req, res) => {
 
     let products = []
 
-    const user = await User.findOne({
+    let user
+
+    if (!req.body.user) {
+        req.flash('r')
+    } else {
+
+        user = await User.findOne({
+            _id: req.body.user._id
+        })
+    }
+
+    user = await User.findOne({
         _id: req.body.user._id
     })
     for (let i = 0; i < user.cart.length; i++) {
@@ -22,7 +33,7 @@ router.get("/cart", verifyToken, async (req, res) => {
     }
 
     res.render("shop/cart.ejs", {
-        products
+        products, user
     })
 })
 

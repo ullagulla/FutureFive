@@ -27,27 +27,15 @@ router.get('/products', verifyToken, async (req, res) => {
 
 router.get("/productpage/:id", verifyToken, async (req, res) => {
 
-    let products = []
-
     let user
 
     if (!req.body.user) {
-        user = null
+
     } else {
 
         user = await User.findOne({
             _id: req.body.user._id
         })
-    }
-
-    for (let i = 0; i < user.cart.length; i++) {
-
-        let product = await Product.findOne({
-            _id: user.cart[i].productId
-        })
-        product.quantity = user.cart[i].quantity
-        products.push(product)
-
     }
 
     const product = await Product.findById({
