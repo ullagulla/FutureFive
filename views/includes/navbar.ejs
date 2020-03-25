@@ -19,14 +19,21 @@
                 <i class="fas fa-user"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/signin">Logga in</a>
-                <a class="dropdown-item" href="/createuser">Registrera</a>
+                <% if (!user){ %>
+                    <a class="dropdown-item" href="/signin">Sign in</a>
+                    <a class="dropdown-item" href="/signup">Sign up</a>
+                <% } else {%>
+                    <a class="dropdown-item" href="/signout">Sign out</a>
+                <% } %>
             </div>
         </li>
+     
         <li><a><i class="fas fa-skull pr-3 pr-md-4"></i></a></li>
         <li class="cart-icon-wrapper">
             <a href="/cart"><i class="fas fa-shopping-cart pr-3 pr-md-5"></i></a>
-            <span class="badge-icon">0</span>
+                <span class="badge-icon">0</span>
         </li>
+
+      
     </div>
 </ul>

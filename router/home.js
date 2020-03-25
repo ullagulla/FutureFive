@@ -1,19 +1,27 @@
 const express = require('express')
 const router = express.Router()
-const Product = require("../models/product")
+const User = require('../models/user')
+const verifyToken = require("./verify")
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 
+router.get('/',verifyToken, async (req, res) => {
+    
+    let user
 
+    if (!req.body.user) {
+        user = null
+    } else {
 
-router.get('/', forwardAuthenticated, (req, res) => {
-    res.render('shop/main.ejs')
+        user = await User.findOne({
+            _id: req.body.user._id
+        })
+    }
+
+    res.render('shop/home.ejs', { user })
 })
 
-module.exports = router 
-router.get('/dashboard', ensureAuthenticated, (req, res) =>
-    res.render('dashboard', {
-        user: req.user
-    })
-);
 
-module.exports = router
+
+
+module.exports = router 
+

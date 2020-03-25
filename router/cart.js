@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const User = require("../models/newuser")
+const User = require("../models/user")
 const verifyToken = require("./verify")
 const Product = require("../models/product")
 

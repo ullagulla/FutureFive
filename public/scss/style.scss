@@ -9,6 +9,8 @@
 @import 'checkout';
 @import 'thankyou';
 @import 'aboutus';
+@import 'signin';
+@import 'signup';
 
 @mixin small {
     @media (min-width: 400px) {
