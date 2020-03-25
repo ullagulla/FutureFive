@@ -4,6 +4,9 @@ footer {
     justify-content: space-between;
 }
 
+.row {
+    width: 100%;
+}
 footer hr {
     border: solid 1px #e7be50;
     margin: 0;
@@ -27,6 +30,8 @@ footer hr {
 }
 
 footer ul {
+    padding: 16px 0;
+    list-style: none;
     display: inline-block;
     background-color: transparent;
     font-size: 1.6em;
@@ -34,6 +39,11 @@ footer ul {
 
 .map {
     color: #e7be50;
+    &:hover {
+        text-decoration: none;
+        color: #e7be50;
+        filter: brightness(0.4);
+    }
 }
 
 .service {

@@ -32,8 +32,9 @@ router.post("/signin", async (req, res) => {
         if(token) {
             const cookie = req.cookies.jsonwebtoken
             if(!cookie) {
-                res.cookie("userLoginData", token, {maxAge: 3600000, httpOnly:true})
+                res.cookie("jsonwebtoken", token, {maxAge: 3600000, httpOnly:true})
             }
+            console.log(user)
             res.render("shop/profile", {user})
          }
 
@@ -43,7 +44,7 @@ router.post("/signin", async (req, res) => {
 
 router.get("/logout", (req, res) => {
 
-    res.clearCookie("userLoginData").redirect("/signin")
+    res.clearCookie("jsonwebtoken").redirect("/signin")
     
 })
 

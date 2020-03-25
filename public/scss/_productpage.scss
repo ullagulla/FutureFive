@@ -1,3 +1,5 @@
+$primColor: #e7be50;
+
 body {
     .container {
         color: #e7be50;
@@ -5,45 +7,51 @@ body {
             .product-wrapper {
                 position: relative;
                 height: 260px;
+
                 .product-img-wrapper {
                     margin-left: auto;
                     margin-right: auto;
                     max-height: 200px;
                     width: 200px;
                     overflow: hidden;
+
                     img {
                         height: auto;
                         width: 200px;
+
                         &:hover {
                             cursor: pointer;
                             animation: flash 0.2s;
                             animation-iteration-count: 3;
-                            animation-iteration-count: 2;
                         }
                     }
                 }
+
                 .product-info {
                     text-align: center;
                 }
             }
         }
     }
-    .pagination-numbers {
+
+    .pagination-wrapper {
         margin-bottom: 10px;
-            a {
-            color: #e7be50;
+        a {
+            color: $primColor;
             &:hover {
-                color: #e7bf50a8;
                 text-decoration: none;
+                filter:brightness(0.6);
             }
+        }
+        #current-page {
+            font-weight: bold;
+            font-size: 18px;
         }
     }
 }
 
 @keyframes flash {
     100% {
-        filter: invert(100%);
-        transform: scale(1.2);
         filter: invert(100%); transform: scale(1.2);
     }
 }

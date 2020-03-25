@@ -1,20 +1,16 @@
 $primColor: #e7be50;
-
 body {
     .container {
         .prod-container {
             color: $primColor;
-
             .prod-img-wrapper {
                 max-height: 600px;
                 overflow: hidden;
-
                 img {
                     width: 100%;
                     object-fit: cover;
                 }
             }
-
             .prod-info {
                 .prod-name {
                     font-size: 20px;
@@ -30,17 +26,19 @@ body {
                         color: black;
                     }
                 }
-
                 .nav-tabs {
                     background-color: #231f20;
                     border-bottom-color: $primColor;
+                    list-style: none;
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 16px 3px;
 
                     a {
                         text-transform: uppercase;
                         font-size: 16px;
                         color: $primColor;
                         opacity: 0.7;
-
                         &:hover {
                             color: $primColor;
                             text-decoration: none;

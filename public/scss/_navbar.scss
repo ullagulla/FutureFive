@@ -35,24 +35,44 @@ $colorThree: #e0d2b5;
     }
 }
 
-ul {
+#main-navbar {
     top: 0vw;
     left: 0;
     position: sticky;
-    padding: 0;
     list-style: none;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: black;
     margin: 0;
     z-index: 2;
     transition: all 0.5s ease-in-out;
     padding: 16px 0;
 
+    .nav-icons-wrapper {
+        width: 300px;
+    }
+
     li {
         display: inline-block;
         font-size: 1.6em;
+        text-transform: uppercase;
+        .nav-link {
+            display: inline-block!important;
+            padding: 0!important;
+        }
+        .dropdown-menu {
+            background-color: black;
+            min-width: 5rem;
+            transform: translate3d(-1rem, 35px, 0)!important;
+            a {
+                color: #e7be50;
+                &:hover {
+                    background-color: black;
+                    color: #e7be50;
+                }
+            }
+        }
 
         a {
             text-decoration: none;
@@ -68,7 +88,18 @@ ul {
         a:hover {
             filter: brightness(0.4);
         }
-
-
+    }
+    .cart-icon-wrapper {
+        position: relative;
+        .badge-icon {
+            color: $colorTwo;
+            font-size: 14px;
+            border: none;
+            position: absolute;
+            right: 7px;
+            @include tablet() {
+                right: 37px;
+            }
+        }
     }
 }

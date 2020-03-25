@@ -14,6 +14,10 @@ const productSchema = mongoose.Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId, // Något valid mongoose id
+        ref: "User" //ref refererar till från vilken model den skulle leta efter objektId
     }
     // userId: {
     //     type: mongoose.Schema.Types.ObjectId,

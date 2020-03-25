@@ -1,0 +1,249 @@
+@mixin tablet {
+    @media (min-width: 600px) {
+        @content;
+    }
+}
+
+@mixin large-tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 990px) {
+        @content;
+    }
+}
+
+@mixin font-style {
+    font-family: 'Work Sans', sans-serif;
+}
+
+@mixin remove-border-and-radius {
+    border-bottom: none;
+    border-right: none;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.checkout-wrapper {
+    h5 {
+        text-transform: uppercase;
+    }
+    .divider {
+        border-top: 1px solid black;
+    }
+    .information {
+        border-top: 1px solid black;
+    }
+    .checkout-product-wrapper {
+        .checkout-product-info {
+            font-size: 12px;
+            text-transform: uppercase;
+            @include tablet() {
+                font-size: 14px;
+            }
+        }
+        div {
+            .product-quantity {
+                font-size: 12px;
+                text-transform: uppercase;
+                @include tablet() {
+                    font-size: 14px;
+                }
+            }
+        }
+        div {
+            .checkout-product-price {
+                font-size: 12px;
+                text-transform: uppercase;
+                @include tablet() {
+                    font-size: 14px;
+                }
+            }
+        }
+        .checkout-product-img-wrapper {
+            max-height: 200px;
+            overflow: hidden;
+            img {
+                height: auto;
+                width: 90%;
+            }
+        }
+    }
+    form {
+        .col-12 {
+            .form-row {
+                .form-control::placeholder {
+                    font-size: 10px;
+                }
+
+                #inputEmail {
+                    border-bottom: none;
+                    border-bottom-right-radius: 0;
+                    border-bottom-left-radius: 0;
+
+                    @include large-tablet() {
+                        border-top-right-radius: 0;
+                        border-right: 0;
+                    }
+                }
+
+                #inputZip {
+                    @include remove-border-and-radius();
+
+                    @include large-tablet() {
+                        border-top-right-radius: 0.25rem;
+                    }
+                }
+
+                #inputPersonal {
+                    @include remove-border-and-radius();
+                    border-left: none;
+                    border-bottom:none;
+
+                }
+
+                #inputFirstname {
+                    @include remove-border-and-radius();
+                    border-left: none;
+
+
+                    @include large-tablet() {
+                        border-right: 0;
+                    }
+                }
+
+                #inputLastname {
+                    @include remove-border-and-radius();
+
+                }
+
+                #inputAddress {
+                    @include remove-border-and-radius();
+                    border-left: none;
+
+
+                }
+
+                #inputCity {
+                    @include remove-border-and-radius();
+
+                    @include large-tablet() {
+                        border-bottom: 1px solid #ced4da;
+                        border-bottom-left-radius: 0.25rem;
+
+                    }
+                }
+
+                #inputPhone {
+                    border-top-right-radius: 0;
+                    border-top-left-radius: 0;
+
+                    @include large-tablet() {
+                        border-bottom-left-radius: 0;
+                    }
+                }
+            }
+        }
+        .btn-wrapper {
+            a {
+                text-decoration: none;
+            }
+            .btn {
+                background-color: transparent!important;
+                border-radius: 0;
+                border: 1px solid $primColor;
+                color: $primColor;
+                &:hover {
+                    background-color: $primColor!important;
+                    color: black;
+                }
+            }
+        }
+    }
+    .payment-container {
+        .card-img {
+            width: 100px;
+
+            img {
+                width: 100%;
+            }
+        }
+        .payment-wrapper {
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            margin-left: 15px;
+            margin-right: 15px;
+
+            .form-control::placeholder {
+                font-size: 10px;
+            }
+
+            #inputCreditcard {
+                background-color: #EAEAEA;
+                border: 2px solid #ced4da;
+                border-radius: 0.25rem;
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+
+            #inputAccount {
+                background-color: transparent;
+                border: 1px solid #ced4da;
+                border-radius: 0.25rem;
+                border-top: none;
+
+                @include remove-border-and-radius();
+            }
+
+            #inputBankTransfer {
+                border: 1px solid #ced4da;
+                border-radius: 0.25rem;
+                border-top-right-radius: 0;
+                border-top-left-radius: 0;
+            }
+
+            #inputCardnumber {
+                border-bottom: none;
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+
+            #inputMonth {
+                border-right: none;
+                border-top-right-radius: 0;
+                border-top-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            #inputCVC {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+
+            label {
+                font-size: 12px;
+            }
+
+            .klarna-info {
+                width: 100%;
+                background-color: #EAEAEA;
+            }
+
+            .show-klarna {
+                width: 100%;
+                cursor: pointer;
+
+                img {
+                    width: 25px;
+                    height: 15px;
+                }
+            }
+        }
+    }
+}
