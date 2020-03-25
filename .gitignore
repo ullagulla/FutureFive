@@ -1,7 +1,7 @@
 .DS_Store
 node_modules
 public/css
-config
+config/config.js
 dist
 cypress/fixtures
 cypress/plugins

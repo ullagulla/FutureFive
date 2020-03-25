@@ -31,15 +31,15 @@ const newUserSchema = mongoose.Schema({
         productId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Product"
-        }, 
+        },
         quantity: {
             type: Number,
             require: true
         },
-         price: {
-             type: Number,
-             require: true
-         }
+        price: {
+            type: Number,
+            require: true
+        }
     }]
 });
 
@@ -52,17 +52,20 @@ newUserSchema.methods.addToWishList = function (product) {
 
 newUserSchema.methods.addToCart = function (productId) {
 
-    const foundItem = this.cart.find( product => product.productId == productId )
-    
-    !foundItem? this.cart.push({productId: productId, quantity: 1}):
-    foundItem.quantity++
+    const foundItem = this.cart.find(product => product.productId == productId)
 
-    return this.save() 
+        !foundItem ? this.cart.push({
+            productId: productId,
+            quantity: 1
+        }) :
+        foundItem.quantity++
+
+    return this.save()
 }
 
 newUserSchema.methods.removeFromCart = function (productId) {
 
-    const filterItems = this.cart.filter( product => product.productId.toString() !== productId )
+    const filterItems = this.cart.filter(product => product.productId.toString() !== productId)
 
     this.cart = filterItems
 
@@ -71,7 +74,7 @@ newUserSchema.methods.removeFromCart = function (productId) {
 
 newUserSchema.methods.addProductInCart = function (productId) {
 
-    const foundItem = this.cart.find( product => product.productId == productId )
+    const foundItem = this.cart.find(product => product.productId == productId)
     foundItem.quantity++
 
     return this.save()
@@ -80,11 +83,11 @@ newUserSchema.methods.addProductInCart = function (productId) {
 
 newUserSchema.methods.removeProductInCart = function (productId) {
 
-    const foundItem = this.cart.find( product => product.productId == productId )
+    const foundItem = this.cart.find(product => product.productId == productId)
     foundItem.quantity--
 
     if (foundItem.quantity == 0) {
-        const filterItems = this.cart.filter( product => product.productId.toString() !== productId )
+        const filterItems = this.cart.filter(product => product.productId.toString() !== productId)
 
         this.cart = filterItems
     }
