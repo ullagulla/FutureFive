@@ -11,16 +11,33 @@ $primColor: #e7be50;
         border-bottom: 1px solid black;
         text-transform: uppercase;
     }
+
+    .no-products-wrapper {
+        text-transform: uppercase;
+
+        a {
+            font-weight: bold;
+            color: $primColor;
+
+            &:hover {
+                text-decoration: none;
+                filter: brightness(0.4);
+            }
+        }
+    }
+
     .cart-product-wrapper {
         margin-right: 0 !important;
 
         .cart-product-info {
             font-size: 12px;
             text-transform: uppercase;
+
             @include tablet() {
                 font-size: 14px;
             }
         }
+
         .cart-product-img-wrapper {
             max-height: 200px;
             overflow: hidden;
@@ -31,6 +48,7 @@ $primColor: #e7be50;
                 top: 3px;
                 left: 1px;
                 font-weight: bold;
+
                 a {
                     color: rgb(156, 9, 9);
                 }
@@ -68,6 +86,7 @@ $primColor: #e7be50;
                     &[type=number]::-webkit-outer-spin-button {
                         -webkit-appearance: none;
                     }
+
                     @include tablet() {
                         font-size: 14px;
                     }
@@ -80,29 +99,35 @@ $primColor: #e7be50;
                 }
             }
         }
+
         .cart-product-price {
             font-size: 12px;
+
             @include tablet() {
                 font-size: 14px;
             }
         }
     }
+
     .row {
         .divider {
             width: 100%;
             border-bottom: 1px solid black;
         }
+
         .btn-wrapper {
             a {
                 text-decoration: none;
             }
+
             .btn {
-                background-color: transparent!important;
+                background-color: transparent !important;
                 border-radius: 0;
                 border: 1px solid $primColor;
                 color: $primColor;
+
                 &:hover {
-                    background-color: $primColor!important;
+                    background-color: $primColor !important;
                     color: black;
                 }
             }

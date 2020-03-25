@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const User = require("../models/newuser")
+const User = require("../models/user")
 const verifyToken = require("./verify")
 const Product = require("../models/product")
 
@@ -24,6 +24,11 @@ router.get("/checkout", verifyToken, async (req, res) => {
     res.render("shop/checkout.ejs", {
         products
     })
+})
+
+router.post("/checkout", verifyToken, (req, res) => {
+
+    res.redirect("/thankyou")
 })
 
 module.exports = router

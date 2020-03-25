@@ -1,10 +1,17 @@
 <%- include("../includes/header.ejs") %>
 <%- include("../includes/script.ejs") %>
-<%- include("../includes/navbar.ejs") %>
 <body>
-<form action="/signin" method="POST">
-    <input type="email" placeholder="email" name="email">
-    <input type="password" placeholder="Lösenord" name="passwordLogin">
+    <%- include("../includes/navbar.ejs") %>
+<form id="signin-form" action="/signin" method="POST">
+        <%- include("../includes/messages.ejs") %>
+    <h2>Email</h2>
+    <input type="email" placeholder="Email" name="email">
+    <h2>Lösenord</h2>
+    <input type="password" placeholder="Lösenord" name="password">
+    <div>
+        <a href="">Glömt lösenordet?</a>
+        <a href="/signup">Inte registrerad?</a>
+    </div>
     <button type="submit">Logga in</button>
 
 </form>

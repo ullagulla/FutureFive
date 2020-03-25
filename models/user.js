@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const newUserSchema = mongoose.Schema({
+const UserSchema = mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -43,14 +43,14 @@ const newUserSchema = mongoose.Schema({
     }]
 });
 
-newUserSchema.methods.addToWishList = function (product) {
+UserSchema.methods.addToWishList = function (product) {
     this.wishlist.push({
         productId: product._id
     })
     return this.save()
 }
 
-newUserSchema.methods.addToCart = function (productId) {
+UserSchema.methods.addToCart = function (productId) {
 
     const foundItem = this.cart.find( product => product.productId == productId )
     
@@ -60,7 +60,7 @@ newUserSchema.methods.addToCart = function (productId) {
     return this.save() 
 }
 
-newUserSchema.methods.removeFromCart = function (productId) {
+UserSchema.methods.removeFromCart = function (productId) {
 
     const filterItems = this.cart.filter( product => product.productId.toString() !== productId )
 
@@ -69,7 +69,7 @@ newUserSchema.methods.removeFromCart = function (productId) {
     return this.save()
 }
 
-newUserSchema.methods.addProductInCart = function (productId) {
+UserSchema.methods.addProductInCart = function (productId) {
 
     const foundItem = this.cart.find( product => product.productId == productId )
     foundItem.quantity++
@@ -78,7 +78,7 @@ newUserSchema.methods.addProductInCart = function (productId) {
 
 }
 
-newUserSchema.methods.removeProductInCart = function (productId) {
+UserSchema.methods.removeProductInCart = function (productId) {
 
     const foundItem = this.cart.find( product => product.productId == productId )
     foundItem.quantity--
@@ -93,6 +93,6 @@ newUserSchema.methods.removeProductInCart = function (productId) {
 
 }
 
-const newUser = mongoose.model("newUser", newUserSchema)
+const User = mongoose.model("User", UserSchema)
 
-module.exports = newUser;
+module.exports = User

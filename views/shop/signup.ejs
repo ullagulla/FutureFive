@@ -1,36 +1,29 @@
 <%- include("../includes/header.ejs") %>
 <%- include("../includes/script.ejs") %>
-<%- include("../includes/navbar.ejs", { user }) %>
 
 <body>
-
-
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-12">
-                <h1>
-                    Sign up here!
-                </h1>
-            </div>
+    <%- include("../includes/navbar.ejs", { user }) %>
+       
+    <form id="signup-form" action="/signup" method="post">
+        <%- include("../includes/messages.ejs") %>
+        <h3>Namn</h3>
+        <input type="text" name="name" placeholder="Namn" required>
+        <h3>Email</h3>
+        <input type="email" name="email" placeholder="Email" required>
+        <h3>Lösenord</h3>
+        <input type="password" name="password" placeholder="Lösenord" required>
+        <div>
+            <h3>Address</h3>
+            <h3>Postnummer</h3>
         </div>
-    </div>
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-12">
-                <form action="/createuser" method="post">
-                    <input type="text" name="name" placeholder="username">
-                    <input type="email" name="email" placeholder="email">
-                    <input type="password" name="password" placeholder="password">
-                    <input type="number" name="zipcode" placeholder="Zipcode">
-                    <input type="text" name="address" placeholder="Address">
-
-                    <button type="submit">Sign Up</button>
-                </form>
-            </div>
+        <div>
+            <input type="text" name="address" placeholder="Address" required>
+            <input type="number" name="zipcode" placeholder="Postnummer" required>
         </div>
-    </div>
 
-
+        <button type="submit">Sign Up</button>
+    </form>
+ 
 </body>
 
 </html>

@@ -2,9 +2,10 @@ const express = require('express')
 const router = express.Router()
 const Product = require("../models/product")
 const verifyToken = require("./verify")
-const User = require("../models/newuser")
+const User = require("../models/user")
 
 router.get('/products', verifyToken, async (req, res) => {
+    
     const currentPage = req.query.page || 1;
     const productPerPage = 8;
     const allProducts = await Product.find().countDocuments()
@@ -13,27 +14,12 @@ router.get('/products', verifyToken, async (req, res) => {
         .skip((currentPage - 1) * productPerPage)
         .limit(productPerPage)
     const pageCount = Math.ceil(allProducts / productPerPage)
-    
-    let products = []
-
-    const user = await User.findOne({
-        _id: req.body.user._id
-    })
-    for (let i = 0; i < user.cart.length; i++) {
-
-        let product = await Product.findOne({
-            _id: user.cart[i].productId
-        })
-        product.quantity = user.cart[i].quantity
-        products.push(product)
-
-    }
 
     res.render("shop/products.ejs", {
         allItems,
         pageCount,
         currentPage,
-        products
+        user:null
     })
 })
 
