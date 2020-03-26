@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Product = require("../models/product")
 
-router.get('/products', async (req, res) => {
+router.get("/products", async (req, res) => {
     const currentPage = req.query.page || 1;
     const productPerPage = 8;
     const allProducts = await Product.find()
@@ -11,6 +11,8 @@ router.get('/products', async (req, res) => {
         .skip((currentPage - 1) * productPerPage)
         .limit(productPerPage)
     const pageCount = Math.ceil(allProducts.length / productPerPage)
+
+    
     res.render("shop/products.ejs", {
         allItems,
         pageCount,

@@ -68,7 +68,6 @@ let isClicked = false;
 $(document).ready(function () {
 
     $(window).on('mousemove', (e) => {
-        console.log(e.clientY)
         $('#logo-pupil').css('left', (50 - ((window.innerWidth / 2) - e.pageX) * 0.0007) + "%");
         $('#logo-highlight').css('left', (50 - ((window.innerWidth / 2) - e.pageX) * 0.0005) + "%");
         $('#logo-highlight').css('top', (e.clientY * 0.003) + "%");

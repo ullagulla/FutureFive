@@ -4,8 +4,7 @@ const newUser = require("../models/newuser")
 const router = express.Router()
 const jwt = require("jsonwebtoken")
 const verifyToken = require("./verify")
-
-var singedIn = false
+    
 
 router.get("/signin", (req, res) =>{
    
