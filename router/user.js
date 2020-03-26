@@ -3,14 +3,14 @@ const User = require('../models/user')
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const router = express.Router()
-const verfiyToken = require("./verify")
+const verifyToken = require("./verify")
 const { checkAuthentication } = require('./auth')
 
 const SIGNOUT = '/signout'
 const SIGNIN = '/signin'
 const SIGNUP = '/signup'
 
-router.get(SIGNIN, verfiyToken, checkAuthentication,  (req, res) =>{
+router.get(SIGNIN, verifyToken, checkAuthentication,  (req, res) =>{
 
     res.render("shop/signin", { user:req.body.user, admin: req.admin })
 })
@@ -56,7 +56,7 @@ router.post(SIGNIN, async (req, res) => {
 
 const salt = bcrypt.genSaltSync(10)
 
-router.get(SIGNUP,verfiyToken, checkAuthentication, async (req, res) =>{
+router.get(SIGNUP,verifyToken, checkAuthentication, async (req, res) =>{
     
     res.render("shop/signup", { user:req.body.user, admin: req.admin })
 })
@@ -115,7 +115,7 @@ router.get(SIGNOUT, (req, res) => {
     res.clearCookie("jsonwebtoken").redirect(SIGNIN)
 })
 
-router.get('/profile',verfiyToken, async (req, res) => {
+router.get('/profile',verifyToken, async (req, res) => {
 
     res.render("shop/profile", {user:req.body.user, admin: req.admin})
 })
