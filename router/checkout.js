@@ -21,7 +21,7 @@ router.get("/checkout", verifyToken, checkAuthentication, async (req, res) => {
         products.push(product)
 
     }
-
+    
     res.render("shop/checkout.ejs", {
         products, user, admin:req.admin
     })
