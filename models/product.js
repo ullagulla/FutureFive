@@ -15,20 +15,14 @@ const productSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    user: {
-        type: mongoose.Schema.Types.ObjectId, // Något valid mongoose id
-        ref: "User" //ref refererar till från vilken model den skulle leta efter objektId
+    adminId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Admin"
+    },
+    adminName: {
+        type: String,
+        required: true
     }
-    // userId: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'User',
-    //     required: true
-    // },
-    // categories: [{
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Category',
-    //     required: true
-    // }]
 });
 
 const Product = mongoose.model('Product', productSchema);

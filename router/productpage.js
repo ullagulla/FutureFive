@@ -3,8 +3,18 @@ const router = express.Router()
 const Product = require("../models/product")
 const verifyToken = require("./verify")
 const User = require("../models/user")
+const {checkAuthentication} = require('./auth')
 
-router.get('/products', verifyToken, async (req, res) => {
+router.get('/products', verifyToken, checkAuthentication, async (req, res) => {
+
+    let admin 
+
+    if (!req.user) {
+        admin = null
+    }
+    else {
+        admin = req.user
+    }
     
     const page = req.query.page || 1;
     const productsPerPage = 8;
@@ -19,6 +29,7 @@ router.get('/products', verifyToken, async (req, res) => {
         allProducts,
         pageCount,
         page,
+        admin,
         user:null
     })
 })

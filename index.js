@@ -15,7 +15,7 @@ const cart = require('./router/cart')
 const cookieParser = require("cookie-parser")
 const wishlist = require("./router/wishlist")
 const checkout = require("./router/checkout")
-require('./config/passport')(passport);
+require('./router/passport')(passport);
 
 app.use(cookieParser())
 
