@@ -29,6 +29,17 @@ body {
 
                 .product-info {
                     text-align: center;
+                    .product-name {
+                        position: relative;
+                        a {
+                            color: $primColor;
+                            position: absolute;
+                            right: 25px;
+                            &:hover {
+                                filter: brightness(0.4);
+                            }
+                        }
+                    }
                 }
             }
         }

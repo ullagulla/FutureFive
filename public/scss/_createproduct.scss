@@ -3,29 +3,25 @@ $colorOne: #231f20;
 $colorTwo: #e7be50;
 $colorThree: #e0d2b5;
 
-h1 {
+.lead {
+    text-transform: capitalize;
+}
+.add-product-header {
     margin-top: 25px;
     text-align: center;
     color:$colorTwo;
 }
-#createproduct-form {
-    width:50%;
-    margin: 50px auto;
-    input {
-        display: block;
-        width:100%;
-        height: 50px;
-        margin: 10px;
-        font-size: 20pt;
-        padding:0 0 0 1%;
+.img-wrapper {
+    width: 100%;
+    img {
+        width: 100%;
     }
-    div {
-        display: flex;
-        justify-content: space-between;
+}
+#addproducts {
+    .form-group {
         input {
-            display:inline-block;
-            width:50%;
-            color: $colorTwo;
+            font-size: 16px;
+            padding:0 0 0 1%;
         }
     }
 }

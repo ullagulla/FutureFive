@@ -1,16 +1,14 @@
 const express = require('express')
-const app = express()
 const router = express.Router()
-const thankyou = require("../models/thankyou")
+const {
+    checkAuthentication, 
+  } = require('./auth')
+  const verifyToken = require("./verify")
 
 
-
-router.get('/thankyou', (req, res) => {
-    res.render('shop/thankyou.ejs')
+router.get('/thankyou',checkAuthentication, verifyToken, (req, res) => {
+    res.render('shop/thankyou.ejs', {user: req.body.user, admin: req.admin})
 })
 
-// router.post('/', (req, res) => {
-//     res.render('shop/thankyou.ejs')
-// })
 
 module.exports = router 

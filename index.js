@@ -2,6 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const admin = require('./router/admin')
 const home = require('./router/home')
+const aboutus = require('./router/aboutus')
+const thankyou = require('./router/thankyou')
 const productPage = require('./router/productpage')
 const forwarding = require("./router/forwarding")
 const session = require('express-session');
@@ -49,7 +51,8 @@ app.use(function (req, res, next) {
     res.locals.error = req.flash('error')
     next()
 })
-
+app.use(aboutus)
+app.use(thankyou)
 app.use(home)
 app.use(productPage)
 app.use(cart)

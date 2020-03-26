@@ -1,12 +1,13 @@
 const express = require('express')
-const app = express()
 const router = express.Router()
-const aboutus = require("../models/aboutus")
+const {
+    checkAuthentication, 
+  } = require('./auth')
+  const verifyToken = require("./verify")
 
 
-
-router.get('/aboutus', (req, res) => {
-    res.render('shop/aboutus.ejs')
+router.get('/aboutus', verifyToken, checkAuthentication, (req, res) => {
+    res.render('shop/aboutus.ejs', {user:req.body.user, admin:req.admin})
 })
 
 // router.post('/', (req, res) => {
