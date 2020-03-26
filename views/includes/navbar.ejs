@@ -10,6 +10,10 @@
     <div class="menu-wrapper">
         <li class="pl-3 pl-md-4"><a href="/">Hem</a></li>
         <li class="pl-3 pl-md-5"><a href="/products">Produkter</a></li>
+        <% if (admin) { %>
+            <li class="pl-3 pl-md-5"><p>Admin: <%= admin.name %></p></li>
+            <li class="pl-3 pl-md-5"><a href="/admin/signout">Logga ut</a></li>
+        <% } %>
     </div>
     <div class="nav-icons-wrapper d-flex justify-content-end">
         <li class="pr-3 pr-md-5"><a href="/aboutus">Om oss</a></li>
@@ -19,11 +23,11 @@
                 <i class="fas fa-user"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <% if (!user){ %>
+                <% if (user){ %>
+                    <a class="dropdown-item" href="/signout">Logga ut</a>
+                <% } else {%>
                     <a class="dropdown-item" href="/signin">Logga in</a>
                     <a class="dropdown-item" href="/signup">Registrera</a>
-                <% } else {%>
-                    <a class="dropdown-item" href="/signout">Logga ut</a>
                 <% } %>
             </div>
         </li>

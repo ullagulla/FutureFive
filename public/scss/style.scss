@@ -11,6 +11,7 @@
 @import 'aboutus';
 @import 'signin';
 @import 'signup';
+@import 'reset';
 
 @mixin small {
     @media (min-width: 400px) {

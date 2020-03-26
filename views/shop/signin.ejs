@@ -3,19 +3,18 @@
 <script src="/js/resetpassword.js"></script>
 
 <body>
-    <%- include("../includes/navbar.ejs") %>
+    <%- include("../includes/navbar.ejs"), { user, admin } %>
 <form id="signin-form" action="/signin" method="POST">
         <%- include("../includes/messages.ejs") %>
     <h2>Email</h2>
     <input type="email" placeholder="Email" name="email">
     <h2>Lösenord</h2>
     <input type="password" placeholder="Lösenord" name="password">
-    <div>
-        <a><button id="reset-btn" type="button" data-toggle="modal" data-target="#exampleModal">Glömt lösenordet?</button></a>
-        <a href="/signup">Inte registrerad?</a>
+    <div class="d-flex justify-content-between">
+        <button class="px-0" id="reset-btn" type="button" data-toggle="modal" data-target="#exampleModal">Glömt lösenordet?</button>
+        <a class="no-registration" href="/signup">Inte registrerad?</a>
     </div>
-    <button type="submit">Logga in</button>
-
+    <button class="btn" type="submit">Logga in</button>
 </form>
 </body>
 <!--Modal for reset password-->

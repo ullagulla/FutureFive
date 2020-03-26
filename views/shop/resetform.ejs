@@ -1,9 +1,20 @@
-<form action="/reset/:token" method="post">
+<%- include("../includes/header.ejs") %>
+<%- include("../includes/script.ejs") %>
 
-    <input type="hidden" value="<%=user._id%>" name="userId">
+<body>
 
-    <input type="password" name="password" id="" placeholder="new password">
-    <input type="password" name="" id="" placeholder="repeat password">
-    <button type="submit">Save new password</button>
+    <%- include("../includes/messages.ejs") %>
+    <div class="container">
+        <form action="/reset/<%= user.resetToken %>" id="resetform" method="post">
 
-</form>
+            <input type="hidden" value="<%=user._id%>" name="userId">
+
+            <input type="password" name="password" id="" placeholder="Nytt lösenord" required min="">
+            <input type="password" name="password2" id="" placeholder="Repetera lösenord" required>
+            <button class="btn" type="submit">Spara nytt lösenord</button>
+
+        </form>
+    </div>
+    <div class="space-div"></div>
+    <%- include("../includes/footer.ejs") %>
+</body>

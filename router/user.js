@@ -3,11 +3,13 @@ const User = require('../models/user')
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const router = express.Router()
-const verfiyToken = require("./verify")
+const verifyToken = require("./verify")
 const crypto = require("crypto")
 const config = require("../config/config")
 const nodemailer = require("nodemailer")
 const sendGridTransport = require("nodemailer-sendgrid-transport")
+const { checkAuthentication } = require('./auth')
+
 const SIGNOUT = '/signout'
 const SIGNIN = '/signin'
 const SIGNUP = '/signup'
@@ -18,9 +20,9 @@ const transport = nodemailer.createTransport(sendGridTransport({
     }
 }))
 
-router.get(SIGNIN, (req, res) =>{
-    let user = undefined
-    res.render("shop/signin", { user })
+router.get(SIGNIN, verifyToken, checkAuthentication,  (req, res) =>{
+
+    res.render("shop/signin", { user:req.body.user, admin: req.admin })
 })
 
 // Sign in 
@@ -64,9 +66,9 @@ router.post(SIGNIN, async (req, res) => {
 
 const salt = bcrypt.genSaltSync(10)
 
-router.get(SIGNUP, async (req, res) =>{
+router.get(SIGNUP,verifyToken, checkAuthentication, async (req, res) =>{
     
-    res.render("shop/signup", { user:null })
+    res.render("shop/signup", { user:req.body.user, admin: req.admin })
 })
 
 router.post(SIGNUP, async (req, res) => {
@@ -112,10 +114,7 @@ router.post(SIGNUP, async (req, res) => {
                     req.flash('success_msg', 'Woop woop, du är nu registrerad och inloggad')
                     return res.redirect("/profile")
                 }
-        
             })
-            
-           
         }
     })
 })
@@ -137,7 +136,7 @@ router.post("/reset", async (req, res) => {
         if (err) return res.redirect("/signup")
         const resetToken = token.toString("hex")
         user.resetToken = resetToken
-        user.expirationToken = Date.now() + 10000
+        user.expirationToken = Date.now() + 400000000
         await user.save()
 
         transport.sendMail({
@@ -151,7 +150,7 @@ router.post("/reset", async (req, res) => {
 
 })
 
-router.get("/reset/:token", verfiyToken, async (req, res) => {
+router.get("/reset/:token", async (req, res) => {
     //Om användare har token och den token är giltig då kan användare få ett formulär
     // req.params.token
 
@@ -164,10 +163,33 @@ router.get("/reset/:token", verfiyToken, async (req, res) => {
 
     if (!user) return res.redirect("/signup")
 
-    res.render("resetform.ejs", {
+    res.render("shop/resetform", {
         user
     })
 
+})
+
+router.post("/reset/:token", async(req, res)=>{
+
+    if(req.body.password !== req.body.password2) {
+        req.flash('error_msg', "Lösenorden stämmer inte överens")
+        return res.redirect("/reset/" + req.params.token)
+    }
+
+    if ( req.body.password.length < 6 ) {
+        req.flash('error_msg', 'Ditt lösenord måste vara minst sex tecken långt')
+        return res.redirect("/reset/" + req.params.token)
+    }
+
+    const user = await User.findOne({_id:req.body.userId})
+
+    user.password = await bcrypt.hash(req.body.password, 10) ;
+    user.resetToken= undefined;
+    user.expirationToken= undefined;
+     await user.save();
+
+res.redirect("/signin"); 
+//aws ses
 })
 
 
@@ -178,22 +200,9 @@ router.get(SIGNOUT, (req, res) => {
     res.clearCookie("jsonwebtoken").redirect(SIGNIN)
 })
 
-router.get('/profile',verfiyToken, async (req, res) => {
-    
-    let user
+router.get('/profile',verifyToken, async (req, res) => {
 
-    if (!req.body.user) {
-
-        user = null
-
-    } else {
-
-        user = await User.findOne({
-            _id: req.body.user._id
-        })
-    }
-
-    res.render("shop/profile", {user})
+    res.render("shop/profile", {user:req.body.user, admin: req.admin})
 })
 
 module.exports = router

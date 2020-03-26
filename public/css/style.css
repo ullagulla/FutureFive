@@ -46,6 +46,9 @@
         #main-navbar li .dropdown-menu a:hover {
           background-color: black;
           color: #e7be50; }
+    #main-navbar li p {
+      font-size: 0.6em;
+      color: #e7be50; }
     #main-navbar li a {
       text-decoration: none;
       color: #e7be50;
@@ -1076,11 +1079,17 @@ body {
 
 #signin-form {
   background-color: #d3d3d3;
-  width: 40%;
+  width: 70%;
   margin: 5vh auto;
   border-radius: 5px;
   text-align: center;
   padding: 20px 0; }
+  @media (min-width: 768px) {
+    #signin-form {
+      width: 60%; } }
+  @media (min-width: 990px) {
+    #signin-form {
+      width: 40%; } }
   #signin-form h2 {
     margin: 20px 0;
     color: #231f20; }
@@ -1090,25 +1099,35 @@ body {
     margin: 20px auto;
     border-radius: 5px;
     height: 50px;
-    font-size: 20pt;
+    font-size: 14px;
     -webkit-appearance: none;
     border-width: 0px;
     border-style: solid;
     padding: 0 10px; }
-  #signin-form button {
+  #signin-form #reset-btn {
+    font-size: 16px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none; }
+    #signin-form #reset-btn:hover {
+      opacity: 0.6; }
+  #signin-form .no-registration {
+    font-size: 16px;
+    color: black; }
+    #signin-form .no-registration:hover {
+      opacity: 0.6; }
+  #signin-form .btn {
     width: 70%;
     margin: 20px;
     -webkit-appearance: none;
     cursor: pointer;
-    font-size: 20pt;
     border: none;
-    border-radius: 5px;
-    font-weight: bolder;
+    border-radius: 0;
     color: #e7be50;
     padding: 10px 0;
     background-color: #231f20;
     transition: all 0.5s ease-in-out; }
-  #signin-form button:hover {
+  #signin-form .btn:hover {
     background-color: #e7be50;
     color: #231f20; }
   #signin-form div {
@@ -1122,18 +1141,24 @@ body {
 
 #signup-form {
   background-color: #d3d3d3;
-  width: 40%;
+  width: 70%;
   margin: 5vh auto;
   border-radius: 5px;
   text-align: center;
   padding: 20px 0; }
+  @media (min-width: 768px) {
+    #signup-form {
+      width: 60%; } }
+  @media (min-width: 990px) {
+    #signup-form {
+      width: 40%; } }
   #signup-form input {
     display: block;
     width: 70%;
     margin: 20px auto;
     border-radius: 5px;
     height: 50px;
-    font-size: 20pt;
+    font-size: 14px;
     -webkit-appearance: none;
     border-width: 0px;
     border-style: solid;
@@ -1153,22 +1178,62 @@ body {
       border-left: solid 1px #231f20;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0; }
-  #signup-form button {
+  #signup-form .btn {
     width: 70%;
     margin: 20px;
     -webkit-appearance: none;
     cursor: pointer;
-    font-size: 20pt;
     border: none;
-    border-radius: 5px;
-    font-weight: bolder;
+    border-radius: 0;
     color: #e7be50;
     padding: 10px 0;
     background-color: #231f20;
     transition: all 0.5s ease-in-out; }
-  #signup-form button:hover {
+  #signup-form .btn:hover {
     background-color: #e7be50;
     color: #231f20; }
+
+body .container #resetform {
+  background-color: #d3d3d3;
+  width: 40%;
+  margin: 5vh auto;
+  border-radius: 5px;
+  text-align: center;
+  padding: 20px 0; }
+  body .container #resetform input {
+    display: block;
+    width: 70%;
+    margin: 20px auto;
+    border-radius: 5px;
+    height: 50px;
+    font-size: 20pt;
+    -webkit-appearance: none;
+    border-width: 0px;
+    border-style: solid;
+    padding: 0 10px; }
+    body .container #resetform input::placeholder {
+      font-size: 12px; }
+      @media (min-width: 600px) {
+        body .container #resetform input::placeholder {
+          font-size: 14px; } }
+  body .container #resetform button {
+    background-color: black;
+    color: #e7be50; }
+    body .container #resetform button:hover {
+      background-color: #e7be50 !important;
+      color: black; }
+
+body .space-div {
+  height: 40px; }
+  @media (min-width: 600px) {
+    body .space-div {
+      height: 120px; } }
+  @media (min-width: 768px) {
+    body .space-div {
+      height: 200px; } }
+  @media (min-width: 990px) {
+    body .space-div {
+      height: 220px; } }
 
 body {
   margin: 0px;
