@@ -15,6 +15,7 @@ const cart = require('./router/cart')
 const cookieParser = require("cookie-parser")
 const wishlist = require("./router/wishlist")
 const checkout = require("./router/checkout")
+const aboutus = require("./router/aboutus")
 require('./router/passport')(passport);
 
 app.use(cookieParser())
@@ -57,6 +58,7 @@ app.use(wishlist)
 app.use(checkout)
 app.use(user)
 app.use(admin)
+app.use(aboutus)
 
 
 app.get('*', (req, res) => {
