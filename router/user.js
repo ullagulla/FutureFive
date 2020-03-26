@@ -4,9 +4,19 @@ const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const router = express.Router()
 const verfiyToken = require("./verify")
+const crypto = require("crypto")
+const config = require("../config/config")
+const nodemailer = require("nodemailer")
+const sendGridTransport = require("nodemailer-sendgrid-transport")
 const SIGNOUT = '/signout'
 const SIGNIN = '/signin'
 const SIGNUP = '/signup'
+
+const transport = nodemailer.createTransport(sendGridTransport({
+    auth: {
+        api_key: config.mail
+    }
+}))
 
 router.get(SIGNIN, (req, res) =>{
     let user = undefined
@@ -109,6 +119,58 @@ router.post(SIGNUP, async (req, res) => {
         }
     })
 })
+
+//reset password
+
+router.get("/reset", function(req, res) {
+
+})
+
+router.post("/reset", async (req, res) => {
+
+    const user = await User.findOne({
+        email: req.body.resetMail
+    })
+    if (!user) return res.redirect("/signup")
+
+    crypto.randomBytes(32, async (err, token) => { //Skapar ett randomBytes token med 32 bytes
+        if (err) return res.redirect("/signup")
+        const resetToken = token.toString("hex")
+        user.resetToken = resetToken
+        user.expirationToken = Date.now() + 10000
+        await user.save()
+
+        transport.sendMail({
+            to: user.email,
+            from: "ulrika.alm@medieinistitutet.se",
+            subject: "reset password",
+            html: `<h1> Reset password: <a href="http://localhost:8000/reset/${resetToken}">Here</a></h1>`
+        })
+        res.redirect("/signin")
+    })
+
+})
+
+router.get("/reset/:token", verfiyToken, async (req, res) => {
+    //Om användare har token och den token är giltig då kan användare få ett formulär
+    // req.params.token
+
+    const user = await User.findOne({
+        resetToken: req.params.token,
+        expirationToken: {
+            $gt: Date.now()
+        }
+    })
+
+    if (!user) return res.redirect("/signup")
+
+    res.render("resetform.ejs", {
+        user
+    })
+
+})
+
+
 
 //Logga ut
 

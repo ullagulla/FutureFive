@@ -1,5 +1,7 @@
 <%- include("../includes/header.ejs") %>
 <%- include("../includes/script.ejs") %>
+<script src="/js/resetpassword.js"></script>
+
 <body>
     <%- include("../includes/navbar.ejs") %>
 <form id="signin-form" action="/signin" method="POST">
@@ -9,10 +11,33 @@
     <h2>Lösenord</h2>
     <input type="password" placeholder="Lösenord" name="password">
     <div>
-        <a href="">Glömt lösenordet?</a>
+        <a><button id="reset-btn" type="button" data-toggle="modal" data-target="#exampleModal">Glömt lösenordet?</button></a>
         <a href="/signup">Inte registrerad?</a>
     </div>
     <button type="submit">Logga in</button>
 
 </form>
 </body>
+<!--Modal for reset password-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="/reset" method="post">
+                <input type="email" name="resetMail" id="">
+                <button type="submit">Send me da bloody password</button>
+                </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

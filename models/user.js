@@ -21,6 +21,8 @@ const UserSchema = mongoose.Schema({
         type: String,
         require: true
     },
+    resetToken: String,
+    expirationToken: Date,
     wishlist: [{
         productId: {
             type: mongoose.Schema.Types.ObjectId,
