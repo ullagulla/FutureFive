@@ -2,6 +2,9 @@
     color: grey;
 }
 
+h1 {
+    color:black;
+}
 .user-btn {
     background-color: #e7be50;
     border-radius: 0;
@@ -14,11 +17,8 @@
     color: black;
 }
 
-#login {
-    background-image: url(../img/wolf4.jpg)
-}
 
-#login_body {
-    background-image: url(../img/wolf3.jpg);
-    background-size: contain;
+.admin-login {
+    background-image: url('/img/wolf3.jpg');
+    background-size: cover;
 }

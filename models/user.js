@@ -38,10 +38,10 @@ const UserSchema = mongoose.Schema({
             type: Number,
             require: true
         },
-         price: {
-             type: Number,
-             require: true
-         }
+        price: {
+            type: Number,
+            require: true
+        }
     }]
 });
 
@@ -58,10 +58,9 @@ UserSchema.methods.addToCart = function (productId) {
     
     !foundItem? this.cart.push({productId: productId, quantity: 1}):
     foundItem.quantity++
-
+    
     return this.save() 
 }
-
 UserSchema.methods.removeFromCart = function (productId) {
 
     const filterItems = this.cart.filter( product => product.productId.toString() !== productId )
