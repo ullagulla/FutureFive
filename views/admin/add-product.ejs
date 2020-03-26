@@ -5,18 +5,21 @@
     <%- include("../includes/navbar.ejs"), { user, admin } %>
 
     <div class="dash-logout text-right m-3">
-        <p class="lead ">Välkommen <%= admin.name %>
+        <p class="lead">Välkommen <%= admin.name %>
         </p>
         <a href="/admin/signout" class="btn btn-secondary">Logga ut</a>
     </div>
 
 
-    <div class="container" style="margin-top:20px;">
-        <h1 class="text-center display-6 font-weight-bold"><u>Lägg till produkt</u></h1>
-        <br>
-        <main role="main">
-
-            <form id="addp" action="/admin/addproducts" method="POST" >
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h1 class="text-center add-product-header font-weight-bold"><u>Lägg till produkt</u></h1>
+                <br>
+                <main role="main">
+            </div>
+            <div class="col-6">
+            <form id="addproduct" action="/admin/addproducts" method="POST">
 
                 <div class="form-group">
                     <label>Produktnamn</label>
@@ -39,10 +42,11 @@
                     <label>Ladda upp foto</label>
                     <input type="file" class="" name="imageUrl" id="productphoto" required="required">
                 </div>
-                <button class="button" type="submit">Lägg till produkt</button>
+                <button class="button btn mb-4" type="submit">Lägg till produkt</button>
             </form>
-        </main>
+            </div>
+            </main>
+        </div>
     </div>
-    <br><br>
     <%- include("../includes/footer.ejs") %>
 </body>
