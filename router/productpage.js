@@ -30,7 +30,7 @@ router.get("/productpage/:id", verifyToken, async (req, res) => {
     let user
 
     if (!req.body.user) {
-
+        user = null
     } else {
 
         user = await User.findOne({
