@@ -291,6 +291,9 @@ footer ul {
 .dash-logout {
   color: grey; }
 
+h1 {
+  color: black; }
+
 .user-btn {
   background-color: #e7be50;
   border-radius: 0;
@@ -301,12 +304,9 @@ footer ul {
   background-color: #b39440;
   color: black; }
 
-#login {
-  background-image: url(../img/wolf4.jpg); }
-
-#login_body {
-  background-image: url(../img/wolf3.jpg);
-  background-size: contain; }
+.admin-login {
+  background-image: url("/img/wolf3.jpg");
+  background-size: cover; }
 
 .cart-wrapper .divider {
   border-bottom: 1px solid black;

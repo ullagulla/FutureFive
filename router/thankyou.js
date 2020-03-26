@@ -1,9 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const {
-    checkAuthentication, 
-  } = require('./auth')
-  const verifyToken = require("./verify")
+const { checkAuthentication } = require('./auth')
+const verifyToken = require("./verify")
 
 
 router.get('/thankyou',checkAuthentication, verifyToken, (req, res) => {
