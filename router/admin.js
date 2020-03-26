@@ -111,9 +111,9 @@ router.get(SIGNOUT, (req, res) => {
   res.redirect(SIGNIN)
 })
 
-router.get(ADD_PRODUCT, ensureAuthenticated, (req, res) => res.render('admin/add-product', {
-  user: null
-}))
+router.get(ADD_PRODUCT, ensureAuthenticated, (req, res) => {
+   res.render('admin/add-product', { user: null})
+})
 
 router.post(ADD_PRODUCT, async (req, res) => {
 
