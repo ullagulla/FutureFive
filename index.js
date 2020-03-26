@@ -60,6 +60,7 @@ app.use(wishlist)
 app.use(checkout)
 app.use(user)
 app.use(admin)
+app.use(aboutus)
 
 
 app.get('*', (req, res) => {

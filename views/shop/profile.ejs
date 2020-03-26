@@ -5,6 +5,18 @@
 
 <div class="container">
     <%- include("../includes/messages.ejs") %>
+    <div class="row">
+        <div class="col-12 py-5">
+            <h5>Välkommen <%= user.name %>, om du klickar <a href="/products">här</a> kan du börja shoppa</h5>
+        </div>
+        <div class="col-6 pt-5 flex-column">
+            Mina uppgifter
+            <p><%= user.name %></p>
+            <p><%= user.email %></p>
+            <p><%= user.address %></p>
+
+        </div>
+    </div>
+    <%- include("../includes/logout.ejs") %>
 </div>
 
-<%- include("../includes/logout.ejs") %>
