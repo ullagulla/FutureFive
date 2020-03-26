@@ -4,7 +4,7 @@ const verifyToken = require("./verify")
 const { checkAuthentication } = require('./auth')
 
 router.get('/',verifyToken, checkAuthentication, async (req, res) => {
-    
+    console.log(req.body)
     res.render('shop/home.ejs', { user:req.body.user, admin: req.admin })
 })
 
