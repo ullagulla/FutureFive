@@ -8,7 +8,7 @@
 
 
         <div class="row products-container d-flex justify-content-center">
-            <% allItems.forEach( (product) => { %>
+            <% allProducts.forEach( (product) => { %>
             <div class="product-wrapper col-6 col-md-4 col-lg-3">
                 <div class="product-img-wrapper">
                     <a href="/productpage/<%=product._id%>" class="specificProduct"><img src="<%= product.imageUrl %> "
@@ -26,7 +26,7 @@
     <div class="pagination-wrapper d-flex justify-content-center">
         <% for (let index = 1; index <= pageCount && pageCount > 1; index++) { %>
 
-        <% if ( currentPage == index ){ %>
+        <% if ( page == index ){ %>
 
         <a id="current-page" class="px-2" href="/products/?page=<%= index %>">
                 <%= index %>

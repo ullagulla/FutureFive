@@ -6,19 +6,19 @@ const User = require("../models/user")
 
 router.get('/products', verifyToken, async (req, res) => {
     
-    const currentPage = req.query.page || 1;
-    const productPerPage = 8;
-    const allProducts = await Product.find().countDocuments()
-    const allItems = await Product
+    const page = req.query.page || 1;
+    const productsPerPage = 8;
+    const products = await Product.find().countDocuments()
+    const allProducts = await Product
         .find()
-        .skip((currentPage - 1) * productPerPage)
-        .limit(productPerPage)
-    const pageCount = Math.ceil(allProducts / productPerPage)
+        .skip((page - 1) * productsPerPage)
+        .limit(productsPerPage)
+    const pageCount = Math.ceil(products / productsPerPage)
 
     res.render("shop/products.ejs", {
-        allItems,
+        allProducts,
         pageCount,
-        currentPage,
+        page,
         user:null
     })
 })
