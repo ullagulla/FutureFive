@@ -3,23 +3,18 @@ const router = express.Router()
 const User = require("../models/user")
 const verifyToken = require("./verify")
 const Product = require("../models/product")
+const {checkAuthentication} = require('./auth')
 
-router.get("/cart", verifyToken, async (req, res) => {
+router.get("/cart", verifyToken, checkAuthentication, async (req, res) => {
 
     let products = []
 
-    let user
-
     if (!req.body.user) {
-        user = null
-
         req.flash(
             'error_msg',
             'Du måste vara inloggad'
-          )
-
+        )
         return res.redirect("/products")
-
     }
 
     user = await User.findOne({
@@ -36,7 +31,7 @@ router.get("/cart", verifyToken, async (req, res) => {
     }
 
     res.render("shop/cart.ejs", {
-        products, user
+        products, user, admin:req.admin
     })
 })
 

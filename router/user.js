@@ -4,13 +4,15 @@ const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const router = express.Router()
 const verfiyToken = require("./verify")
+const { checkAuthentication } = require('./auth')
+
 const SIGNOUT = '/signout'
 const SIGNIN = '/signin'
 const SIGNUP = '/signup'
 
-router.get(SIGNIN, (req, res) =>{
-    let user = undefined
-    res.render("shop/signin", { user })
+router.get(SIGNIN, verfiyToken, checkAuthentication,  (req, res) =>{
+
+    res.render("shop/signin", { user:req.body.user, admin: req.admin })
 })
 
 // Sign in 
@@ -54,9 +56,9 @@ router.post(SIGNIN, async (req, res) => {
 
 const salt = bcrypt.genSaltSync(10)
 
-router.get(SIGNUP, async (req, res) =>{
+router.get(SIGNUP,verfiyToken, checkAuthentication, async (req, res) =>{
     
-    res.render("shop/signup", { user:null })
+    res.render("shop/signup", { user:req.body.user, admin: req.admin })
 })
 
 router.post(SIGNUP, async (req, res) => {
@@ -102,10 +104,7 @@ router.post(SIGNUP, async (req, res) => {
                     req.flash('success_msg', 'Woop woop, du är nu registrerad och inloggad')
                     return res.redirect("/profile")
                 }
-        
             })
-            
-           
         }
     })
 })
@@ -117,21 +116,8 @@ router.get(SIGNOUT, (req, res) => {
 })
 
 router.get('/profile',verfiyToken, async (req, res) => {
-    
-    let user
 
-    if (!req.body.user) {
-
-        user = null
-
-    } else {
-
-        user = await User.findOne({
-            _id: req.body.user._id
-        })
-    }
-
-    res.render("shop/profile", {user})
+    res.render("shop/profile", {user:req.body.user, admin: req.admin})
 })
 
 module.exports = router

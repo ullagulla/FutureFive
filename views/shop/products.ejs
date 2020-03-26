@@ -1,9 +1,9 @@
 <%- include("../includes/header.ejs") %>
 <%- include("../includes/script.ejs") %>
-<%- include("../includes/navbar.ejs") %>
 
 <body>
-
+    <%- include("../includes/navbar.ejs"), { user, admin } %>
+    
     <div class="container d-flex justify-content-center mt-3">
         <%- include("../includes/messages.ejs") %>
 

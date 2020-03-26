@@ -46,6 +46,9 @@
         #main-navbar li .dropdown-menu a:hover {
           background-color: black;
           color: #e7be50; }
+    #main-navbar li p {
+      font-size: 0.6em;
+      color: #e7be50; }
     #main-navbar li a {
       text-decoration: none;
       color: #e7be50;

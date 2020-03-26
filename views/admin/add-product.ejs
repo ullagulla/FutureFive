@@ -2,7 +2,7 @@
 <%- include("../includes/script.ejs") %>
 
 <body>
-    <%- include("../includes/navbar.ejs", {user}) %>
+    <%- include("../includes/navbar.ejs"), { user, admin } %>
 
     <div class="dash-logout text-right m-3">
         <p class="lead ">Välkommen <%= admin.name %>
