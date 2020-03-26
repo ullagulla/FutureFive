@@ -56,7 +56,8 @@ router.get("/cartAdd/:id", verifyToken, async (req, res) => {
     })
     await user.addToCart(req.params.id)
 
-    res.redirect("/cart")
+    req.flash("success_msg", "Varan är tillagd i varukorgen")
+    res.redirect("/productpage/" + req.params.id)
 
 })
 

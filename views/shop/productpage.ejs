@@ -6,16 +6,13 @@
 
     <div class="container d-flex justify-content-center mt-5">
 
-<<<<<<< HEAD
 
         <div class="row prod-container d-flex justify-content-center mb-5">
-=======
-        <div class="row prod-container d-flex justify-content-center">
->>>>>>> b3022867a99551ce0ee66fcaf793d3de8eebd202
             <div class="prod-img-wrapper col-12 col-md-6">
                 <img src="<%= product.imageUrl %> " alt="<%= product.name %>" />
             </div>
             <div class="prod-info col-12 col-md-6">
+                <%- include("../includes/messages.ejs") %>
                 <div class="prod-name mt-3 mt-md-0"> <%= product.name %> </div>
                 <div class="prod-price"> <%= product.price %> SEK </div>
                 <a href="/cartAdd/<%=product._id%>"><button class="btn add-btn mt-4 w-100">Lägg till i kundvagn</button></a>

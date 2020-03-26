@@ -30,6 +30,17 @@
   padding: 16px 0; }
   #main-navbar .nav-icons-wrapper {
     width: 300px; }
+    #main-navbar .nav-icons-wrapper li button {
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      display: inline;
+      color: #e7be50;
+      font-size: 16px; }
+      #main-navbar .nav-icons-wrapper li button:hover {
+        text-decoration: none;
+        color: #e7be50;
+        filter: brightness(0.4); }
   #main-navbar li {
     display: inline-block;
     font-size: 1.6em;
@@ -55,8 +66,7 @@
       filter: brightness(1); }
       #main-navbar li a:hover {
         text-decoration: none;
-        color: #e7be50;
-        filter: brightness(0.6); }
+        color: #e7be50; }
     #main-navbar li a:hover {
       filter: brightness(0.4); }
   #main-navbar .cart-icon-wrapper {
@@ -69,7 +79,35 @@
       right: 7px; }
       @media (min-width: 600px) {
         #main-navbar .cart-icon-wrapper .badge-icon {
-          right: 37px; } }
+          right: 10px; } }
+
+*:focus {
+  outline-width: 0px !important; }
+
+.modal-content {
+  background-color: #231f20 !important;
+  color: #e7be50; }
+  .modal-content .modal-header {
+    border: none; }
+    .modal-content .modal-header button {
+      color: #e7be50; }
+  .modal-content .modal-body .wishlist-content-wrapper {
+    position: relative; }
+    .modal-content .modal-body .wishlist-content-wrapper .img-wrapper {
+      width: 70%;
+      max-height: 200px;
+      overflow: hidden; }
+      .modal-content .modal-body .wishlist-content-wrapper .img-wrapper img {
+        width: 100%;
+        max-width: 189px; }
+      .modal-content .modal-body .wishlist-content-wrapper .img-wrapper .remove-btn {
+        cursor: pointer;
+        position: absolute;
+        top: -5px;
+        left: -15px;
+        font-weight: bold; }
+        .modal-content .modal-body .wishlist-content-wrapper .img-wrapper .remove-btn a {
+          color: #9c0909; }
 
 body .container {
   color: #e7be50; }

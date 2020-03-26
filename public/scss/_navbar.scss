@@ -51,40 +51,64 @@ $colorThree: #e0d2b5;
 
     .nav-icons-wrapper {
         width: 300px;
+
+        li {
+            button {
+                cursor: pointer;
+                background-color: transparent;
+                border: none;
+                display: inline;
+                color: #e7be50;
+                font-size: 16px;
+
+                &:hover {
+                    text-decoration: none;
+                    color: $colorTwo;
+                    filter: brightness(0.4);
+                }
+            }
+        }
     }
 
     li {
         display: inline-block;
         font-size: 1.6em;
         text-transform: uppercase;
+
         .nav-link {
-            display: inline-block!important;
-            padding: 0!important;
+            display: inline-block !important;
+            padding: 0 !important;
         }
+
         .dropdown-menu {
             background-color: black;
             min-width: 5rem;
-            transform: translate3d(-1rem, 35px, 0)!important;
+            transform: translate3d(-1rem, 35px, 0) !important;
+
             a {
                 color: #e7be50;
+
                 &:hover {
                     background-color: black;
                     color: #e7be50;
                 }
             }
         }
+
         p {
             font-size: 0.6em;
             color: $colorTwo;
         }
+
         a {
             text-decoration: none;
             color: $colorTwo;
+
             &:hover {
                 text-decoration: none;
                 color: $colorTwo;
-                filter:brightness(0.6);
             }
+
             filter: brightness(1);
         }
 
@@ -92,16 +116,65 @@ $colorThree: #e0d2b5;
             filter: brightness(0.4);
         }
     }
+
     .cart-icon-wrapper {
         position: relative;
+
         .badge-icon {
             color: $colorTwo;
             font-size: 14px;
             border: none;
             position: absolute;
             right: 7px;
+
             @include tablet() {
-                right: 37px;
+                right: 10px;
+            }
+        }
+    }
+}
+
+*:focus {
+    outline-width: 0px !important;
+}
+
+//Modal styling
+
+.modal-content {
+    background-color: #231f20!important;
+    color: #e7be50;
+    .modal-header {
+        border: none;
+        button {
+            color: #e7be50;
+        }
+    }
+
+    .modal-body {
+        .wishlist-content-wrapper {
+            position: relative;
+
+            .img-wrapper {
+                width: 70%;
+                max-height: 200px;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    max-width: 189px;
+                }
+
+                .remove-btn {
+                    cursor: pointer;
+                    position: absolute;
+                    top: -5px;
+                    left: -15px;
+                    font-weight: bold;
+
+                    a {
+                        color: rgb(156, 9, 9);
+                    }
+                }
             }
         }
     }

@@ -16,4 +16,11 @@ $(document).ready(function () {
         }, 150);
     }, 10000);
 
+    //Wishlist modal trigger below
+
+    let wishlistRoute = "/wishlist"
+    $("#wishlist-btn").on("click", function(){
+        $("#wishlistModal").load(wishlistRoute)
+    })
+
 })

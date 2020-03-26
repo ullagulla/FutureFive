@@ -4,17 +4,29 @@ const User = require("../models/user")
 const verifyToken = require("./verify")
 const Product = require("../models/product")
 
-router.get("/wishlist/:id", verifyToken, async (req, res)=>{
+router.get("/wishlist", verifyToken, async (req,res) => {
 
-    const product = await Product.findOne({_id:req.params.id})
+})
+
+router.get("/wishlist/:id", verifyToken, async (req, res) => {
+
+    if (!req.body.user) {
+        req.flash("error_msg", "Du måste logga in för att lägga till i wishlist")
+        return res.redirect("/productpage/" + req.params.id)
+    }
+
+    const product = await Product.findOne({
+        _id: req.params.id
+    })
     // console.log("Information från user body " + req.body.user._id)
-    const user = await User.findOne({_id:req.body.user._id})
-
+    const user = await User.findOne({
+        _id: req.body.user._id
+    })
+    
     await user.addToWishList(product)
 
-    // console.log(user)
+    res.redirect("/productpage/" + req.params.id)
 
-    res.send("wishlisted")
 })
 
 module.exports = router

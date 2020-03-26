@@ -11,8 +11,10 @@
         <li class="pl-3 pl-md-4"><a href="/">Hem</a></li>
         <li class="pl-3 pl-md-5"><a href="/products">Produkter</a></li>
         <% if (admin) { %>
-            <li class="pl-3 pl-md-5"><p>Admin: <%= admin.name %></p></li>
-            <li class="pl-3 pl-md-5"><a href="/admin/signout">Logga ut</a></li>
+        <li class="pl-3 pl-md-5">
+            <p>Admin: <%= admin.name %></p>
+        </li>
+        <li class="pl-3 pl-md-5"><a href="/admin/signout">Logga ut</a></li>
         <% } %>
     </div>
     <div class="nav-icons-wrapper d-flex justify-content-end">
@@ -24,28 +26,67 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <% if (user){ %>
-                    <a class="dropdown-item" href="/signout">Logga ut</a>
+                <a class="dropdown-item" href="/signout">Logga ut</a>
                 <% } else {%>
-                    <a class="dropdown-item" href="/signin">Logga in</a>
-                    <a class="dropdown-item" href="/signup">Registrera</a>
+                <a class="dropdown-item" href="/signin">Logga in</a>
+                <a class="dropdown-item" href="/signup">Registrera</a>
                 <% } %>
             </div>
         </li>
-     
-        <li><a><i class="fas fa-skull pr-3 pr-md-4"></i></a></li>
+
+        <li><button class="px-0" id="wishlist-btn" type="button" data-toggle="modal" data-target="#wishlistModal"><i
+                    class="fas fa-skull mr-3 mr-md-4"></i></button></li>
         <li class="cart-icon-wrapper">
-            <a href="/cart"><i class="fas fa-shopping-cart pr-3 pr-md-5"></i></a>
+            <a href="/cart"><i class="fas fa-shopping-cart pr-3 pr-md-4"></i></a>
             <% if (user) { %>
-                <% console.log(user) %>
-                <% let total = 0 %> 
-                <% user.cart.forEach(element => { %>
-                <% console.log(total) %>
-                <%     total += element.quantity  %>
-                <% }) %>
-                <span class="badge-icon"><%= total %></span>
+            <% console.log(user) %>
+            <% let total = 0 %>
+            <% user.cart.forEach(element => { %>
+            <% console.log(total) %>
+            <%     total += element.quantity  %>
+            <% }) %>
+            <span class="badge-icon"><%= total %></span>
             <% } %>
         </li>
 
-      
+
     </div>
 </ul>
+
+<!--Modal for wishlist-->
+
+<div class="modal fade pr-0" id="wishlistModal" tabindex="-1" role="dialog" aria-labelledby="wishlistModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="wishlistModalLabel">Din wishlist</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <% if (user) { %>
+                <% user.wishlist.forEach(product => { %>
+                <div class="wishlist-content-wrapper d-flex pb-3">
+                    <div class="img-wrapper">
+                        <span class="remove-btn"><a href="/remove/<%=product._id%>"><i
+                            class="fas fa-skull-crossbones"></i></a></span>
+                        <img src="<%=product.imageUrl%>" />
+                    </div>
+                    <div class="wishlist-name d-flex justify-content-end w-100">
+                    <%= product.name %>
+                    </div>
+                </div>
+                <% }) %>
+                <% } else { %>
+                Hoppsan, logga in så kan du kika :)
+                <% } %>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tack, jag vill gärna shoppa mer
+                    mystiska produkter</button>
+            </div>
+        </div>
+    </div>
+</div>

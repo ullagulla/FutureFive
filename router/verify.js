@@ -1,17 +1,18 @@
 const jwt = require("jsonwebtoken")
-
-module.exports = (req, res, next) => {
+const User = require('../models/user')
+ 
+module.exports = async (req, res, next) => {
+ 
     const token = req.cookies.jsonwebtoken
-
+ 
     if (token) {
-        const user = jwt.verify(token, "secretKey")
-        req.body = user
-
+        const userObject = jwt.verify(token, "secretKey")
+        const user = await User.findOne({
+            email: userObject.user.email
+        })
+        req.body.user = user
         next()
     } else {
-
         next() 
     }
-
-
 }
