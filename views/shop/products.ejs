@@ -4,18 +4,22 @@
 
 <body>
 
-    <div class="container d-flex justify-content-center mt-5">
+    <div class="container d-flex justify-content-center mt-3">
+        <%- include("../includes/messages.ejs") %>
 
-
-        <div class="row products-container d-flex justify-content-center">
-            <% allItems.forEach( (product) => { %>
+        <div class="row products-container d-flex justify-content-center mt-2">
+            <% allProducts.forEach( (product) => { %>
             <div class="product-wrapper col-6 col-md-4 col-lg-3">
                 <div class="product-img-wrapper">
                     <a href="/productpage/<%=product._id%>" class="specificProduct"><img src="<%= product.imageUrl %> "
                             alt="<%= product.name %>" /></a>
                 </div>
                 <div class="product-info">
-                    <div class="product-name mt-auto"> <%= product.name %> </div>
+                    <div class="product-name mt-auto"> <%= product.name %> 
+                        <% if (admin) { %>
+                        <a href="/admin/edit/<%=product._id%>"><i class="far fa-edit"></i></a> <!--Penna-->
+                        <% } %>
+                    </div>
                     <div class="product-price mt-auto"> <%= product.price %> kr </div>
                 </div>
             </div>
@@ -26,7 +30,7 @@
     <div class="pagination-wrapper d-flex justify-content-center">
         <% for (let index = 1; index <= pageCount && pageCount > 1; index++) { %>
 
-        <% if ( currentPage == index ){ %>
+        <% if ( page == index ){ %>
 
         <a id="current-page" class="px-2" href="/products/?page=<%= index %>">
                 <%= index %>

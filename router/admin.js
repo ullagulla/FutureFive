@@ -13,118 +13,163 @@ const SIGNOUT = '/admin/signout'
 const Admin = require('../models/Admin')
 
 const {
-  ensureAuthenticated,
-  forwardAuthenticated
-} = require('../config/auth')
+    ensureAuthenticated,
+    forwardAuthenticated
+} = require('./auth')
 
 // Login Page
 router.get(SIGNIN, forwardAuthenticated, (req, res) => res.render('admin/signin', {
-  user: null
+    user: null
 }))
 
 // Register Page
 router.get(SIGNUP, forwardAuthenticated, (req, res) => res.render('admin/signup', {
-  user: null
+    user: null
 }))
 
 // Register
 router.post(SIGNUP, (req, res) => {
-  const {
-    name,
-    email,
-    password,
-    password2
-  } = req.body
-
-  if (!name || !email || !password || !password2) {
-    req.flash(
-      'error_msg',
-      'Alla fält måste vara ifyllda'
-    )
-    return res.redirect(SIGNUP);
-  }
-
-  if (password != password2) {
-    req.flash(
-      'error_msg',
-      'Lösenordet stämmer inte överens'
-    )
-    return res.redirect(SIGNUP);
-  }
-
-  if (password.length < 6) {
-    req.flash(
-      'error_msg',
-      'Ditt lösenord måste minst vara sex tecken långt'
-    )
-    return res.redirect(SIGNUP);
-  }
-  Admin.findOne({
-    email: email
-  }).then(admin => {
-    if (admin) {
-      req.flash(
-        'error_msg',
-        'Din email är redan registrerad'
-      )
-      res.redirect(SIGNUP);
-    } else {
-      const newAdmin = new Admin({
+    const {
         name,
         email,
-        password
-      })
+        password,
+        password2
+    } = req.body
 
-      bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(newAdmin.password, salt, (err, hash) => {
-          if (err) throw err;
-          newAdmin.password = hash;
-          newAdmin
-            .save()
-            .then(() => {
-              req.flash(
-                'success_msg',
-                'Du är nu registerad och kan logga in'
-              )
-              res.redirect(SIGNIN);
-            })
-            .catch(err => console.log(err));
-        })
-      })
+    if (!name || !email || !password || !password2) {
+        req.flash(
+            'error_msg',
+            'Alla fält måste vara ifyllda'
+        )
+        return res.redirect(SIGNUP);
     }
-  })
+
+    if (password != password2) {
+        req.flash(
+            'error_msg',
+            'Lösenordet stämmer inte överens'
+        )
+        return res.redirect(SIGNUP);
+    }
+
+    if (password.length < 6) {
+        req.flash(
+            'error_msg',
+            'Ditt lösenord måste minst vara sex tecken långt'
+        )
+        return res.redirect(SIGNUP);
+    }
+    Admin.findOne({
+        email: email
+    }).then(admin => {
+        if (admin) {
+            req.flash(
+                'error_msg',
+                'Din email är redan registrerad'
+            )
+            res.redirect(SIGNUP);
+        } else {
+            const newAdmin = new Admin({
+                name,
+                email,
+                password
+            })
+
+            bcrypt.genSalt(10, (err, salt) => {
+                bcrypt.hash(newAdmin.password, salt, (err, hash) => {
+                    if (err) throw err;
+                    newAdmin.password = hash;
+                    newAdmin
+                        .save()
+                        .then(() => {
+                            req.flash(
+                                'success_msg',
+                                'Du är nu registerad och kan logga in'
+                            )
+                            res.redirect(SIGNIN);
+                        })
+                        .catch(err => console.log(err));
+                })
+            })
+        }
+    })
 })
 
 // Login
 router.post(SIGNIN, (req, res, next) => {
-  passport.authenticate('local', {
-    successRedirect: ADD_PRODUCT,
-    failureRedirect: SIGNIN,
-    failureFlash: true
-  })(req, res, next)
+    passport.authenticate('local', {
+        successRedirect: ADD_PRODUCT,
+        failureRedirect: SIGNIN,
+        failureFlash: true
+    })(req, res, next)
 })
 
 // Logout
 router.get(SIGNOUT, (req, res) => {
-  req.logout();
-  req.flash('success_msg', 'Du är utloggad')
-  res.redirect(SIGNIN)
+    req.logout();
+    req.flash('success_msg', 'Du är utloggad')
+    res.redirect(SIGNIN)
 })
 
 router.get(ADD_PRODUCT, ensureAuthenticated, (req, res) => {
-   res.render('admin/add-product', { user: null})
+    req.admin = req.user
+    res.render('admin/add-product', {
+        user: null,
+        admin: req.admin
+    })
 })
 
-router.post(ADD_PRODUCT, async (req, res) => {
 
-  await new Product({
-    name: req.body.productName,
-    price: req.body.productPrice,
-    imageUrl: "/img/" + req.body.imageUrl,
-    description: req.body.productDescription
-  }).save()
+router.post(ADD_PRODUCT, ensureAuthenticated, async (req, res) => {
 
-  return res.redirect(ADD_PRODUCT)
+    req.admin = req.user
+
+    await new Product({
+        name: req.body.productName,
+        price: req.body.productPrice,
+        imageUrl: "/img/" + req.body.imageUrl,
+        description: req.body.productDescription,
+        adminId: req.admin,
+        adminName: req.admin.name
+    }).save()
+
+    return res.redirect(ADD_PRODUCT)
+})
+
+router.get("/admin/edit/:id", ensureAuthenticated, async (req, res) => {
+
+    req.admin = req.user
+
+    const product = await Product.findById({
+        _id: req.params.id
+    })
+
+    res.render("admin/edit-product", {
+        user: null,
+        admin: req.admin,
+        product
+    })
+
+})
+
+router.post("/admin/edit/:id", ensureAuthenticated, async (req, res) => {
+
+    req.admin = req.user
+
+    await Product.updateOne({
+        _id: req.params.id
+    }, {
+        $set: {
+            name: req.body.productName,
+            price: req.body.productPrice,
+            description: req.body.productDescription,
+            adminId: req.admin,
+            adminName: req.admin.name
+        }
+    })
+
+    res.redirect("/products")
+
 })
 
 

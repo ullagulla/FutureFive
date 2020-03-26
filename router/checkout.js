@@ -22,7 +22,7 @@ router.get("/checkout", verifyToken, async (req, res) => {
     }
 
     res.render("shop/checkout.ejs", {
-        products
+        products, user
     })
 })
 

@@ -11,12 +11,15 @@ router.get("/cart", verifyToken, async (req, res) => {
     let user
 
     if (!req.body.user) {
-        req.flash('r')
-    } else {
+        user = null
 
-        user = await User.findOne({
-            _id: req.body.user._id
-        })
+        req.flash(
+            'error_msg',
+            'Du måste vara inloggad'
+          )
+
+        return res.redirect("/products")
+
     }
 
     user = await User.findOne({
@@ -39,7 +42,21 @@ router.get("/cart", verifyToken, async (req, res) => {
 
 router.get("/cartAdd/:id", verifyToken, async (req, res) => {
 
-    const user = await User.findOne({
+    let user
+
+    if (!req.body.user) {
+        user = null
+
+        req.flash(
+            'error_msg',
+            'Du måste vara inloggad'
+          )
+
+        return res.redirect("/products")
+
+    }
+
+    user = await User.findOne({
         _id: req.body.user._id
     })
     await user.addToCart(req.params.id)

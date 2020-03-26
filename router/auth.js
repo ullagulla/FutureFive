@@ -12,5 +12,13 @@ module.exports = {
       return next();
     }
     res.redirect('/admin/addproducts', {user:null});      
+  },
+  checkAuthentication: function(req, res, next) {
+      if (req.isUnauthenticated()) {
+          return next();
+      }
+      else {
+          return next();
+      }
   }
 };

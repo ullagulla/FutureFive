@@ -99,7 +99,7 @@ router.post(SIGNUP, async (req, res) => {
                     if(!cookie) {
                         res.cookie("jsonwebtoken", token, {maxAge: 3600000, httpOnly:true})
                     }
-                    req.flash('success_msg', 'Woop woop, du är nu registrerad')
+                    req.flash('success_msg', 'Woop woop, du är nu registrerad och inloggad')
                     return res.redirect("/profile")
                 }
         
