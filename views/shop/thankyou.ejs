@@ -5,39 +5,36 @@
 <body>
 
     <div id=content-container>
-        <div id="content-one-thank">
-            <div id="back"></div>
-            <div id="front"></div>
-            <h3 class="glow">Thank you for chosing the strange side. In the dark we are processing your request.
-            </h3>
-            <!-- <h1>Thank you for chosing the dark side!</h1> --> -->
-            <!-- <img id="smallskull" class="" src="/img/thirdeyee.jfif" alt=""> -->
-        </div>
         <div id="content-two-thank">
-            <div id="back"></div>
-            <div id="front"></div>
-            <!-- <img id="smallskull" class="NOTimg-body" src="/img/deathskulla.jfif" alt=""> -->
-            <img id="thirdeye" class="NOTimg-body" src="/img/thirdeyee.jfif" alt="">
+            <h3 id="glow">Thank you for chosing the strange side. <br> In the dark we are processing your request.
+                <br><br>
+                <% let max = Math.floor(Math.random() * 100000000) %>
+                Your order number is <span class="random-num"><%= max %></span> and we will ship your order as soon as possible.
+            </h3>
+            <img id="thirdeye" src="/img/thirdeyee.jfif" alt="">
         </div>
-        <div id="content-three-thank">
-            <!-- <div class="card">
-                <div class="face face1">
-                    <div class="content">
-                        <i class="fa fa-windows"></i>
-                        <img id="smallskull" class="NOTimg-body" src="/img/deathskulla.jfif" alt="">
-                        <h3 class="glow">Thank you for chosing the dark side. Evil is processing your request.
-                        </h3>
+        <!-- <div id="content-three-thank">
+            <div class="container">
+                <div class="card">
+                    <div class="face face1">
+                        <div class="content">
+                            <i class="fa fa-windows"></i>
+                            <img id="thirdeye" class="NOTimg-body" src="/img/eyeb.jfif" alt="">
+                            <h3 id="glow">Thank you for chosing the dark side. Evil is processing your request.
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="face face2">
+                        <div class="content">
+                            <p>Moon in da roof for you all to glance at from a distance at night time</p>
+                            <a id="glow" href="#">More Horror for the faithful</a>
+                        </div>
                     </div>
                 </div>
-                <div class="face face2">
-                    <div class="content">
-                        <p>Moon in da roof for you all to glance at from a distance at night time</p>
-                        <a class="glow" href="#">More Horror for the faithful</a>
-                    </div>
-                </div>
-            </div> -->
-            <div id="fire">
-                <div class="fire-container">
+            </div>
+
+            <div class="fire">
+                <div class="fire-container-one">
                     <div class="red flame"></div>
                     <div class="orange flame"></div>
                     <div class="yellow flame"></div>
@@ -54,13 +51,11 @@
                     <div class="black circle"></div>
                 </div>
             </div>
+        </div> -->
+        <div class="content-four-thank">
+            <!-- <img id="skull" class="NOTimg-body" src="/img/pentagramb.jfif" alt="">
+            <h1 class="glow" id="thankYouText"> Thank you for chosing the dark side. Evil is processing your request</h1> -->
         </div>
-        <!-- <div class="content-four-thank">
-
-
-            <!-- <img id="skull" class="NOTimg-body" src="/img/pentagramb.jfif" alt=""> -->
-        <!-- <h1 class="glow" id="thankYouText"> Thank you for chosing the dark side. Evil is processing your request</h1> -->
-    </div> -->
     </div>
 </body>
 <%- include("../includes/footer.ejs") %>

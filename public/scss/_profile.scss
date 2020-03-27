@@ -1,0 +1,18 @@
+$primColor: #e4b638;
+
+
+body {
+    .container {
+        a {
+            color: $primColor;
+            font-size: 1.5rem;
+            &:hover {
+                filter: brightness(0.4);
+                text-decoration: none;
+            }
+        }
+        .details {
+            border: 1px solid black;
+        }
+    }
+}

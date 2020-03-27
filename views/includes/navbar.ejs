@@ -16,6 +16,9 @@
         </li>
         <li class="pl-3 pl-md-5"><a href="/admin/signout">Logga ut</a></li>
         <% } %>
+        <% if (user) { %>
+            <li class="pl-3 pl-md-5"><a href="/signout">Logga ut</a></li>
+        <% } %>
     </div>
     <div class="nav-icons-wrapper d-flex justify-content-end">
         <li class="pr-3 pr-md-5"><a href="/aboutus">Om oss</a></li>
