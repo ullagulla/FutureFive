@@ -108,6 +108,16 @@
         font-weight: bold; }
         .modal-content .modal-body .wishlist-content-wrapper .img-wrapper .remove-btn a {
           color: #9c0909; }
+  .modal-content .modal-footer {
+    border: none; }
+    .modal-content .modal-footer button {
+      background-color: transparent !important;
+      border-radius: 0;
+      border: 1px solid #e7be50;
+      color: #e7be50; }
+      .modal-content .modal-footer button:hover {
+        background-color: #e7be50 !important;
+        color: black; }
 
 body .container {
   color: #e7be50; }
@@ -1379,10 +1389,10 @@ body .space-div {
     body .space-div {
       height: 220px; } }
 
-body .container a {
+body .container .prod-link {
   color: #e4b638;
   font-size: 1.5rem; }
-  body .container a:hover {
+  body .container .prod-link:hover {
     filter: brightness(0.4);
     text-decoration: none; }
 

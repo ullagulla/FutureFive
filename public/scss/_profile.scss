@@ -3,7 +3,7 @@ $primColor: #e4b638;
 
 body {
     .container {
-        a {
+        .prod-link {
             color: $primColor;
             font-size: 1.5rem;
             &:hover {

@@ -178,4 +178,17 @@ $colorThree: #e0d2b5;
             }
         }
     }
+    .modal-footer {
+        border: none;
+        button {
+            background-color: transparent!important;
+            border-radius: 0;
+            border: 1px solid $colorTwo;
+            color: $colorTwo;
+            &:hover {
+                background-color: $colorTwo!important;
+                color: black;
+            }
+        }
+    }
 }
