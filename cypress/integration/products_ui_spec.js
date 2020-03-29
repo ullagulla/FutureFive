@@ -17,11 +17,11 @@ describe("Add product to cart after logging in", () => {
 
         cy.visit("http://localhost:8000/signin")
 
-        cy.get("input[type='email']").type("ulrikaa91@hotmail.com")
+        cy.get("input[name='login-email']").type("ulrikaa91@hotmail.com")
 
-        cy.get("input[type='password']").type("123")
+        cy.get("input[type='password']").type("Cocacola1")
 
-        cy.get("button[type='submit']").click()
+        cy.get(".login-btn").click()
 
         cy.visit("http://localhost:8000/productpage/5e60cb57aaa6e978f87630fd")
 

@@ -32,7 +32,12 @@ const UserSchema = mongoose.Schema({
         productId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Product"
-        }
+        },
+        name: {
+            type: String,
+            require: true
+        },
+        imageUrl: String,
     }],
     cart: [{
         productId: {
@@ -50,10 +55,12 @@ const UserSchema = mongoose.Schema({
     }]
 });
 
-UserSchema.methods.addToWishList = function (product) {
-    this.wishlist.push({
-        productId: product._id
-    })
+UserSchema.methods.addToWishList = function (productId) {
+
+    const foundItem = this.wishlist.find( product => product.productId == productId )
+
+    if (!foundItem) this.wishlist.push({productId: productId, name: productId.name, imageUrl: productId.imageUrl})
+
     return this.save()
 }
 

@@ -7,16 +7,15 @@
     <%- include("../includes/messages.ejs") %>
     <div class="row">
         <div class="col-12 py-5">
-            <h5>Välkommen <%= user.name %>, om du klickar <a href="/products">här</a> kan du börja shoppa</h5>
+            <h5>Välkommen <%= user.name %>, om du klickar <a class="prod-link" href="/products">här</a> kan du börja shoppa</h5>
         </div>
         <div class="col-6 pt-5 flex-column">
-            Mina uppgifter
-            <p><%= user.name %></p>
-            <p><%= user.email %></p>
-            <p><%= user.address %></p>
+            <h5>Mina uppgifter</h5>
+            <p class="details w-50 mb-1"><%= user.name %></p>
+            <p class="details w-50 mb-1"><%= user.email %></p>
+            <p class="details w-50"><%= user.address %></p>
 
         </div>
     </div>
-    <%- include("../includes/logout.ejs") %>
 </div>
 

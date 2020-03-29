@@ -7,14 +7,14 @@
 <form id="signin-form" action="/signin" method="POST">
         <%- include("../includes/messages.ejs") %>
     <h2>Email</h2>
-    <input type="email" placeholder="Email" name="email">
+    <input type="email" placeholder="Email" name="login-email">
     <h2>Lösenord</h2>
     <input type="password" placeholder="Lösenord" name="password">
     <div class="d-flex justify-content-between">
         <button class="px-0" id="reset-btn" type="button" data-toggle="modal" data-target="#exampleModal">Glömt lösenordet?</button>
         <a class="no-registration" href="/signup">Inte registrerad?</a>
     </div>
-    <button class="btn" type="submit">Logga in</button>
+    <button class="btn login-btn" type="submit">Logga in</button>
 </form>
 </body>
 <!--Modal for reset password-->
@@ -22,20 +22,19 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Återställ ditt lösenord</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-            <form action="/reset" method="post">
-                <input type="email" name="resetMail" id="">
-                <button type="submit">Send me da bloody password</button>
+            <form action="/reset" method="post" class="d-flex">
+                <input type="email" class="form-control w-50 mr-1" name="resetMail" id="">
+                <button class="btn  ml-1 w-50" type="submit">Skicka en återställningslänk</button>
                 </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Jag ångrade mig</button>
         </div>
       </div>
     </div>

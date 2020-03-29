@@ -3,9 +3,9 @@
     <img class="logo" id="logo-pupil" src="/img/LOGO_PUPIL.png" alt="hih">
     <img class="logo" id="logo-bg" src="/img/LOGO_BG.png" alt="hih">
     <img class="logo" id="logo-highlight" src="/img/LOGO_HIGHLIGHT.png" alt="hih">
-
+ 
 </div>
-
+ 
 <ul id="main-navbar">
     <div class="menu-wrapper">
         <li class="pl-3 pl-md-4"><a href="/">Hem</a></li>
@@ -45,7 +45,45 @@
                 <span class="badge-icon"><%= total %></span>
             <% } %>
         </li>
-
+ 
       
     </div>
 </ul>
+
+<!--Modal for wishlist-->
+
+<div class="modal fade pr-0" id="wishlistModal" tabindex="-1" role="dialog" aria-labelledby="wishlistModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="wishlistModalLabel">Din wishlist</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <% if (user) { %>
+                <% user.wishlist.forEach(product => { %>
+                <div class="wishlist-content-wrapper d-flex pb-3">
+                    <div class="img-wrapper">
+                        <span class="remove-btn"><a href="/remove/<%=product._id%>"><i
+                            class="fas fa-skull-crossbones"></i></a></span>
+                        <img src="<%=product.imageUrl%>" />
+                    </div>
+                    <div class="wishlist-name d-flex justify-content-end w-100">
+                    <%= product.name %>
+                    </div>
+                </div>
+                <% }) %>
+                <% } else { %>
+                Hoppsan, logga in så kan du kika :)
+                <% } %>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tack, jag vill gärna shoppa mer
+                    mystiska produkter</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -137,9 +137,10 @@ router.post("/reset", async (req, res) => {
 
         transport.sendMail({
             to: user.email,
-            from: "ulrika.alm@medieinistitutet.se",
-            subject: "reset password",
-            html: `<h1> Reset password: <a href="http://localhost:8000/reset/${resetToken}">Here</a></h1>`
+            from: "info@mystiskasaker.se",
+            subject: "Återställ ditt lösenord",
+            html: `<h1> Återställningslänk: <a href="http://localhost:8000/reset/${resetToken}">Här</a></h1><br>
+                    <h2>Kontakta kundtjänst om du inte har efterfrågat det här mejlet</h2>`
         })
         res.redirect("/signin")
     })
