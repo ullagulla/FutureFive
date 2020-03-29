@@ -16,8 +16,10 @@
                 </div>
                 <div class="product-info">
                     <div class="product-name mt-auto"> <%= product.name %> 
-                        <% if (user.isadmin) { %>
-                        <a class="text-right" href="/edit/<%=product._id%>"><i class="far fa-edit"></i></a> <!--Penna-->
+                        <% if (user) { %>
+                            <% if(user.isadmin) { %>
+                                <a class="text-right" href="/edit/<%=product._id%>"><i class="far fa-edit"></i></a> <!--Penna-->
+                            <% } %>
                         <% } %>
                     </div>
                     <div class="product-price mt-auto"> <%= product.price %> kr </div>

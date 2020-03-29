@@ -27,7 +27,7 @@ router.get("/cart", verifyToken, async (req, res) => {
 
     }
 
-    res.render("shop/cart.ejs")
+    res.render("shop/cart.ejs", {products} )
 })
 
 router.get("/cartAdd/:id", verifyToken, async (req, res) => {
