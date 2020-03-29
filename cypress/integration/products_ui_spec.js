@@ -17,7 +17,7 @@ describe("Add product to cart after logging in", () => {
 
         cy.visit("http://localhost:8000/signin")
 
-        cy.get("input[name='login-email']").type("ulrikaa91@hotmail.com")
+        cy.get(".login-email").type("ulrikaa91@hotmail.com")
 
         cy.get("input[type='password']").type("Cocacola1")
 

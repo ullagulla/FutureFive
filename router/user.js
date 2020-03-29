@@ -32,7 +32,7 @@ router.post(SIGNIN, async (req, res) => {
     })
 
     if(!user) {
-        res.cookie("message", "Din email är redan registrerad", {maxAge: 3600000, httpOnly:true})
+        res.cookie("message", "Din email är inte registrerad", {maxAge: 3600000, httpOnly:true})
         
         return res.redirect(SIGNIN);
     }
