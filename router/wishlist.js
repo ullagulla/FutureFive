@@ -4,7 +4,7 @@ const User = require("../models/user")
 const verifyToken = require("./verify")
 const Product = require("../models/product")
 
-router.get("/wishlist", verifyToken, async (req,res) => {
+router.get("/wishlist", verifyToken, async (req, res) => {
 
 })
 
@@ -22,7 +22,7 @@ router.get("/wishlist/:id", verifyToken, async (req, res) => {
     const user = await User.findOne({
         _id: req.body.user._id
     })
-    
+
     await user.addToWishList(product)
 
     res.redirect("/productpage/" + req.params.id)

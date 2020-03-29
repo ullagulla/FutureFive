@@ -10,7 +10,10 @@ router.get("/cart", verifyToken, async (req, res) => {
     let products = []
 
     if (!req.body.user) {
-        res.cookie('message', 'Du måste vara inloggad', {maxAge: 3600000, httpOnly:true})
+        res.cookie('message', 'Du måste vara inloggad', {
+            maxAge: 3600000,
+            httpOnly: true
+        })
         return res.redirect("/products")
     }
 
@@ -27,7 +30,9 @@ router.get("/cart", verifyToken, async (req, res) => {
 
     }
 
-    res.render("shop/cart.ejs", {products} )
+    res.render("shop/cart.ejs", {
+        products
+    })
 })
 
 router.get("/cartAdd/:id", verifyToken, async (req, res) => {
@@ -36,7 +41,10 @@ router.get("/cartAdd/:id", verifyToken, async (req, res) => {
 
     if (!req.body.user) {
         user = null
-        res.cookie('message', 'Du måste vara inloggad', {maxAge: 3600000, httpOnly:true})
+        res.cookie('message', 'Du måste vara inloggad', {
+            maxAge: 3600000,
+            httpOnly: true
+        })
         return res.redirect("/products")
 
     }
@@ -46,7 +54,10 @@ router.get("/cartAdd/:id", verifyToken, async (req, res) => {
     })
     await user.addToCart(req.params.id)
 
-    res.cookie("message", "Varan är tillagd i varukorgen", {maxAge: 3600000, httpOnly:true})
+    res.cookie("message", "Varan är tillagd i varukorgen", {
+        maxAge: 3600000,
+        httpOnly: true
+    })
     res.redirect("/productpage/" + req.params.id)
 
 })

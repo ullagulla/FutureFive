@@ -6,7 +6,7 @@ const ADD_PRODUCT = '/addproducts'
 
 const verifyToken = require("./verify")
 
-router.get(ADD_PRODUCT, verifyToken, (req, res) => {
+router.get(ADD_PRODUCT, verifyToken, checkMsg,(req, res) => {
   if (req.body.user.isadmin) return res.render('admin/add-product')
   else return res.redirect('/')
 })
@@ -25,8 +25,7 @@ router.post(ADD_PRODUCT,verifyToken, async (req, res) => {
   return res.redirect(ADD_PRODUCT)
 })
 
-router.get("/edit/:id", verifyToken, async (req, res) => {
-  console.log("hejsan")
+router.get("/edit/:id", verifyToken, checkMsg, async (req, res) => {
 
   const product = await Product.findById({
     _id: req.params.id

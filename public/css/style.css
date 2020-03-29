@@ -77,9 +77,6 @@
       border: none;
       position: absolute;
       right: 7px; }
-      @media (min-width: 600px) {
-        #main-navbar .cart-icon-wrapper .badge-icon {
-          right: 10px; } }
 
 *:focus {
   outline-width: 0px !important; }

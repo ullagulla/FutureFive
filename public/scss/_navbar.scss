@@ -127,9 +127,6 @@ $colorThree: #e0d2b5;
             position: absolute;
             right: 7px;
 
-            @include tablet() {
-                right: 10px;
-            }
         }
     }
 }
@@ -141,10 +138,12 @@ $colorThree: #e0d2b5;
 //Modal styling
 
 .modal-content {
-    background-color: #231f20!important;
+    background-color: #231f20 !important;
     color: #e7be50;
+
     .modal-header {
         border: none;
+
         button {
             color: #e7be50;
         }
@@ -178,15 +177,18 @@ $colorThree: #e0d2b5;
             }
         }
     }
+
     .modal-footer {
         border: none;
+
         button {
-            background-color: transparent!important;
+            background-color: transparent !important;
             border-radius: 0;
             border: 1px solid $colorTwo;
             color: $colorTwo;
+
             &:hover {
-                background-color: $colorTwo!important;
+                background-color: $colorTwo !important;
                 color: black;
             }
         }
