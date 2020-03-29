@@ -9,7 +9,6 @@
     "dev": "npm-run-all --parallel start sass",
     "test": "npm-run-all --parallel unittest cy:run",
     "cypress": "cypress open",
-    "cy:run": "cypress run -- --record --spec \"cypress/integration/todo_ui_spec.js\"",
     "unittest": "mocha"
   },
   "repository": {
