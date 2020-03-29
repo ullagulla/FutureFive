@@ -126,7 +126,9 @@ $colorThree: #e0d2b5;
             border: none;
             position: absolute;
             right: 7px;
-
+            @include desktop() {
+                right: 37px;
+            }
         }
     }
 }
