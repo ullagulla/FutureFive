@@ -2,10 +2,10 @@
 <%- include("../includes/script.ejs") %>
 
 <body>
-    <%- include("../includes/navbar.ejs"), { user, admin } %>
+    <%- include("../includes/navbar.ejs") %>
 
     <div class="dash-logout text-right m-3">
-        <p class="lead ">Välkommen <%= admin.name %>
+        <p class="lead ">Välkommen <%= user.name %>
         </p>
         <a href="/admin/signout" class="btn btn-secondary">Logga ut</a>
     </div>
@@ -22,7 +22,7 @@
             <div class="col-6">
         <main role="main">
 
-            <form id="addp" action="/admin/edit/<%=product._id%>" method="POST" class="pb-5">
+            <form id="addp" action="/edit/<%=product._id%>" method="POST" class="pb-5">
 
                 <div class="form-group">
                     <label>Produktnamn</label>

@@ -3,7 +3,7 @@ const User = require('../models/user')
 
 
 module.exports = async (req, res, next) => {
-
+    
     const token = req.cookies.jsonwebtoken
 
     if (token) {
@@ -12,6 +12,7 @@ module.exports = async (req, res, next) => {
             email: userObject.user.email
         })
         req.body.user = user
+        res.locals.user = user
         next()
     } else {
         next() 

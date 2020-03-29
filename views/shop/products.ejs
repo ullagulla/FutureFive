@@ -2,7 +2,7 @@
 <%- include("../includes/script.ejs") %>
 
 <body>
-    <%- include("../includes/navbar.ejs"), { user, admin } %>
+    <%- include("../includes/navbar.ejs") %>
     
     <div class="container d-flex justify-content-center mt-3">
         <%- include("../includes/messages.ejs") %>
@@ -16,8 +16,8 @@
                 </div>
                 <div class="product-info">
                     <div class="product-name mt-auto"> <%= product.name %> 
-                        <% if (admin) { %>
-                        <a class="text-right" href="/admin/edit/<%=product._id%>"><i class="far fa-edit"></i></a> <!--Penna-->
+                        <% if (user.isadmin) { %>
+                        <a class="text-right" href="/edit/<%=product._id%>"><i class="far fa-edit"></i></a> <!--Penna-->
                         <% } %>
                     </div>
                     <div class="product-price mt-auto"> <%= product.price %> kr </div>

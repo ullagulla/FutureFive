@@ -3,54 +3,65 @@
 <script src="/js/main.js"></script>
 
 <body>
-    <%- include("../includes/navbar.ejs"), { user, admin } %>
+    <%- include("../includes/navbar.ejs") %>
 
-            <body>
+    <body>
+        <%- include("../includes/messages.ejs") %>
+        <div id=content-container>
+            <div id="content-one">
 
-                <div id=content-container>
-                    <div id="content-one">
+                <h1>SKROLLA PÅ EGEN RISK!</h1>
 
-                        <h1>SKROLLA PÅ EGEN RISK!</h1>
-                        <!-- <h1>PÅ EGEN</h1>
-            <h1>RISK!</h1>  -->
+            </div>
+            <div id="content-two">
+                <h2>TAROTLÄSNING</h2>
+                <div id='tarot-cards'>
+                    <img class="cards" src="/img/cardstack.png" alt="">
 
-                    </div>
-                    <div id="content-two">
-                        <h2>TAROTLÄSNING</h2>
-                        <div id='tarot-cards'>
-                            <img class="cards" src="/img/cardstack.png" alt="">
+                    <img class="cards" id="clickable-card" src="/img/cardback.png" alt="">
 
-                            <img class="cards" id="clickable-card" src="/img/cardback.png" alt="">
-
-                        </div>
-
-                        <div id='tarot-text-container'>
-                            <h3 id='tarot-header'></h3>
-                            <p id='tarot-text'></p>
-                        </div>
-                    </div>
-                    <div id="content-three">
-                        <img id="shrunken-head" src="/img/shrunkenhead.png" alt="">
-                        <h2>SHRU</br>NKEN</br>HEADS.</h2>
-                    </div>
-                    <div id="content-four">
-                        <div id="voodo-doll-container">
-                            <img id="voodoo-doll" src="/img/voodoo.png" alt="">
-                        </div>
-                        <div>
-                            <h2>VOODOODOCKOR</h2>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A tenetur aliquam minima rerum, cum quod. Repudiandae omnis ut doloribus commodi nam totam, eveniet esse provident nemo cum, temporibus inventore id quidem, ex exercitationem
-                                tempore voluptas ullam doloremque? Laborum perferendis sequi minus hic iste nihil atque inventore sunt, voluptatum incidunt fugit deserunt quo accusantium eaque maxime facilis quibusdam amet vitae fugiat quia. Officia,
-                                maxime explicabo. Magni, sit. Magni numquam harum nostrum velit esse omnis, asperiores magnam quod officiis voluptatibus animi, voluptates fuga beatae, iste autem. Officia molestias ipsa odio corrupti explicabo atque laborum
-                                repudiandae dolores veritatis, dicta delectus perferendis rerum, in sapiente tenetur at alias obcaecati dolorem numquam incidunt consequuntur. Ipsa dicta id laudantium minima officia sunt sed quas, ratione iure quisquam
-                                distinctio sit rem veritatis voluptatibus quod a adipisci, quis ullam quae? Ducimus praesentium nihil ex culpa ad rem quam in. Similique officia quaerat error sint quia rerum optio nemo expedita voluptatem omnis velit quod
-                                vitae, debitis eveniet quibusdam iste distinctio obcaecati repudiandae odio aliquid itaque iusto asperiores possimus dolore! Itaque ex nemo sunt atque asperiores sint hic quam adipisci nobis fuga, veritatis quasi enim alias
-                                quod quas soluta incidunt consectetur consequatur corporis doloremque reiciendis. Repudiandae consectetur est accusamus molestias!</p>
-                        </div>
-                    </div>
                 </div>
-                <%- include("../includes/footer.ejs") %>
 
-            </body>
+                <div id='tarot-text-container'>
+                    <h3 id='tarot-header'></h3>
+                    <p id='tarot-text'></p>
+                </div>
+            </div>
+            <div id="content-three">
+                <img id="shrunken-head" src="/img/shrunkenhead.png" alt="">
+                <h2>SHRU</br>NKEN</br>HEADS.</h2>
+            </div>
+            <div id="content-four">
+                <div id="voodo-doll-container">
+                    <img id="voodoo-doll" src="/img/voodoo.png" alt="">
+                </div>
+                <div>
+                    <h2>VOODOODOCKOR</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A tenetur aliquam minima rerum, cum
+                        quod. Repudiandae omnis ut doloribus commodi nam totam, eveniet esse provident nemo cum,
+                        temporibus inventore id quidem, ex exercitationem
+                        tempore voluptas ullam doloremque? Laborum perferendis sequi minus hic iste nihil atque
+                        inventore sunt, voluptatum incidunt fugit deserunt quo accusantium eaque maxime facilis
+                        quibusdam amet vitae fugiat quia. Officia,
+                        maxime explicabo. Magni, sit. Magni numquam harum nostrum velit esse omnis, asperiores magnam
+                        quod officiis voluptatibus animi, voluptates fuga beatae, iste autem. Officia molestias ipsa
+                        odio corrupti explicabo atque laborum
+                        repudiandae dolores veritatis, dicta delectus perferendis rerum, in sapiente tenetur at alias
+                        obcaecati dolorem numquam incidunt consequuntur. Ipsa dicta id laudantium minima officia sunt
+                        sed quas, ratione iure quisquam
+                        distinctio sit rem veritatis voluptatibus quod a adipisci, quis ullam quae? Ducimus praesentium
+                        nihil ex culpa ad rem quam in. Similique officia quaerat error sint quia rerum optio nemo
+                        expedita voluptatem omnis velit quod
+                        vitae, debitis eveniet quibusdam iste distinctio obcaecati repudiandae odio aliquid itaque iusto
+                        asperiores possimus dolore! Itaque ex nemo sunt atque asperiores sint hic quam adipisci nobis
+                        fuga, veritatis quasi enim alias
+                        quod quas soluta incidunt consectetur consequatur corporis doloremque reiciendis. Repudiandae
+                        consectetur est accusamus molestias!</p>
+                </div>
+            </div>
+        </div>
+        <%- include("../includes/footer.ejs") %>
 
-            </html>
+    </body>
+
+    </html>

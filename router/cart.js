@@ -3,17 +3,14 @@ const router = express.Router()
 const User = require("../models/user")
 const verifyToken = require("./verify")
 const Product = require("../models/product")
-const {checkAuthentication} = require('./auth')
 
-router.get("/cart", verifyToken, checkAuthentication, async (req, res) => {
+
+router.get("/cart", verifyToken, async (req, res) => {
 
     let products = []
 
     if (!req.body.user) {
-        req.flash(
-            'error_msg',
-            'Du måste vara inloggad'
-        )
+        res.cookie('message', 'Du måste vara inloggad', {maxAge: 3600000, httpOnly:true})
         return res.redirect("/products")
     }
 
@@ -30,9 +27,7 @@ router.get("/cart", verifyToken, checkAuthentication, async (req, res) => {
 
     }
 
-    res.render("shop/cart.ejs", {
-        products, user, admin:req.admin
-    })
+    res.render("shop/cart.ejs")
 })
 
 router.get("/cartAdd/:id", verifyToken, async (req, res) => {
@@ -41,12 +36,7 @@ router.get("/cartAdd/:id", verifyToken, async (req, res) => {
 
     if (!req.body.user) {
         user = null
-
-        req.flash(
-            'error_msg',
-            'Du måste vara inloggad'
-          )
-
+        res.cookie('message', 'Du måste vara inloggad', {maxAge: 3600000, httpOnly:true})
         return res.redirect("/products")
 
     }

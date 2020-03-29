@@ -4,11 +4,11 @@ const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const router = express.Router()
 const verifyToken = require("./verify")
+const checkMsg = require('./message')
 const crypto = require("crypto")
 const config = require("../config/config")
 const nodemailer = require("nodemailer")
 const sendGridTransport = require("nodemailer-sendgrid-transport")
-const { checkAuthentication } = require('./auth')
 
 const SIGNOUT = '/signout'
 const SIGNIN = '/signin'
@@ -20,9 +20,8 @@ const transport = nodemailer.createTransport(sendGridTransport({
     }
 }))
 
-router.get(SIGNIN, verifyToken, checkAuthentication,  (req, res) =>{
-
-    res.render("shop/signin", { user:req.body.user, admin: req.admin })
+router.get(SIGNIN, verifyToken, checkMsg,  (req, res) =>{
+    res.render("shop/signin")
 })
 
 // Sign in 
@@ -33,19 +32,15 @@ router.post(SIGNIN, async (req, res) => {
     })
 
     if(!user) {
-        req.flash(
-            'error_msg',
-            'Din email är inte registrerad'
-        )
+        res.cookie("message", "Din email är redan registrerad", {maxAge: 3600000, httpOnly:true})
+        
         return res.redirect(SIGNIN);
     }
     const validUser = await bcrypt.compare(req.body.password, user.password)
 
     if (!validUser) {
-        req.flash(
-            'error_msg',
-            'Fel lösenord'
-        )
+        res.cookie("message", "Fel lösenord", {maxAge: 3600000, httpOnly:true})
+
         return res.redirect(SIGNIN);
     }
     jwt.sign({user}, "secretKey", (err, token) => {
@@ -55,7 +50,6 @@ router.post(SIGNIN, async (req, res) => {
             if(!cookie) {
                 res.cookie("jsonwebtoken", token, {maxAge: 3600000, httpOnly:true})
             }
-            req.flash('success_msg', 'Du är inloggad!')
             return res.redirect("/profile")
         }
 
@@ -66,25 +60,27 @@ router.post(SIGNIN, async (req, res) => {
 
 const salt = bcrypt.genSaltSync(10)
 
-router.get(SIGNUP,verifyToken, checkAuthentication, async (req, res) =>{
+router.get(SIGNUP,verifyToken, checkMsg,async (req, res) =>{
     
-    res.render("shop/signup", { user:req.body.user, admin: req.admin })
+    res.render("shop/signup")
 })
 
 router.post(SIGNUP, async (req, res) => {
     
     if ( req.body.name.length < 2 ) {
-        req.flash('error_msg', 'Ogiltigt namn')
+        res.cookie('message', 'Ogiltigt namn', {maxAge: 3600000, httpOnly:true})
+
         return res.redirect(SIGNUP)
     }
 
     if ( req.body.password.length < 6 ) {
-        req.flash('error_msg', 'Ditt lösenord måste vara minst sex tecken långt')
+        res.cookie('message', 'Ditt lösenord måste vara minst sex tecken långt', {maxAge: 3600000, httpOnly:true})
         return res.redirect(SIGNUP)
     }
-     
+    
     if ( req.body.zipcode.length < 5 || req.body.zipcode.length > 6) {
-        req.flash('error_msg', 'Ogiltigt postnummer')
+        res.cookie('message', 'Ogiltigt postnummer', {maxAge: 3600000, httpOnly:true})
+       
         return res.redirect(SIGNUP)
     }
 
@@ -92,7 +88,8 @@ router.post(SIGNUP, async (req, res) => {
         email:req.body.email
     }).then( async user => {
         if(user) {
-            req.flash('error_msg', 'Din email är redan registrerad')
+            res.cookie('message', 'Din email är redan registrerad', {maxAge: 3600000, httpOnly:true})
+            
             return res.redirect(SIGNUP)
         } else {
             const cryptPassword = await bcrypt.hash(req.body.password, salt)
@@ -105,13 +102,12 @@ router.post(SIGNUP, async (req, res) => {
             }).save()
 
             jwt.sign({user}, "secretKey", (err, token) => {
-                console.log(token)
                 if(token) {
                     const cookie = req.cookies.jsonwebtoken
                     if(!cookie) {
                         res.cookie("jsonwebtoken", token, {maxAge: 3600000, httpOnly:true})
                     }
-                    req.flash('success_msg', 'Woop woop, du är nu registrerad och inloggad')
+                    res.cookie('message', 'Woop woop, du är nu registrerad och inloggad', {maxAge: 3600000, httpOnly:true})
                     return res.redirect("/profile")
                 }
             })
@@ -150,7 +146,7 @@ router.post("/reset", async (req, res) => {
 
 })
 
-router.get("/reset/:token", async (req, res) => {
+router.get("/reset/:token", verifyToken, checkMsg, async (req, res) => {
     //Om användare har token och den token är giltig då kan användare få ett formulär
     // req.params.token
 
@@ -163,21 +159,19 @@ router.get("/reset/:token", async (req, res) => {
 
     if (!user) return res.redirect("/signup")
 
-    res.render("shop/resetform", {
-        user
-    })
+    res.render("shop/resetform")
 
 })
 
 router.post("/reset/:token", async(req, res)=>{
 
     if(req.body.password !== req.body.password2) {
-        req.flash('error_msg', "Lösenorden stämmer inte överens")
+        res.cookie('message', 'Lösenorden stämmer inte överens', {maxAge: 3600000, httpOnly:true})
         return res.redirect("/reset/" + req.params.token)
     }
 
     if ( req.body.password.length < 6 ) {
-        req.flash('error_msg', 'Ditt lösenord måste vara minst sex tecken långt')
+        res.cookie('message', 'Ditt lösenord måste vara minst sex tecken långt', {maxAge: 3600000, httpOnly:true})
         return res.redirect("/reset/" + req.params.token)
     }
 
@@ -186,13 +180,10 @@ router.post("/reset/:token", async(req, res)=>{
     user.password = await bcrypt.hash(req.body.password, 10) ;
     user.resetToken= undefined;
     user.expirationToken= undefined;
-     await user.save();
+    await user.save();
 
 res.redirect("/signin"); 
-//aws ses
 })
-
-
 
 //Logga ut
 
@@ -200,9 +191,8 @@ router.get(SIGNOUT, (req, res) => {
     res.clearCookie("jsonwebtoken").redirect(SIGNIN)
 })
 
-router.get('/profile',verifyToken, async (req, res) => {
-
-    res.render("shop/profile", {user:req.body.user, admin: req.admin})
+router.get('/profile',verifyToken, checkMsg, async (req, res) => {
+    res.render("shop/profile")
 })
 
 module.exports = router

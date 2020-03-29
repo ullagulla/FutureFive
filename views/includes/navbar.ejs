@@ -10,9 +10,10 @@
     <div class="menu-wrapper">
         <li class="pl-3 pl-md-4"><a href="/">Hem</a></li>
         <li class="pl-3 pl-md-5"><a href="/products">Produkter</a></li>
-        <% if (admin) { %>
-            <li class="pl-3 pl-md-5"><p>Admin: <%= admin.name %></p></li>
-            <li class="pl-3 pl-md-5"><a href="/admin/signout">Logga ut</a></li>
+        <% if (user) { %>
+            <% if(user.isadmin) { %>
+            <li class="pl-3 pl-md-5"> <a href="/addproducts"> admin: <%= user.name %></a></li>
+            <% } %>
         <% } %>
     </div>
     <div class="nav-icons-wrapper d-flex justify-content-end">
@@ -37,10 +38,8 @@
         <li class="cart-icon-wrapper">
             <a href="/cart"><i class="fas fa-shopping-cart pr-3 pr-md-5"></i></a>
             <% if (user) { %>
-                <% console.log(user) %>
                 <% let total = 0 %> 
                 <% user.cart.forEach(element => { %>
-                <% console.log(total) %>
                 <%     total += element.quantity  %>
                 <% }) %>
                 <span class="badge-icon"><%= total %></span>

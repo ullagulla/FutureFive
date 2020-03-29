@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
 const Product = require("../models/product")
-const verifyToken = require("./verify")
 const User = require("../models/user")
-const {checkAuthentication} = require('./auth')
+const verifyToken = require("./verify")
+const checkMsg = require('./message')
 
-router.get('/products', verifyToken, checkAuthentication, async (req, res) => {
+router.get('/products', verifyToken, checkMsg, async (req, res) => {
     
     const page = req.query.page || 1;
     const productsPerPage = 8;
@@ -20,22 +20,20 @@ router.get('/products', verifyToken, checkAuthentication, async (req, res) => {
     res.render("shop/products.ejs", {
         allProducts,
         pageCount,
-        page,
-        admin: req.admin,
-        user: req.body.user
+        page
     })
 })
 
 //specific product page below
 
-router.get("/productpage/:id", verifyToken,checkAuthentication, async (req, res) => {
+router.get("/productpage/:id", verifyToken, checkMsg, async (req, res) => {
 
     const product = await Product.findById({
         _id: req.params.id
     })
 
     res.render("shop/productpage.ejs", {
-        product, user:req.body.user, admin: req.admin
+        product
     })
 })
 
