@@ -1,15 +1,10 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const admin = require('./router/admin')
 const home = require('./router/home')
 const aboutus = require('./router/aboutus')
 const thankyou = require('./router/thankyou')
 const productPage = require('./router/productpage')
-const forwarding = require("./router/forwarding")
-const session = require('express-session');
 const app = express()
-const passport = require('passport');
-const flash = require('connect-flash');
 const config = require('./config/config')
 const user = require("./router/user")
 const path = require('path')
@@ -17,40 +12,25 @@ const cart = require('./router/cart')
 const cookieParser = require("cookie-parser")
 const wishlist = require("./router/wishlist")
 const checkout = require("./router/checkout")
-require('./router/passport')(passport);
-
+const admin = require('./router/admin')
 app.use(cookieParser())
 
 app.use(express.urlencoded({
     extended: true
 }))
 
-app.use(session({
-    secret: `ARaC](NlFW%W{f:~@6:q$:j}Y+'c%D`,
-    saveUninitialized: true,
-    resave: true,
-    cookie: {
-        expires: new Date(Date.now() + (60000 * 60 * 24 * 7))
-    }
-})) //session expires one week later
-
 app.use(express.static(path.join(__dirname, "public")))
 app.set('view engine', 'ejs')
 
-// Passport middleware
-app.use(passport.initialize())
-app.use(passport.session())
-
-// Connect flash
-app.use(flash())
-
 // Global variables
 app.use(function (req, res, next) {
-    res.locals.success_msg = req.flash('success_msg')
-    res.locals.error_msg = req.flash('error_msg')
-    res.locals.error = req.flash('error')
+    res.locals.success_msg = req.success_msg,
+    res.locals.error_msg = req.error_msg,
+    res.locals.user = req.body.user
     next()
 })
+
+app.use(admin)
 app.use(aboutus)
 app.use(thankyou)
 app.use(home)
@@ -59,7 +39,6 @@ app.use(cart)
 app.use(wishlist)
 app.use(checkout)
 app.use(user)
-app.use(admin)
 app.use(aboutus)
 
 

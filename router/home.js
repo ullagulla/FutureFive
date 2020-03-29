@@ -1,10 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const verifyToken = require("./verify")
-const { checkAuthentication } = require('./auth')
-
-router.get('/',verifyToken, checkAuthentication, async (req, res) => {
-    console.log(req.body)
+const checkMsg = require('./message')
+router.get('/', verifyToken, checkMsg, async (req, res) => {
     res.render('shop/home.ejs', { user:req.body.user, admin: req.admin })
 })
 
