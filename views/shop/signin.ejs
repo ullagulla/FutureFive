@@ -7,14 +7,14 @@
 <form id="signin-form" action="/signin" method="POST">
         <%- include("../includes/messages.ejs") %>
     <h2>Email</h2>
-    <input type="email" placeholder="Email" name="email">
+    <input type="email" placeholder="Email" name="login-email">
     <h2>Lösenord</h2>
     <input type="password" placeholder="Lösenord" name="password">
     <div class="d-flex justify-content-between">
         <button class="px-0" id="reset-btn" type="button" data-toggle="modal" data-target="#exampleModal">Glömt lösenordet?</button>
         <a class="no-registration" href="/signup">Inte registrerad?</a>
     </div>
-    <button class="btn" type="submit">Logga in</button>
+    <button class="btn login-btn" type="submit">Logga in</button>
 </form>
 </body>
 <!--Modal for reset password-->
