@@ -46,7 +46,7 @@ router.get("/cartAdd/:id", verifyToken, async (req, res) => {
     })
     await user.addToCart(req.params.id)
 
-    req.flash("success_msg", "Varan är tillagd i varukorgen")
+    res.cookie('message', 'Varan är tillagd i varukorgen', {maxAge: 3600000, httpOnly:true})
     res.redirect("/productpage/" + req.params.id)
 
 })

@@ -21,7 +21,7 @@ router.get("/checkout", verifyToken, async (req, res) => {
 
     }
     
-    res.render("shop/checkout.ejs")
+    res.render("shop/checkout.ejs",  {products})
 })
 
 router.post("/checkout", verifyToken, (req, res) => {
