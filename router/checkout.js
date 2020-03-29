@@ -20,8 +20,10 @@ router.get("/checkout", verifyToken, async (req, res) => {
         products.push(product)
 
     }
-    
-    res.render("shop/checkout.ejs", {products})
+
+    res.render("shop/checkout.ejs", {
+        products
+    })
 })
 
 router.post("/checkout", verifyToken, (req, res) => {

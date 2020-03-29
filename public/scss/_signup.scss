@@ -15,18 +15,20 @@
         @content;
     }
 }
+
 $colorOne: #231f20;
 $colorTwo: #e7be50;
-$colorThree: #e0d2b5; 
+$colorThree: #e0d2b5;
 
 #signup-form {
 
-    background-color:#d3d3d3;
+    background-color: #d3d3d3;
     width: 70%;
     margin: 5vh auto;
     border-radius: 5px;
     text-align: center;
     padding: 20px 0;
+
     @include large-tablet() {
         width: 60%;
     }
@@ -34,6 +36,7 @@ $colorThree: #e0d2b5;
     @include desktop() {
         width: 40%;
     }
+
     input {
         display: block;
         width: 70%;
@@ -41,30 +44,35 @@ $colorThree: #e0d2b5;
         border-radius: 5px;
         height: 50px;
         font-size: 14px;
-        -webkit-appearance: none;    
+        -webkit-appearance: none;
         border-width: 0px;
         border-style: solid;
         padding: 0 10px;
     }
+
     div {
         display: flex;
         justify-content: space-evenly;
-        width:70%;
+        width: 70%;
         margin: 0px auto;
+
         input {
-           width: 50%;
+            width: 50%;
         }
-        input:nth-child(1){
+
+        input:nth-child(1) {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
             border-right: solid 1px #231f20;
         }
-        input:nth-child(2){
+
+        input:nth-child(2) {
             border-left: solid 1px #231f20;
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
         }
     }
+
     .btn {
         width: 70%;
         margin: 20px;

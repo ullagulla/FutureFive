@@ -3,6 +3,7 @@ $primColor: #e7be50;
 body {
     .container {
         color: #e7be50;
+
         .products-container {
             .product-wrapper {
                 position: relative;
@@ -29,12 +30,15 @@ body {
 
                 .product-info {
                     text-align: center;
+
                     .product-name {
                         position: relative;
+
                         a {
                             color: $primColor;
                             position: absolute;
                             right: 25px;
+
                             &:hover {
                                 filter: brightness(0.4);
                             }
@@ -47,13 +51,16 @@ body {
 
     .pagination-wrapper {
         margin-bottom: 10px;
+
         a {
             color: $primColor;
+
             &:hover {
                 text-decoration: none;
-                filter:brightness(0.6);
+                filter: brightness(0.6);
             }
         }
+
         #current-page {
             font-weight: bold;
             font-size: 18px;
@@ -63,6 +70,7 @@ body {
 
 @keyframes flash {
     100% {
-        filter: invert(100%); transform: scale(1.2);
+        filter: invert(100%);
+        transform: scale(1.2);
     }
 }

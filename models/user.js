@@ -43,7 +43,7 @@ const UserSchema = mongoose.Schema({
         productId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Product"
-        }, 
+        },
         quantity: {
             type: Number,
             require: true
@@ -57,25 +57,32 @@ const UserSchema = mongoose.Schema({
 
 UserSchema.methods.addToWishList = function (productId) {
 
-    const foundItem = this.wishlist.find( product => product.productId == productId )
+    const foundItem = this.wishlist.find(product => product.productId == productId)
 
-    if (!foundItem) this.wishlist.push({productId: productId, name: productId.name, imageUrl: productId.imageUrl})
+    if (!foundItem) this.wishlist.push({
+        productId: productId,
+        name: productId.name,
+        imageUrl: productId.imageUrl
+    })
 
     return this.save()
 }
 
 UserSchema.methods.addToCart = function (productId) {
 
-    const foundItem = this.cart.find( product => product.productId == productId )
-    
-    !foundItem? this.cart.push({productId: productId, quantity: 1}):
-    foundItem.quantity++
-    
-    return this.save() 
+    const foundItem = this.cart.find(product => product.productId == productId)
+
+        !foundItem ? this.cart.push({
+            productId: productId,
+            quantity: 1
+        }) :
+        foundItem.quantity++
+
+    return this.save()
 }
 UserSchema.methods.removeFromCart = function (productId) {
 
-    const filterItems = this.cart.filter( product => product.productId.toString() !== productId )
+    const filterItems = this.cart.filter(product => product.productId.toString() !== productId)
 
     this.cart = filterItems
 
@@ -84,7 +91,7 @@ UserSchema.methods.removeFromCart = function (productId) {
 
 UserSchema.methods.addProductInCart = function (productId) {
 
-    const foundItem = this.cart.find( product => product.productId == productId )
+    const foundItem = this.cart.find(product => product.productId == productId)
     foundItem.quantity++
 
     return this.save()
@@ -93,11 +100,11 @@ UserSchema.methods.addProductInCart = function (productId) {
 
 UserSchema.methods.removeProductInCart = function (productId) {
 
-    const foundItem = this.cart.find( product => product.productId == productId )
+    const foundItem = this.cart.find(product => product.productId == productId)
     foundItem.quantity--
 
     if (foundItem.quantity == 0) {
-        const filterItems = this.cart.filter( product => product.productId.toString() !== productId )
+        const filterItems = this.cart.filter(product => product.productId.toString() !== productId)
 
         this.cart = filterItems
     }

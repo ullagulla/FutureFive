@@ -1,12 +1,19 @@
 @mixin small {
-  @media (min-width:400px) {@content;}
+    @media (min-width:400px) {
+        @content;
+    }
 }
+
 @mixin medium {
-  @media (min-width:600px) {@content;}
+    @media (min-width:600px) {
+        @content;
+    }
 }
 
 @mixin large {
-  @media (min-width:1200px){@content;}
+    @media (min-width:1200px) {
+        @content;
+    }
 }
 
 
@@ -16,87 +23,102 @@ $colorThree: #e0d2b5;
 
 
 body {
-  margin: 0px;
-  font-size: 8pt;
-  @include medium {
-      font-size: 10pt;
-  }
-  @include large {
-      font-size: 12pt;
-  }
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #231f20!important;
-  #content-container {
-      width: 100%;
-      height: auto;
+    margin: 0px;
+    font-size: 8pt;
 
-      #content-one-thank {
-          position: relative;
-          height: 20vh;
-          width: 100%;
-          background-attachment: fixed;
-          transition: opacity 1.5s ease-in-out;
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: cover;
-          opacity: 0.5;
-          font-size: 30px;
-          text-align: center;
-          h1 {
-              margin: 0;
-              padding: 0;
-              text-align: center;
-              color: #fff;
-              text-shadow: 0px 0px 10px #000;
-              font-size: 2rem;
-              line-height: 70vh;
-              @include medium { 
-                  font-size: 3rem;
+    @include medium {
+        font-size: 10pt;
+    }
 
-              }
-              @include large {
-                  font-size: 5rem;
+    @include large {
+        font-size: 12pt;
+    }
 
-              }
-          }
-      }
-      #content-two-thank {
-        width: 100%; 
-        height: auto; 
-        position: fixed; 
-        left: 0px; 
-        top: 0px; 
-        z-index: -1;
-        position: relative;
-        background-color: $colorOne;
-        transition: opacity 2.5s ease-in-out;
-        opacity: 0.5;
-        img {
-            width:100%;
-            height:100%;
+    font-family: 'Segoe UI',
+    Tahoma,
+    Geneva,
+    Verdana,
+    sans-serif;
+    background-color: #231f20 !important;
+
+    #content-container {
+        width: 100%;
+        height: auto;
+
+        #content-one-thank {
+            position: relative;
+            height: 20vh;
+            width: 100%;
+            background-attachment: fixed;
+            transition: opacity 1.5s ease-in-out;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            opacity: 0.5;
+            font-size: 30px;
+            text-align: center;
+
+            h1 {
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                color: #fff;
+                text-shadow: 0px 0px 10px #000;
+                font-size: 2rem;
+                line-height: 70vh;
+
+                @include medium {
+                    font-size: 3rem;
+
+                }
+
+                @include large {
+                    font-size: 5rem;
+
+                }
+            }
         }
 
-        h2 {
-            color: $colorThree;
-            margin: 0 0 auto 0 ;
-            padding: 0.5rem 0;
-            text-align: center;
-            font-size: 3rem;
+        #content-two-thank {
+            width: 100%;
+            height: auto;
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            z-index: -1;
+            position: relative;
+            background-color: $colorOne;
+            transition: opacity 2.5s ease-in-out;
+            opacity: 0.5;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+
+            h2 {
+                color: $colorThree;
+                margin: 0 0 auto 0;
+                padding: 0.5rem 0;
+                text-align: center;
+                font-size: 3rem;
+            }
+        }
+
+        #content-three-thank {
+            margin: 0;
+            padding: 0;
+            width: 70%;
+            height: 70vh;
+            position: absolute;
+            // background-color: $colorOne;
+            // background-image: linear-gradient(#231f20 50%, #e0d2b5 50%);
+            // height: 100vh;
+            opacity: 0.9;
         }
     }
-    #content-three-thank  {
-      margin: 0;
-      padding: 0;
-      width: 70%;
-      height: 70vh;
-      position: absolute;
-      // background-color: $colorOne;
-      // background-image: linear-gradient(#231f20 50%, #e0d2b5 50%);
-      // height: 100vh;
-      opacity: 0.9;
-    } 
-  }
 }
+
 .thankYouText {
     z-index: 60;
     position: absolute;
@@ -112,54 +134,58 @@ body {
 
 .img-body {
     // background-color: #ff0101 !important;
-  margin: 0px;
-  }
-  
-  @-webkit-keyframes backgroundAnimate {
+    margin: 0px;
+}
+
+@-webkit-keyframes backgroundAnimate {
     from {
-      left: 0;
-      top: 0;
+        left: 0;
+        top: 0;
     }
+
     to {
-      left: -100px;
-      top: -20000px;
+        left: -100px;
+        top: -20000px;
     }
-  }
-  
-  @-moz-keyframes backgroundAnimate {
+}
+
+@-moz-keyframes backgroundAnimate {
     from {
-      left: 0;
-      top: 0;
+        left: 0;
+        top: 0;
     }
+
     to {
-      left: -100px;
-      top: -20000px;
+        left: -100px;
+        top: -20000px;
     }
-  }
-  
-  @-o-keyframes backgroundAnimate {
+}
+
+@-o-keyframes backgroundAnimate {
     from {
-      left: 0;
-      top: 0;
+        left: 0;
+        top: 0;
     }
+
     to {
-      left: -100px;
-      top: -20000px;
+        left: -100px;
+        top: -20000px;
     }
-  }
-  
-  @keyframes backgroundAnimate {
+}
+
+@keyframes backgroundAnimate {
     from {
-      left: 0;
-      top: 0;
+        left: 0;
+        top: 0;
     }
+
     to {
-      left: -100px;
-      top: -20000px;
+        left: -100px;
+        top: -20000px;
     }
-  }
-  
-  #back {
+}
+
+#back {
     background: url(http://www.tranexnet.com/img/back.png) repeat 20% 20%;
     position: fixed;
     top: 0;
@@ -184,9 +210,9 @@ body {
     animation-duration: 500s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-  }
-  
-  #front {
+}
+
+#front {
     background: url(http://www.tranexnet.com/img/front.png) repeat 35% 35%;
     position: fixed;
     top: 0;
@@ -211,16 +237,18 @@ body {
     animation-duration: 300s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-  }
-  #skull{
-      opacity: 0.1;
+}
+
+#skull {
+    opacity: 0.1;
     //   justify-content: center;
     //   align-items: center;
     //   align-content: center;
     height: 100%;
     width: 100%;
-  }
-  #smallskull{
+}
+
+#smallskull {
     // opacity: 0.7;
     // max-height: 15%;
     // max-width: 15%;
@@ -228,7 +256,8 @@ body {
     width: 100%;
     // opacity: 0.5;
 }
-  #img-body {
+
+#img-body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -238,22 +267,23 @@ body {
     min-height: 100vh;
     background: #444;
 }
-  .container{
-      width: 1000px;
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-  }
 
-  .container .card {
-      position: relative;
-  }
+.container {
+    width: 1000px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
 
-  .container .card .face {
-      width: 100%;
-      height: 100vh;
-      transition: 0.4s;
+.container .card {
+    position: relative;
+}
+
+.container .card .face {
+    width: 100%;
+    height: 100vh;
+    transition: 0.4s;
 }
 
 .container .card .face.face1 {
@@ -264,19 +294,19 @@ body {
     align-items: center;
     align-content: center;
     z-index: 1;
-    transform: translateY(100px); 
+    transform: translateY(100px);
 }
 
-.container .card:hover .face.face1{
-    box-shadow: 
-    inset 0 0 60px #fff,
-    inset 20px 0 80px #f0f,
-    inset -20px 0 80px #0ff,
-    inset 20px 0 300px #f0f,
-    inset -20px 0 300px #0ff,
-    0 0 50px #fff,
-    -10px 0 80px #f0f,
-    10px 0 80px #0ff;
+.container .card:hover .face.face1 {
+    box-shadow:
+        inset 0 0 60px #fff,
+        inset 20px 0 80px #f0f,
+        inset -20px 0 80px #0ff,
+        inset 20px 0 300px #f0f,
+        inset -20px 0 300px #0ff,
+        0 0 50px #fff,
+        -10px 0 80px #f0f,
+        10px 0 80px #0ff;
     transform: translateY(0px);
 }
 
@@ -303,7 +333,7 @@ body {
 }
 
 .container .card .face.face1 .content a {
-transition: 0.5s;
+    transition: 0.5s;
 }
 
 .container .card .face.face2 {
@@ -314,7 +344,7 @@ transition: 0.5s;
     justify-content: center;
     padding: 20px;
     box-sizing: border-box;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
     transform: translateY(-100px);
 }
 
@@ -322,7 +352,8 @@ transition: 0.5s;
     transform: translateY(0px);
 }
 
-.container .card .face.face2 .content p, a {
+.container .card .face.face2 .content p,
+a {
     margin: 0;
     padding: 0;
     font-size: 14px;
@@ -338,6 +369,7 @@ transition: 0.5s;
     display: inline-block;
     background: #444;
 }
+
 #glow {
     position: absolute;
     left: 50%;
@@ -351,134 +383,153 @@ transition: 0.5s;
     -moz-animation: glow 1s ease-in-out infinite alternate;
     animation: glow 1s ease-in-out infinite alternate;
     z-index: 1;
-  }
-  
-  @-webkit-keyframes glow {
-    from {
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
-    }
-    
-    to {
-      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
-    }
-  }
+}
 
-  .fire-container-one{
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+}
+
+.fire-container-one {
     // margin:80px auto;
     width: 80%;
     height: 80%;
-    position:absolute;
-    transform-origin:center bottom;
+    position: absolute;
+    transform-origin: center bottom;
     animation-name: flicker;
-    animation-duration:3ms;
-    animation-delay:200ms;
+    animation-duration: 3ms;
+    animation-delay: 200ms;
     animation-timing-function: ease-in;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-  }
-  .fire-container-two {
+}
+
+.fire-container-two {
     // margin:80px auto;
     width: 80%;
     height: 80%;
-    position:absolute;
-    transform-origin:center bottom;
+    position: absolute;
+    transform-origin: center bottom;
     animation-name: flicker;
-    animation-duration:3ms;
-    animation-delay:200ms;
+    animation-duration: 3ms;
+    animation-delay: 200ms;
     animation-timing-function: ease-in;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-  } 
-  .flame{
-    bottom:0;
-    position:absolute;
+}
+
+.flame {
+    bottom: 0;
+    position: absolute;
     border-bottom-right-radius: 50%;
     border-bottom-left-radius: 50%;
     border-top-left-radius: 50%;
-    transform:rotate(-45deg) scale(1.5,1.5);
-  }
-  
-  .yellow{
-    left:15px; 
+    transform: rotate(-45deg) scale(1.5, 1.5);
+}
+
+.yellow {
+    left: 15px;
     width: 30px;
     height: 30px;
-    background:gold;
+    background: gold;
     box-shadow: 0px 0px 9px 4px gold;
-  }
-  
-  .orange{
-    left:10px; 
+}
+
+.orange {
+    left: 10px;
     width: 40px;
     height: 40px;
-    background:orange;
+    background: orange;
     box-shadow: 0px 0px 9px 4px orange;
-  }
-  
-  .red{
-    left:5px;
+}
+
+.red {
+    left: 5px;
     width: 50px;
     height: 50px;
-    background:OrangeRed;
+    background: OrangeRed;
     box-shadow: 0px 0px 5px 4px OrangeRed;
-  }
-  
-  .white{
-    left:15px; 
-    bottom:-4px;
+}
+
+.white {
+    left: 15px;
+    bottom: -4px;
     width: 30px;
     height: 30px;
-    background:white;
+    background: white;
     box-shadow: 0px 0px 9px 4px white;
-  }
-  
-  .circle{
+}
+
+.circle {
     border-radius: 50%;
-    position:absolute;  
-  }
-  
-  .blue{
+    position: absolute;
+}
+
+.blue {
     width: 10px;
     height: 10px;
-    left:25px;
-    bottom:-25px; 
+    left: 25px;
+    bottom: -25px;
     background: SlateBlue;
     box-shadow: 0px 0px 15px 10px SlateBlue;
-  }
-  
-  .black{
+}
+
+.black {
     width: 40px;
     height: 40px;
-    left:10px;
-    bottom:-60px;  
+    left: 10px;
+    bottom: -60px;
     background: black;
     box-shadow: 0px 0px 15px 10px black;
-  }
-  
-  .fire {
+}
+
+.fire {
     height: 100vh;
     width: 100%;
     position: fixed;
-  }
+}
 
-  @keyframes flicker{
-    0%   {transform: rotate(-1deg);}
-    20%  {transform: rotate(1deg);}
-    40%  {transform: rotate(-1deg);}
-    60%  {transform: rotate(1deg) scaleY(1.04);}
-    80%  {transform: rotate(-2deg) scaleY(0.92);}
-    100% {transform: rotate(1deg);}
-  }
+@keyframes flicker {
+    0% {
+        transform: rotate(-1deg);
+    }
 
-  #img-container {
+    20% {
+        transform: rotate(1deg);
+    }
+
+    40% {
+        transform: rotate(-1deg);
+    }
+
+    60% {
+        transform: rotate(1deg) scaleY(1.04);
+    }
+
+    80% {
+        transform: rotate(-2deg) scaleY(0.92);
+    }
+
+    100% {
+        transform: rotate(1deg);
+    }
+}
+
+#img-container {
     max-width: 100px;
-  }
+}
 
-  // #shine {
-  //   width: 100%;
-  //   height: auto;
-  // }
+// #shine {
+//   width: 100%;
+//   height: auto;
+// }
 
-  #thirdeye {
+#thirdeye {
     position: relative;
     height: 100%;
     // width: 100%;
@@ -488,4 +539,4 @@ transition: 0.5s;
     background-position: center;
     background-size: cover;
     opacity: 0.2;
-  }
+}

@@ -8,4 +8,4 @@ router.get('/aboutus', verifyToken, (req, res) => {
     res.render('shop/aboutus.ejs')
 })
 
-module.exports = router 
+module.exports = router

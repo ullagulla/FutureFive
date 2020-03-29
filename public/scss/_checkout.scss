@@ -33,47 +33,58 @@
     h5 {
         text-transform: uppercase;
     }
+
     .divider {
         border-top: 1px solid black;
     }
+
     .information {
         border-top: 1px solid black;
     }
+
     .checkout-product-wrapper {
         .checkout-product-info {
             font-size: 12px;
             text-transform: uppercase;
+
             @include tablet() {
                 font-size: 14px;
             }
         }
+
         div {
             .product-quantity {
                 font-size: 12px;
                 text-transform: uppercase;
+
                 @include tablet() {
                     font-size: 14px;
                 }
             }
         }
+
         div {
             .checkout-product-price {
                 font-size: 12px;
                 text-transform: uppercase;
+
                 @include tablet() {
                     font-size: 14px;
                 }
             }
         }
+
         .checkout-product-img-wrapper {
             max-height: 200px;
             overflow: hidden;
+
             img {
                 height: auto;
                 width: 90%;
             }
         }
     }
+
     form {
         .col-12 {
             .form-row {
@@ -103,7 +114,7 @@
                 #inputPersonal {
                     @include remove-border-and-radius();
                     border-left: none;
-                    border-bottom:none;
+                    border-bottom: none;
 
                 }
 
@@ -149,22 +160,26 @@
                 }
             }
         }
+
         .btn-wrapper {
             a {
                 text-decoration: none;
             }
+
             .btn {
-                background-color: transparent!important;
+                background-color: transparent !important;
                 border-radius: 0;
                 border: 1px solid $primColor;
                 color: $primColor;
+
                 &:hover {
-                    background-color: $primColor!important;
+                    background-color: $primColor !important;
                     color: black;
                 }
             }
         }
     }
+
     .payment-container {
         .card-img {
             width: 100px;
@@ -173,6 +188,7 @@
                 width: 100%;
             }
         }
+
         .payment-wrapper {
             border: 1px solid #ced4da;
             border-radius: 0.25rem;

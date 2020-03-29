@@ -7,3 +7,5 @@ cypress/fixtures
 cypress/plugins
 cypress/support
 cypress.json
+cypress/screenshots
+cypress/videos

@@ -25,8 +25,8 @@ app.set('view engine', 'ejs')
 // Global variables
 app.use(function (req, res, next) {
     res.locals.success_msg = req.success_msg,
-    res.locals.error_msg = req.error_msg,
-    res.locals.user = req.body.user
+        res.locals.error_msg = req.error_msg,
+        res.locals.user = req.body.user
     next()
 })
 

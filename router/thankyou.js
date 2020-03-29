@@ -8,4 +8,4 @@ router.get('/thankyou', verifyToken, (req, res) => {
 })
 
 
-module.exports = router 
+module.exports = router

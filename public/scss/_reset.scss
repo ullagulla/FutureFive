@@ -37,8 +37,10 @@ body {
                 border-width: 0px;
                 border-style: solid;
                 padding: 0 10px;
+
                 &::placeholder {
                     font-size: 12px;
+
                     @include tablet() {
                         font-size: 14px;
                     }
@@ -56,15 +58,19 @@ body {
             }
         }
     }
+
     .space-div {
         height: 40px;
+
         @include tablet() {
             height: 120px;
         }
+
         @include large-tablet() {
             height: 200px;
         }
-        @include desktop(){
+
+        @include desktop() {
             height: 220px;
         }
     }

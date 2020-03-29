@@ -15,8 +15,10 @@
                 <%- include("../includes/messages.ejs") %>
                 <div class="prod-name mt-3 mt-md-0"> <%= product.name %> </div>
                 <div class="prod-price"> <%= product.price %> SEK </div>
-                <a href="/cartAdd/<%=product._id%>"><button class="btn add-btn mt-4 w-100">Lägg till i kundvagn</button></a>
-                <a href="/wishlist/<%=product._id%>"><button class="btn add-btn my-1 w-100">Lägg till i döskallelistan</button></a>
+                <a href="/cartAdd/<%=product._id%>"><button class="btn add-btn mt-4 w-100">Lägg till i
+                        kundvagn</button></a>
+                <a href="/wishlist/<%=product._id%>"><button class="btn add-btn my-1 w-100">Lägg till i
+                        döskallelistan</button></a>
                 <!-- Tabs -->
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#description">Beskrivning</a></li>

@@ -11,9 +11,9 @@
         <li class="pl-3 pl-md-4"><a href="/">Hem</a></li>
         <li class="pl-3 pl-md-5"><a href="/products">Produkter</a></li>
         <% if (user) { %>
-            <% if(user.isadmin) { %>
-            <li class="pl-3 pl-md-5"> <a href="/addproducts"> admin: <%= user.name %></a></li>
-            <% } %>
+        <% if(user.isadmin) { %>
+        <li class="pl-3 pl-md-5"> <a href="/addproducts"> admin: <%= user.name %></a></li>
+        <% } %>
         <% } %>
     </div>
     <div class="nav-icons-wrapper d-flex justify-content-end">
@@ -25,29 +25,29 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <% if (user){ %>
-                    <a class="dropdown-item" href="/profile">Profil</a>
-                    <a class="dropdown-item" href="/signout">Logga ut</a>
+                <a class="dropdown-item" href="/profile">Profil</a>
+                <a class="dropdown-item" href="/signout">Logga ut</a>
                 <% } else {%>
-                    <a class="dropdown-item" href="/signin">Logga in</a>
-                    <a class="dropdown-item" href="/signup">Registrera</a>
+                <a class="dropdown-item" href="/signin">Logga in</a>
+                <a class="dropdown-item" href="/signup">Registrera</a>
                 <% } %>
             </div>
         </li>
-     
+
         <li><button class="px-0" id="wishlist-btn" type="button" data-toggle="modal" data-target="#wishlistModal"><i
-            class="fas fa-skull mr-3 mr-md-4"></i></button></li>
+                    class="fas fa-skull mr-3 mr-md-4"></i></button></li>
         <li class="cart-icon-wrapper">
             <a href="/cart"><i class="fas fa-shopping-cart pr-3 pr-md-5"></i></a>
             <% if (user) { %>
-                <% let total = 0 %> 
-                <% user.cart.forEach(element => { %>
-                <%     total += element.quantity  %>
-                <% }) %>
-                <span class="badge-icon"><%= total %></span>
+            <% let total = 0 %>
+            <% user.cart.forEach(element => { %>
+            <%     total += element.quantity  %>
+            <% }) %>
+            <span class="badge-icon"><%= total %></span>
             <% } %>
         </li>
- 
-      
+
+
     </div>
 </ul>
 
@@ -69,11 +69,11 @@
                 <div class="wishlist-content-wrapper d-flex pb-3">
                     <div class="img-wrapper">
                         <span class="remove-btn"><a href="/remove/<%=product._id%>"><i
-                            class="fas fa-skull-crossbones"></i></a></span>
+                                    class="fas fa-skull-crossbones"></i></a></span>
                         <img src="<%=product.imageUrl%>" />
                     </div>
                     <div class="wishlist-name d-flex justify-content-end w-100">
-                    <%= product.name %>
+                        <%= product.name %>
                     </div>
                 </div>
                 <% }) %>

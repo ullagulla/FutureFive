@@ -35,21 +35,26 @@
 $colorOne: #231f20;
 $colorTwo: #e7be50;
 $colorThree: #e0d2b5;
+
 body {
     margin: 0px;
     font-size: 8pt;
+
     @include medium {
         font-size: 10pt;
     }
+
     @include large {
         font-size: 12pt;
     }
+
     font-family: 'Segoe UI',
     Tahoma,
     Geneva,
     Verdana,
     sans-serif;
-    background-color: #231f20!important;
+    background-color: #231f20 !important;
+
     #content-container {
         width: 100%;
         height: auto;
@@ -74,9 +79,11 @@ body {
                 text-shadow: 0px 0px 10px #000;
                 font-size: 2rem;
                 line-height: 70vh;
+
                 @include medium {
                     font-size: 3rem;
                 }
+
                 @include large {
                     font-size: 5rem;
                 }
@@ -90,9 +97,11 @@ body {
             background-color: $colorOne;
             background-image: linear-gradient(#231f20 50%, #e0d2b5 50%);
             height: 100vh;
+
             @include medium {
                 height: 150vh;
             }
+
             @include large {
                 height: 100vh;
                 background-image: linear-gradient(90deg, #231f20 70%, #e0d2b5 70%);
@@ -114,6 +123,7 @@ body {
                     width: 25%;
                     left: 33%;
                     top: 25%;
+
                     @include large {
                         width: 20%;
                         left: 20%;
@@ -124,13 +134,16 @@ body {
                 #clickable-card {
                     cursor: pointer;
                     left: 33%;
+
                     @include large {
                         left: 20%;
                     }
+
                     transform: perspective(1000px) rotateY(-180deg) translate(50%,
-                    -50%);
+                        -50%);
                     transition: all 0.3s ease-in-out;
                 }
+
                 img:nth-child(1) {
                     transform: rotate(0deg) translate(-50%, -50%);
                 }
@@ -141,9 +154,11 @@ body {
                 color: $colorOne;
                 width: 100%;
                 top: 50vh;
+
                 @include medium {
                     top: 75vh;
                 }
+
                 @include large {
                     top: 0;
                     width: 30%;
@@ -176,13 +191,16 @@ body {
                     transition: all 1s ease-in-out;
                     font-size: 1rem;
                     margin: 0.5rem;
+
                     @include small {
                         font-size: 1.4rem;
                     }
+
                     @include medium {
                         font-size: 1.8rem;
                         margin: 1rem;
                     }
+
                     @include large {
                         margin: 2rem;
                         font-size: 1.3rem;
@@ -214,9 +232,11 @@ body {
                 bottom: 0;
                 left: 2%;
                 font-size: 8rem;
+
                 @include medium {
                     font-size: 11rem;
                 }
+
                 @include large {
                     font-size: 16rem;
                 }
@@ -243,11 +263,13 @@ body {
                     filter: brightness(0.8) grayscale(0.5);
                     cursor: pointer;
                 }
+
                 .needle {
                     height: 10%;
                     position: absolute;
-                    top:50%;left: 50%;
-                    transform: translate(0,-100%);
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(0, -100%);
                     z-index: 2;
                 }
             }
@@ -260,9 +282,11 @@ body {
                 h2 {
                     font-size: 1rem;
                     margin: 1rem;
+
                     @include medium {
                         font-size: 2rem;
                     }
+
                     @include large {
                         font-size: 4rem;
                     }
@@ -272,9 +296,11 @@ body {
                     margin: 0;
                     padding: 0 1rem;
                     font-size: 0.8rem;
+
                     @include large {
                         font-size: 1.1rem;
                     }
+
                     @include large {
                         font-size: 1.3rem;
                     }
@@ -297,10 +323,16 @@ body {
 }
 
 @keyframes voodoofade {
-   
-    0% {opacity: 0;}
-    50% {opacity: 0.8;}
-    100% {opacity: 0;}
+
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
-
-

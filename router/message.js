@@ -1,5 +1,5 @@
 module.exports = async (req, res, next) => {
-   
+
     const msg = req.cookies.message
 
     if (msg) {

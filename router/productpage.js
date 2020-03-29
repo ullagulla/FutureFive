@@ -6,11 +6,11 @@ const verifyToken = require("./verify")
 const checkMsg = require('./message')
 
 router.get('/products', verifyToken, checkMsg, async (req, res) => {
-    
+
     const page = req.query.page || 1;
     const productsPerPage = 8;
     const products = await Product.find().countDocuments()
-    
+
     const allProducts = await Product
         .find()
         .skip((page - 1) * productsPerPage)
