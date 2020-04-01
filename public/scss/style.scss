@@ -13,7 +13,6 @@
 @import 'signup';
 @import 'reset';
 @import 'profile';
-
 @mixin small {
     @media (min-width: 400px) {
         @content;
@@ -35,30 +34,24 @@
 $colorOne: #231f20;
 $colorTwo: #e7be50;
 $colorThree: #e0d2b5;
-
 body {
     margin: 0px;
     font-size: 8pt;
-
     @include medium {
         font-size: 10pt;
     }
-
     @include large {
         font-size: 12pt;
     }
-
     font-family: 'Segoe UI',
     Tahoma,
     Geneva,
     Verdana,
     sans-serif;
     background-color: #231f20 !important;
-
     #content-container {
         width: 100%;
         height: auto;
-
         #content-one {
             position: relative;
             height: 70vh;
@@ -70,7 +63,6 @@ body {
             background-position: center;
             background-size: cover;
             opacity: 0.3;
-
             h1 {
                 margin: 0;
                 padding: 0;
@@ -79,17 +71,14 @@ body {
                 text-shadow: 0px 0px 10px #000;
                 font-size: 2rem;
                 line-height: 70vh;
-
                 @include medium {
                     font-size: 3rem;
                 }
-
                 @include large {
                     font-size: 5rem;
                 }
             }
         }
-
         #content-two {
             margin: 0;
             width: 100%;
@@ -97,16 +86,13 @@ body {
             background-color: $colorOne;
             background-image: linear-gradient(#231f20 50%, #e0d2b5 50%);
             height: 100vh;
-
             @include medium {
                 height: 150vh;
             }
-
             @include large {
                 height: 100vh;
                 background-image: linear-gradient(90deg, #231f20 70%, #e0d2b5 70%);
             }
-
             h2 {
                 color: $colorThree;
                 margin: 0 0 auto 0;
@@ -114,56 +100,45 @@ body {
                 text-align: center;
                 font-size: 3rem;
             }
-
             #tarot-cards {
                 width: 100%;
-
                 img {
                     position: absolute;
                     width: 25%;
                     left: 33%;
                     top: 25%;
-
                     @include large {
                         width: 20%;
                         left: 20%;
                         top: 50%;
                     }
                 }
-
                 #clickable-card {
                     cursor: pointer;
                     left: 33%;
-
                     @include large {
                         left: 20%;
                     }
-
                     transform: perspective(1000px) rotateY(-180deg) translate(50%,
-                        -50%);
+                    -50%);
                     transition: all 0.3s ease-in-out;
                 }
-
                 img:nth-child(1) {
                     transform: rotate(0deg) translate(-50%, -50%);
                 }
             }
-
             #tarot-text-container {
                 position: absolute;
                 color: $colorOne;
                 width: 100%;
                 top: 50vh;
-
                 @include medium {
                     top: 75vh;
                 }
-
                 @include large {
                     top: 0;
                     width: 30%;
                 }
-
                 right: 0%;
                 font-weight: normal;
                 text-align: center;
@@ -174,7 +149,6 @@ body {
                 Geneva,
                 Verdana,
                 sans-serif;
-
                 //background-color: $colorThree;
                 #tarot-header {
                     opacity: 0;
@@ -185,22 +159,18 @@ body {
                     padding: 0.5rem;
                     margin: 0;
                 }
-
                 #tarot-text {
                     opacity: 0;
                     transition: all 1s ease-in-out;
                     font-size: 1rem;
                     margin: 0.5rem;
-
                     @include small {
                         font-size: 1.4rem;
                     }
-
                     @include medium {
                         font-size: 1.8rem;
                         margin: 1rem;
                     }
-
                     @include large {
                         margin: 2rem;
                         font-size: 1.3rem;
@@ -208,13 +178,11 @@ body {
                 }
             }
         }
-
         #content-three {
             background-color: black;
             height: 300vh;
             position: relative;
             overflow: hidden;
-
             img {
                 left: 50%;
                 top: 0;
@@ -223,7 +191,6 @@ body {
                 opacity: 1;
                 height: 0;
             }
-
             h2 {
                 color: #fff;
                 margin: auto 0;
@@ -232,28 +199,23 @@ body {
                 bottom: 0;
                 left: 2%;
                 font-size: 8rem;
-
                 @include medium {
                     font-size: 11rem;
                 }
-
                 @include large {
                     font-size: 16rem;
                 }
             }
         }
-
         #content-four {
             height: 100vh;
             background-color: $colorThree;
             background-image: linear-gradient(90deg, $colorThree 50%, $colorOne 50%);
             display: flex;
             justify-content: space-around;
-
             div {
                 width: 50%;
                 position: relative;
-
                 #voodoo-doll {
                     position: absolute;
                     width: 30vw;
@@ -263,7 +225,6 @@ body {
                     filter: brightness(0.8) grayscale(0.5);
                     cursor: pointer;
                 }
-
                 .needle {
                     height: 10%;
                     position: absolute;
@@ -273,34 +234,27 @@ body {
                     z-index: 2;
                 }
             }
-
             div {
                 width: 50%;
                 text-align: center;
                 color: $colorThree;
-
                 h2 {
                     font-size: 1rem;
                     margin: 1rem;
-
                     @include medium {
                         font-size: 2rem;
                     }
-
                     @include large {
                         font-size: 4rem;
                     }
                 }
-
                 p {
                     margin: 0;
                     padding: 0 1rem;
                     font-size: 0.8rem;
-
                     @include large {
                         font-size: 1.1rem;
                     }
-
                     @include large {
                         font-size: 1.3rem;
                     }
@@ -308,7 +262,6 @@ body {
             }
         }
     }
-
     #splash-voodoo {
         transform: translate(-50%, -50%);
         opacity: 0;
@@ -323,15 +276,12 @@ body {
 }
 
 @keyframes voodoofade {
-
     0% {
         opacity: 0;
     }
-
     50% {
         opacity: 0.8;
     }
-
     100% {
         opacity: 0;
     }
